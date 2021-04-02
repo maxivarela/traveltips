@@ -1,6 +1,6 @@
 
 import Link from 'next/link' 
-import useWindowSize from '../components/shared/useWindowSize'
+import useWindowSize from '../pages/useWindowSize'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
