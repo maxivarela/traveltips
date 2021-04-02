@@ -5,7 +5,7 @@ const Tips = () => {
                 Travel Tips
             </h2>
         </div>
-     );
+    );
 }
- 
+
 export default Tips;
