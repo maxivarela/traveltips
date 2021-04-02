@@ -31,19 +31,6 @@ export default function Navbar() {
                             </Button>
                         </Link>
                     </div>
-
-                    <div>
-                        <Link href='/about'>
-                            <Button color="inherit">
-                                About
-                        </Button>
-                        </Link>
-                        <Link href='/tips'>
-                            <Button color="inherit">
-                                Tips
-                        </Button>
-                        </Link>
-                    </div>
                     
 
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
