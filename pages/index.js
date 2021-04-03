@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
   try {
     const querySnapshot = await firebase.firestore().collection('tips').get()
     const result = await querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    console.log('lisa', result)
+    //  console.log('lisa', result)
     // const data = result.json()
     return {
       props: { tips: result }
