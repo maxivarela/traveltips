@@ -80,6 +80,7 @@ const TipsComponent = ({tips}) => {
                         {item?.tags?.map(tag=> {
                             return (
                                 <div style={{
+                                    marginBottom: 10,
                                     display: 'inline-block',
                                     textAlign: 'left',
                                     fontSize: '14px',
