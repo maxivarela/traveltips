@@ -53,7 +53,6 @@ const ImageComponent2 = ({ image }) => {
 const useStyles = makeStyles((theme) => ({
     imageContainer: {
         width: '100%',
-        marginBottom: 20,
         transition: '0.4s',
         '@media print': {
             height: '400px !important',
@@ -61,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         width: '100%',
+        height: 300,
         objectFit: 'cover',
         borderRadius: 5,
         transition: '0.4s',

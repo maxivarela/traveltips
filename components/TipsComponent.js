@@ -1,5 +1,6 @@
 import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
+import Link from 'next/link';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -10,7 +11,8 @@ import {
     Typography,
 } from '@material-ui/core';
 
-const Tips = ({tips}) => {
+
+const TipsComponent = ({tips}) => {
     const classes = useStyles()
 
     return ( 
@@ -19,42 +21,23 @@ const Tips = ({tips}) => {
                 <div
                     key={item.id}
                     className={"Card"}
-                >
+                    >  
                     <div style={{display: 'flex', alignItems: 'center', }}>
                         <img src={item?.userImage} alt="" style={{ width: 30, height: 30, borderRadius: 50, objectFit: 'cover' }} /> 
                         <Typography style={{marginLeft: 10,}}>
                             {item.user}
                         </Typography> 
                     </div>
+                    <div style={{ margin: '20px auto', }}>
+                        <ImageComponent image={item.image} />
+                    </div>
+                    
                     <Typography variant='h5' component='h2' style={{ margin: '20px auto', }}>
                         {item?.title}
                     </Typography>
-
-                    {
-                        <div key={item.id}>
-                            <ImageComponent image={item.image} />
-                        </div>
-
-                        // item?.image?.length > 1
-                        // ?
-                        // item?.image?.map(image => {
-                        //     return (
-                        //         <Carousel showThumbs={false} dynamicHeight>
-                        //             <ImageComponent image={image} key={image} />
-                        //         </Carousel>
-                        //     )
-                        // })
-                        // :
-                        // <div key={item.id}>
-                        //     <ImageComponent image={item.image} />
-                        // </div>
-
-                            
-                    }
-
                     <div >
                         <Typography style={{ margin: '20px auto', }}>
-                            {item.tip}
+                            {item?.description}
                         </Typography>
                     </div>
 
@@ -67,8 +50,13 @@ const Tips = ({tips}) => {
                             )
                         })}
                     </div>
+                    <Link 
+                        href={`./tips/${item.id}`}
+                        style={{pointer: 'cursor'}}
+                        >
+                        MORE DETAILS
+                    </Link>
                 </div>
-
             ))}
         </>
     );
@@ -84,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 20,
     },
     tag: {
+
         textAlign: 'left',
         fontSize: '14px',
         fontWeight: 400,
@@ -93,4 +82,4 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default Tips;
+export default TipsComponent;

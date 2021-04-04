@@ -10,7 +10,7 @@ const Layout = ({children}) => {
     return ( 
         <>
             <Navbar />
-                <Container maxWidth={'md'} style={{margin: '40px auto'}}>
+                <Container maxWidth={'sm'} style={{margin: '40px auto'}}>
                     {children}
                 </Container>
             <Footer />
