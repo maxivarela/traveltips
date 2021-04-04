@@ -35,7 +35,7 @@ export default function Home({tips}) {
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
       </Head>
-      <h1>Welcome to Travel Tips 1</h1>
+      <h1>Welcome to Travel Tips</h1>
       <TipsComponent tips={tips} />
     </>
   )

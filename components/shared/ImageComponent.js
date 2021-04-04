@@ -2,7 +2,7 @@ import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
-    CardMedia,
+    CardMedia, Hidden,
 } from '@material-ui/core'
 
 const ImageComponent2 = ({ image }) => {
@@ -37,13 +37,12 @@ const ImageComponent2 = ({ image }) => {
                 :
                 image &&
                 <>
-                    <CardMedia
+                    <div
                         onError={addDefaultSrc}
                         className={classes.media}
-                        component='img'
-                        image={image}
-                        alt=''
-                    />
+                        >
+                        <img src={image} alt=''/>
+                    </div>
                 </>
             }
         </div>
@@ -53,13 +52,14 @@ const ImageComponent2 = ({ image }) => {
 const useStyles = makeStyles((theme) => ({
     imageContainer: {
         width: '100%',
+        overflow: 'hidden',
         transition: '0.4s',
         '@media print': {
             height: '400px !important',
         }
     },
     media: {
-        width: '100%',
+        width: '30vw',
         height: 300,
         objectFit: 'cover',
         borderRadius: 5,

@@ -22,31 +22,71 @@ const TipsComponent = ({tips}) => {
                     key={item.id}
                     className={"Card"}
                     >  
+
                     <div style={{display: 'flex', alignItems: 'center', }}>
                         <img src={item?.userImage} alt="" style={{ width: 30, height: 30, borderRadius: 50, objectFit: 'cover' }} /> 
-                        <Typography style={{marginLeft: 10,}}>
+                        <div style={{marginLeft: 10,}}>
                             {item.user}
-                        </Typography> 
+                        </div> 
                     </div>
-                    <div style={{ margin: '20px auto', }}>
-                        <ImageComponent image={item.image} />
+                        
+                    <div style={{marginTop: 20,}}>
+                        {
+                        item?.image.includes('youtube.com') 
+                        ?
+                        <iframe
+                                    style={{
+                                        width: '100%', 
+                                        height: '30vh', 
+                                        borderRadius: 5,
+                                        borderWidth: '0 !important',
+                                        margin: '0 !important',}}
+                            src={item?.image}
+                            allowFullScreen
+                            mozallowfullscreen="mozallowfullscreen"
+                            msallowfullscreen="msallowfullscreen"
+                            oallowfullscreen="oallowfullscreen"
+                            webkitallowfullscreen="webkitallowfullscreen"
+                            allow="accelerometer"
+                            title={item?.image}
+                            type="*"
+                        />
+                        :
+                                <img 
+                                    src={item?.image} 
+                                    alt='' 
+                                    style={{ 
+                                        width: '100%', 
+                                        height: '30vh', 
+                                        objectFit: 'cover',
+                                        borderRadius: 5, }}
+                                    />
+                        }   
                     </div>
+
                     <div>
-                        <Typography variant='h5' component='h2' style={{ margin: '20px auto', }}>
+                        <div style={{ margin: '20px auto', fontSize: 20}}>
                             {item?.title}
-                        </Typography>
+                        </div>
                     </div>
                     
                     <div >
-                        <Typography style={{ margin: '20px auto', }}>
-                            {item?.description}
-                        </Typography>
+                        <div style={{ margin: '20px auto', }}>
+                            {item?.description.substring(0,300)}
+                        </div>
                     </div>
 
                     <div className={classes.tagsContainer}>
                         {item?.tags?.map(tag=> {
                             return (
-                                <div className={classes.tag} key={tag}>
+                                <div style={{
+                                    display: 'inline-block',
+                                    textAlign: 'left',
+                                    fontSize: '14px',
+                                    fontWeight: 400,
+                                    marginRight: 5,
+                                    color: '#26978A',
+                                    textTransform: 'capitalize',}} key={tag}>
                                     {(tag != "") && tag + ','}
                                 </div>
                             )
@@ -54,7 +94,7 @@ const TipsComponent = ({tips}) => {
                     </div>
                     <Link 
                         href={`./tips/${item.id}`}
-                        style={{pointer: 'cursor'}}
+                        style={{ pointer: 'cursor', marginTop: 20,}}
                         >
                         MORE DETAILS
                     </Link>
@@ -82,6 +122,11 @@ const useStyles = makeStyles((theme) => ({
         color: '#26978A',
         textTransform: 'capitalize',
     },
+    image: {
+        width: 560, 
+        height: 'auto', 
+        objectFit: 'cover'
+    }
 }));
 
 export default TipsComponent;
