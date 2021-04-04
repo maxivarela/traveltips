@@ -9,6 +9,7 @@ import firebase from '../components/firebase'
 import {
   Button,
 } from '@material-ui/core';
+import Link from 'next/link'
 
 export const getStaticProps = async () => {
   try {
@@ -30,10 +31,12 @@ export default function Home({tips}) {
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
       </Head>
-      
-      <Button variant='contained' color='primary' disableElevation style={{marginBottom: 20}}>
-        Add Tip
+      <Link href='./add'>
+        <Button variant='contained' color='primary' disableElevation style={{ marginBottom: 20 }}>
+          Add Tip
       </Button>
+      </Link>
+      
       <TipsComponent tips={tips} />
     </>
   )

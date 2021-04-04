@@ -36,10 +36,18 @@ const TipsComponent = ({tips}) => {
                     >  
                     <CardHeader 
                         avatar={
-                            <Avatar aria-label="recipe" className={classes.avatar}>
-                                <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
+                            <Avatar aria-label="recipe"  style={{backgroundColor: '#222'}}>
+                                {item?.userImage 
+                                ?
+                                    <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
+                                :
+                                    <Typography>
+                                        {item?.username.split(" ").map((n) => n[0]).join("").toUpperCase()}
+                                    </Typography>
+                                }
+                                
                             </Avatar>} 
-                        title={<Typography color='primary' style={{fontWeight: 'bold'}}>{item.user}</Typography> }
+                        title={<Typography color='primary' style={{fontWeight: 'bold'}}>{item.username}</Typography> }
                         subheader={today.toLocaleDateString()}
                             >
                     </CardHeader>
@@ -77,12 +85,11 @@ const TipsComponent = ({tips}) => {
                         <Typography >
                             {item?.description.substring(0, 300)}
                         </Typography>
-                    </CardContent>
-                    <CardContent>
                         {item?.tags?.map(tag => {
                             return (
                                 <div style={{
                                     display: 'inline-block',
+                                    marginTop: 10,
                                     textAlign: 'left',
                                     fontSize: '14px',
                                     fontWeight: 400,
@@ -95,6 +102,7 @@ const TipsComponent = ({tips}) => {
                             )
                         })}
                     </CardContent>
+                    
                     <CardActions style={{marginBottom: 20}}>
                         <Link
                             href={`./tips/${item.id}`}
