@@ -5,6 +5,7 @@ import {
     AppBar,
     Button,
     IconButton,
+    TextField,
     Toolbar,
     Typography,
 } from '@material-ui/core';
@@ -31,9 +32,7 @@ export default function Navbar() {
                             </Button>
                         </Link>
                     </div>
-                    <Button variant='outlined' color='primary'>
-                        Search
-                    </Button>
+                    
                     {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton> */}
