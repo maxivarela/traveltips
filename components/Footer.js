@@ -13,8 +13,8 @@ export default function Footer() {
 
     return (
         <>
-            <footer>
-                <div style={{ color: '#fff', display: 'inline' }}>
+            <footer style={{ backgroundColor: '#111', padding: 10, textAlign: 'center'}}>
+                <div style={{ color: '#fff', display: 'inline', }}>
                     <Typography style={{ fontSize: 12, display: 'inline' }}>
                         ©{new Date().getFullYear()}
                     </Typography>
@@ -29,7 +29,7 @@ export default function Footer() {
                             style={{ fontSize: 12, display: 'inline'  }}
                             color='primary'
                             > 
-                            &nbsp; Nonoumasy 
+                            &nbsp; Nonoumasy.  
                         </Typography>
                     </Link>
                     {windowSize.width >= 600 &&
@@ -37,6 +37,7 @@ export default function Footer() {
                             <Link href='/terms'>
                             <Typography variant='h5' style={{ fontSize: 12, display: 'inline'}} color='primary'> Terms </Typography>
                             </Link>
+                            {'&'}
                             <Link href='/privacy'>
                             <Typography variant='h5' style={{ fontSize: 12, display: 'inline' }} color='primary'> Privacy Policy. </Typography>
                             </Link>
@@ -44,7 +45,6 @@ export default function Footer() {
                             
                     }
                 </div>
-                
             </footer>
         </>
     );
