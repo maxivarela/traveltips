@@ -79,7 +79,7 @@ const CardComponent = ({ item}) => {
                     {item?.title}
                 </Typography>
                 <Typography >
-                    {item?.description.substring(0, 300)}
+                    {item?.description?.substring(0, 300)}
                 </Typography>
                 {item?.tags?.map(tag => {
                     return (
