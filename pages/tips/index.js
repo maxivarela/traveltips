@@ -41,5 +41,5 @@ const Tips = ({ tips}) => {
         </>
     );
 }
- 
+
 export default Tips;

@@ -9,9 +9,9 @@ const theme = createMuiTheme({
         error: {
             main: pink.A400,
         },
-        // background: {
-        //     default: '#fff',
-        // },
+        background: {
+            default: '#efefef',
+        },
     },
     typography: {
         h5: {
