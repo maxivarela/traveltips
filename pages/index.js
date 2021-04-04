@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
-import Tips from '../components/Tips'
+import TipsComponent from '../components/TipsComponent'
 
 import firebase from '../components/firebase'
 
@@ -36,7 +36,7 @@ export default function Home({tips}) {
         <meta name='keywords' content='travel tips'/>
       </Head>
       <h1>Welcome to Travel Tips 1</h1>
-      <Tips tips={tips} />
+      <TipsComponent tips={tips} />
     </>
   )
 }
