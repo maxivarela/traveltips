@@ -118,7 +118,7 @@ const TipsComponent = ({tips}) => {
                             )
                         })}
                     </CardContent>
-                    <CardActions style={{marginBottom: 40}}>
+                    <CardActions style={{marginBottom: 20}}>
                         <Link
                             href={`./tips/${item.id}`}
                             >
