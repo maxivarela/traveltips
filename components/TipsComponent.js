@@ -21,6 +21,8 @@ import {
 const TipsComponent = ({tips}) => {
     const classes = useStyles()
 
+    const today = new Date
+
     return ( 
         <>
             {tips?.map(item => (
@@ -35,7 +37,7 @@ const TipsComponent = ({tips}) => {
                                 <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
                             </Avatar>} 
                         title={item.user}
-                        subheader="September 14, 2016"
+                        subheader={today.toLocaleDateString()}
                             >
                     </CardHeader>
 
