@@ -31,10 +31,12 @@ const TipsComponent = ({tips}) => {
                     <div style={{ margin: '20px auto', }}>
                         <ImageComponent image={item.image} />
                     </div>
+                    <div>
+                        <Typography variant='h5' component='h2' style={{ margin: '20px auto', }}>
+                            {item?.title}
+                        </Typography>
+                    </div>
                     
-                    <Typography variant='h5' component='h2' style={{ margin: '20px auto', }}>
-                        {item?.title}
-                    </Typography>
                     <div >
                         <Typography style={{ margin: '20px auto', }}>
                             {item?.description}
