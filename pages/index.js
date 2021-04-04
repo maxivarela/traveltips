@@ -6,6 +6,10 @@ import TipsComponent from '../components/TipsComponent'
 
 import firebase from '../components/firebase'
 
+import {
+  Button,
+} from '@material-ui/core';
+
 export const getStaticProps = async () => {
   try {
     const querySnapshot = await firebase.firestore().collection('tips').get()
@@ -26,7 +30,10 @@ export default function Home({tips}) {
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
       </Head>
-      <h1>Welcome to Travel Tips</h1>
+      
+      <Button variant='contained' color='primary' disableElevation style={{marginBottom: 20}}>
+        Add Tip
+      </Button>
       <TipsComponent tips={tips} />
     </>
   )
