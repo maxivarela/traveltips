@@ -28,8 +28,10 @@ const TipsComponent = ({tips}) => {
             {tips?.map(item => (
                 <Card
                     key={item.id}
-                    className={"Card"}
-                    style={{marginBottom: 40,}}
+                    style={{
+                        marginBottom: 40, 
+                        borderRadius: 5,
+                        boxShadow: '0 10px 10px 0 rgba(0, 0, 0, 0.1)'}}
                     >  
                     <CardHeader 
                         avatar={
