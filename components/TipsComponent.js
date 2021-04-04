@@ -2,6 +2,7 @@ import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
 import Image from 'next/image';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -43,8 +44,20 @@ const TipsComponent = ({tips}) => {
                             >
                     </CardHeader>
 
-                    <ImageComponent image={item?.image}/>
-                    
+                    {/* { item?.image?.length > 1  && console.log('lisa', item)} */}
+                    { item?.image?.length > 0 
+                        ? 
+                            Array.isArray(item?.image)
+                            ?
+                            <Carousel showThumbs={false} dynamicHeight>
+                                {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
+                            </Carousel>
+                            :
+                            <ImageComponent key={item.id} image={item?.image} /> 
+                        :
+                        null
+                    }
+
                     {item?.audio
                         ?
                         <CardContent>

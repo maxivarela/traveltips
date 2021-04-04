@@ -1,10 +1,12 @@
 import React from 'react'
 
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import {
 } from '@material-ui/core'
 
-const ImageComponent2 = ({ image }) => {
+const ImageComponent = ({ image }) => {
     const classes = useStyles()
 
     // fallback if image link is broken
@@ -72,4 +74,4 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default ImageComponent2
+export default ImageComponent
