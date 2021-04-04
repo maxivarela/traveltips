@@ -1,6 +1,7 @@
 import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -32,36 +33,46 @@ const TipsComponent = ({tips}) => {
                         
                     <div style={{marginTop: 20,}}>
                         {
-                        item?.image.includes('youtube.com') 
+                        item?.image 
                         ?
-                        <iframe
-                                    style={{
+                            item?.image?.includes('youtube.com') 
+                            ?
+                            <iframe
+                                style={{
                                         width: '100%', 
                                         height: '30vh', 
                                         borderRadius: 5,
                                         borderWidth: '0 !important',
                                         margin: '0 !important',}}
-                            src={item?.image}
-                            allowFullScreen
-                            mozallowfullscreen="mozallowfullscreen"
-                            msallowfullscreen="msallowfullscreen"
-                            oallowfullscreen="oallowfullscreen"
-                            webkitallowfullscreen="webkitallowfullscreen"
-                            allow="accelerometer"
-                            title={item?.image}
-                            type="*"
-                        />
-                        :
-                                <img 
-                                    src={item?.image} 
-                                    alt='' 
-                                    style={{ 
-                                        width: '100%', 
-                                        height: '30vh', 
-                                        objectFit: 'cover',
-                                        borderRadius: 5, }}
-                                    />
+                                src={item?.image}
+                                allowFullScreen
+                                mozallowfullscreen="mozallowfullscreen"
+                                msallowfullscreen="msallowfullscreen"
+                                oallowfullscreen="oallowfullscreen"
+                                webkitallowfullscreen="webkitallowfullscreen"
+                                allow="accelerometer"
+                                title={item?.image}
+                                type="*"
+                            />
+                            :
+                                    <img 
+                                        src={item?.image} 
+                                        alt='' 
+                                        style={{ 
+                                            width: '100%', 
+                                            height: '30vh', 
+                                            objectFit: 'cover',
+                                            borderRadius: 5, }}
+                                        />
+                        : 
+                        []
                         }   
+                    </div>
+                    <div>
+                        <audio controls style={{width: '100%'}}>
+                            <source src={item?.audio} type="audio/ogg"/>
+                            <source src={item?.audio} type="audio/mpeg"/>
+                        </audio>
                     </div>
 
                     <div>
