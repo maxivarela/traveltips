@@ -66,7 +66,7 @@ const CardComponent = ({ item}) => {
             {item?.audio
                 ?
                 <CardContent>
-                    <audio controls style={{ width: '100%', backgroundColor:'#fff'}} preload="none">
+                    <audio controls style={{ width: '100%',}} preload="none">
                         <source src={item?.audio} type="audio/ogg" />
                         <source src={item?.audio} type="audio/mpeg" />
                     </audio>
