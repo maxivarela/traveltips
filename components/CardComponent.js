@@ -17,6 +17,7 @@ import {
     Toolbar,
     Typography,
 } from '@material-ui/core';
+import ShareIcon from '@material-ui/icons/Share';
 
 
 const CardComponent = ({ item}) => {
@@ -100,13 +101,18 @@ const CardComponent = ({ item}) => {
             </CardContent>
 
             <CardActions style={{ marginBottom: 20 }}>
-                <Link
-                    href={`./tips/${item.id}`}
-                >
+                <Link href={`./tips/${item.id}`}>
                     <Button>
                         <Typography variant='h5' color='primary'>
-                            MORE DETAILS
-                                    </Typography>
+                            MORE 
+                        </Typography>
+                    </Button>
+                </Link>
+                <Link href={``}>
+                    <Button>
+                        <Typography variant='h5' color='primary'>
+                            SHARE
+                        </Typography>
                     </Button>
                 </Link>
             </CardActions>
