@@ -38,7 +38,7 @@ const CardComponent = ({ item}) => {
                             ?
                             <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
                             :
-                            <Typography>
+                            <Typography color='primary'>
                                 {item?.username.split(" ").map((n) => n[0]).join("").toUpperCase()}
                             </Typography>
                         }

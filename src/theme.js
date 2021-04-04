@@ -4,13 +4,14 @@ import { pink, teal } from '@material-ui/core/colors'
 // Create a theme instance.
 const theme = createMuiTheme({
     palette: {
+        type: 'dark',
         primary: teal,
         secondary: pink,
         error: {
             main: pink.A400,
         },
         background: {
-            default: '#efefef',
+            // default: '#efefef',
         },
     },
     typography: {
