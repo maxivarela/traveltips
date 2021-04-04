@@ -26,16 +26,3 @@ footer {
   background-color: #111;
   text-align: center;
 }
-
-.Card {
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
-}
-
-.Card:hover {
-  box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.2);
-}
