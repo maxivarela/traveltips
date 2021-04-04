@@ -45,7 +45,7 @@ export default function Navbar() {
                             endAdornment: <SearchIcon style={{fontSize: 16}}/>
                         }}
                         />
-                    <Button>
+                    <Button margin='dense'>
                         <MenuIcon />
                     </Button>
                         
