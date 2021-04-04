@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     },
     video: {
         width: '100% !important',
-        height: '30vh',
+        height: '40vh',
         margin: '0 !important',
         border: 'none !important',
     },
