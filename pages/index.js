@@ -34,7 +34,7 @@ export default function Home({tips}) {
       </Head>
       <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
         <Link href='./add'>
-          <Button variant='contained' color='primary' disableElevation style={{ margin: "20px 0" }}>
+          <Button variant='contained' color='primary' disableElevation style={{ marginBottom: 20}}>
             Add Tip
         </Button>
         </Link>
