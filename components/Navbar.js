@@ -25,17 +25,16 @@ export default function Navbar() {
                     <div style={{ flexGrow: 1,}}>
                         <Link href='/'>
                             <Button color="inherit" >
-                                <Typography variant="h6" component="h1" >
+                                <Typography variant="h5" component="h1" >
                                     Travel Tips
-                            </Typography>
+                                </Typography>
                             </Button>
                         </Link>
                     </div>
                     
-
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
-                    </IconButton>
+                    </IconButton> */}
                 </Toolbar>
             </AppBar>
         </>

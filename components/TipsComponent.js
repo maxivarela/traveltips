@@ -94,7 +94,7 @@ const TipsComponent = ({tips}) => {
                     }
 
                     <CardContent>
-                        <Typography variant='h6' component='h2' style={{marginBottom: 10}}>
+                        <Typography variant='h6' component='h2' style={{marginBottom: 10, fontWeight: 600}}>
                             {item?.title}
                         </Typography>
                         <Typography >
@@ -118,12 +118,14 @@ const TipsComponent = ({tips}) => {
                             )
                         })}
                     </CardContent>
-                    <CardActions disableSpacing>
+                    <CardActions style={{marginBottom: 40}}>
                         <Link
                             href={`./tips/${item.id}`}
                             >
                             <Button>
-                                MORE DETAILS
+                                <Typography variant='h5' color='primary'>
+                                    MORE DETAILS
+                                </Typography>
                             </Button>
                         </Link>
                     </CardActions>
