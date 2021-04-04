@@ -69,10 +69,16 @@ const TipsComponent = ({tips}) => {
                         }   
                     </div>
                     <div>
-                        <audio controls style={{width: '100%'}}>
-                            <source src={item?.audio} type="audio/ogg"/>
-                            <source src={item?.audio} type="audio/mpeg"/>
-                        </audio>
+                        {item?.audio 
+                        ?
+                            <audio controls style={{ width: '100%' }}>
+                                <source src={item?.audio} type="audio/ogg" />
+                                <source src={item?.audio} type="audio/mpeg" />
+                            </audio>
+                        :
+                        null
+                        }
+                        
                     </div>
 
                     <div>
