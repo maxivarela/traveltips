@@ -32,9 +32,11 @@ export default function Home({tips}) {
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
       </Head>
+      <h3>Tip (noun):</h3>
+      <p style={{fontStyle: 'italic'}}>A piece of advance or confidential information given by one thought to have access to special or inside sources.</p>
       <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
         <Link href='./add'>
-          <Button variant='contained' color='primary' disableElevation style={{ marginBottom: 20 }}>
+          <Button variant='contained' color='primary' disableElevation style={{ margin: "20px 0" }}>
             Add Tip
         </Button>
         </Link>
