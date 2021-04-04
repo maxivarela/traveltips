@@ -38,48 +38,12 @@ const TipsComponent = ({tips}) => {
                             <Avatar aria-label="recipe" className={classes.avatar}>
                                 <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
                             </Avatar>} 
-                        title={item.user}
+                        title={<Typography color='primary' style={{fontWeight: 'bold'}}>{item.user}</Typography> }
                         subheader={today.toLocaleDateString()}
                             >
                     </CardHeader>
 
-                    <div>
-                        {
-                            item?.image
-                                ?
-                                item?.image?.includes('youtube.com')
-                                    ?
-                                    <iframe
-                                        style={{
-                                            width: '100%',
-                                            height: '30vh',
-                                            borderWidth: '0 !important',
-                                            margin: '0 !important',
-                                        }}
-                                        src={item?.image}
-                                        allowFullScreen
-                                        mozallowfullscreen="mozallowfullscreen"
-                                        msallowfullscreen="msallowfullscreen"
-                                        oallowfullscreen="oallowfullscreen"
-                                        webkitallowfullscreen="webkitallowfullscreen"
-                                        allow="accelerometer"
-                                        title={item?.image}
-                                        type="*"
-                                    />
-                                    :
-                                    <img
-                                        src={item?.image}
-                                        alt=''
-                                        style={{
-                                            width: '100%',
-                                            height: '30vh',
-                                            objectFit: 'cover',
-                                        }}
-                                    />
-                                :
-                                []
-                        }
-                    </div>
+                    <ImageComponent image={item?.image}/>
                     
                     {item?.audio
                         ?
@@ -94,7 +58,7 @@ const TipsComponent = ({tips}) => {
                     }
 
                     <CardContent>
-                        <Typography variant='h6' component='h2' style={{marginBottom: 10, fontWeight: 600}}>
+                        <Typography variant='body1' component='h2' style={{marginBottom: 10, fontWeight: 600, }}>
                             {item?.title}
                         </Typography>
                         <Typography >
