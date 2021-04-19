@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from '../components/Navbar'
-import styles from '../styles/Home.module.css'
+// import styles from '../styles/globals.css'
 import TipsComponent from '../components/TipsComponent'
 
 import firebase from '../components/firebase'
@@ -11,7 +9,6 @@ import {
   TextField,
 } from '@material-ui/core';
 import Link from 'next/link'
-
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {

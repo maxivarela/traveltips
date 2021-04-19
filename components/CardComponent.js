@@ -71,7 +71,7 @@ const CardComponent = ({item}) => {
             }
 
             <CardContent>
-                <Typography variant='body1' component='h2' style={{ marginBottom: 10, fontWeight: 600, }}>
+                <Typography variant='body1' component='h2' style={{ marginBottom: 10, fontWeight: 500, }}>
                     {item?.title}
                 </Typography>
                 <Typography >

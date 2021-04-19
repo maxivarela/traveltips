@@ -1,10 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { pink, teal } from '@material-ui/core/colors'
 
-// Create a theme instance.
 const theme = createMuiTheme({
     palette: {
-        type: 'dark',
+        type: 'light',
         primary: teal,
         secondary: pink,
         error: {
@@ -21,6 +20,6 @@ const theme = createMuiTheme({
             textTransform: 'uppercase',
         },
     },
-});
+})
 
 export default theme;

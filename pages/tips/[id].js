@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Container,
+    Typography,
 } from '@material-ui/core';
 
 //next will build a page for each of the items in this path array
@@ -45,9 +46,11 @@ const Details = ({data}) => {
         <Container maxWidth='sm'>
             <Button 
                 onClick={() => router.back()}
-                style={{marginBottom: 10,}}
+                style={{marginBottom: 20,}}
                 >
-                Back
+                <Typography color='primary' style={{fontSize: 12, }}>
+                    Back
+                </Typography>
             </Button>
             <CardComponent item={data} />
         </Container>
