@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 
-const CardComponent = ({ item}) => {
+const CardComponent = ({item}) => {
     const classes = useStyles()
     const today = new Date
     return ( 

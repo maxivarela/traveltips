@@ -1,5 +1,10 @@
+import CardComponent from '../../components/CardComponent';
 import firebase from '../../components/firebase'
-import Image from 'next/image'
+
+import { makeStyles } from '@material-ui/core/styles';
+import {
+    Container
+} from '@material-ui/core';
 
 //next will build a page for each of the items in this path array
 export const getStaticPaths = async () => {
@@ -17,8 +22,6 @@ export const getStaticPaths = async () => {
     }
 }
 
-
-//EXECUTED ON SERVER
 export const getStaticProps = async (context) => {
     try {
         const id = context.params.id
@@ -35,17 +38,10 @@ export const getStaticProps = async (context) => {
 }
 
 const Details = ({data}) => {
-console.log(data)
     return ( 
-        <>
-            {/* <img src={data?.image} alt=''/> */}
-            {/* <Image src={data?.userImage} width={40} height={40} alt=''/> */}
-
-            <p>{data?.username}</p>
-            <p>{data?.title}</p>
-            <p>{data?.description}</p>
-
-        </>
+        <Container maxWidth='sm'>
+            <CardComponent item={data} />
+        </Container>
     );
 }
 
