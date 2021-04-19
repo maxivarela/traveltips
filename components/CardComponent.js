@@ -96,13 +96,6 @@ const CardComponent = ({item}) => {
             </CardContent>
 
             <CardActions style={{ marginBottom: 20 }}>
-                <Link href={`./tips/${item.id}`}>
-                    <Button>
-                        <Typography variant='h5' color='primary'>
-                            MORE 
-                        </Typography>
-                    </Button>
-                </Link>
                 <Link href={``}>
                     <Button>
                         <Typography variant='h5' color='primary'>

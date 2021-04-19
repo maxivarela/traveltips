@@ -1,5 +1,6 @@
 import CardComponent from './CardComponent';
 import Masonry from 'react-masonry-css'
+import Link from 'next/link';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -19,7 +20,12 @@ const TipsComponent = ({ tips}) => {
                 >
                 {tips?.map(item => (
                     <div key={item.id} >
-                        <CardComponent item={item}/>
+                        <Link href={`./tips/${item.id}`}>
+                            <a>
+                                <CardComponent item={item} />
+                            </a>
+                            
+                        </Link>
                     </div>
                 ))}
             </Masonry>

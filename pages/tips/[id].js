@@ -1,9 +1,11 @@
 import CardComponent from '../../components/CardComponent';
 import firebase from '../../components/firebase'
+import {useRouter} from 'next/router'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
-    Container
+    Button,
+    Container,
 } from '@material-ui/core';
 
 //next will build a page for each of the items in this path array
@@ -38,8 +40,15 @@ export const getStaticProps = async (context) => {
 }
 
 const Details = ({data}) => {
+    const router = useRouter()
     return ( 
         <Container maxWidth='sm'>
+            <Button 
+                onClick={() => router.back()}
+                style={{marginBottom: 10,}}
+                >
+                Back
+            </Button>
             <CardComponent item={data} />
         </Container>
     );
