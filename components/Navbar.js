@@ -39,14 +39,14 @@ export default function Navbar() {
                         placeholder="search for a tip"
                         variant="outlined" 
                         size="small" 
-                        autoComplete
+                        autoComplete='true'
                         InputProps={{
-                            shrink: true,
+                            shrink: 'true',
                             endAdornment: <SearchIcon style={{fontSize: 16}}/>
                         }}
                         />
-                    <Button margin='dense'>
-                        <MenuIcon />
+                    <Button>
+                        <MenuIcon style={{ fontSize: 16 }}/>
                     </Button>
                         
                     

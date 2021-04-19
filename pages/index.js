@@ -12,12 +12,14 @@ import {
 } from '@material-ui/core';
 import Link from 'next/link'
 
+
+//this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {
   try {
-    const querySnapshot = await firebase.firestore().collection('tips').get()
-    const result = await querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const res = await firebase.firestore().collection('tips').get()
+    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     return {
-      props: { tips: result }
+      props: { data }
     }
   } catch (error) {
     console.error(error);
@@ -25,22 +27,23 @@ export const getStaticProps = async () => {
   }
 }
 
-export default function Home({tips}) {
+export default function Home({data}) {
   return (
     <>
       <Head>
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
       </Head>
-      <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
+
+      {/* <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
         <Link href='./add'>
           <Button variant='contained' margin='dense' size='small' color='primary' disableElevation style={{ marginBottom: 20}}>
             Add Tip
         </Button>
         </Link>
-      </div>
+      </div> */}
       
-      <TipsComponent tips={tips} />
+      <TipsComponent tips={data} />
     </>
   )
 }

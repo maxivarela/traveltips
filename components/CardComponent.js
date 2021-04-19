@@ -12,13 +12,9 @@ import {
     CardActions,
     CardContent,
     CardHeader,
-    Grid,
-    IconButton,
-    Toolbar,
     Typography,
 } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
-
 
 const CardComponent = ({ item}) => {
     const classes = useStyles()
@@ -49,7 +45,6 @@ const CardComponent = ({ item}) => {
             >
             </CardHeader>
 
-            {/* { item?.image?.length > 1  && console.log('lisa', item)} */}
             {item?.image?.length > 0
                 ?
                 Array.isArray(item?.image)
