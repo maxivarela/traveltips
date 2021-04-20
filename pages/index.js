@@ -9,7 +9,8 @@ export const getStaticProps = async () => {
     const res = await firebase.firestore().collection('tips').get()
     const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     return {
-      props: { data }
+      props: { data },
+      revalidate: 10,
     }
   } catch (error) {
     console.error(error);

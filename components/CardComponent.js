@@ -76,7 +76,7 @@ const CardComponent = ({item}) => {
                     {item?.title}
                 </Typography>
                 <Typography >
-                    {item?.description}
+                    {item?.description?.substring(0, 300)}
                 </Typography>
                 {item?.link && 
                     <Link href={item?.link}>
