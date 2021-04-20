@@ -79,7 +79,6 @@ const CardComponent = ({ item, maxCharLength}) => {
                 </Typography>
                 <Typography style={{ whiteSpace: 'pre-wrap', marginBottom: 20,}}>
                     {item?.description?.substring(0, maxCharLength)}
-                    {item?.description.length >= 300 && '...'}
                 </Typography>
 
                 {item?.link && 

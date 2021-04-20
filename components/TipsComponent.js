@@ -20,7 +20,7 @@ const TipsComponent = ({ tips}) => {
                 >
                 {tips?.map(item => (
                     <div key={item.id} >
-                        <CardComponent item={item} maxCharLength={300} />
+                        <CardComponent item={item} maxCharLength={240} />
                         <Link href={`./tips/${item.id}`}>
                             <a>
                                 more
