@@ -6,15 +6,15 @@ export async function addTip(data, addComplete) {
             .firestore()
             .collection('tips')
             .add({
-                username: data?.username,
-                userImage: data?.userImage,
+                username: data.username ? data?.username : '',
+                userImage: data?.userImage ? data?.userImage : '',
                 title: data?.title,
                 description: data?.description,
-                image: data?.image,
-                audio: data?.audio,
-                link: data?.link,
-                location: data?.location,
-                tags: data?.tags?.split(',').map((item) => item.trim().toLowerCase()),
+                image: data?.image ? data?.image : '',
+                audio: data?.audio ? data?.audio : '',
+                link: data?.link ? data?.link : '',
+                location: data?.location ? data?.location : '',
+                tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : '',
             })
         addComplete()
 
