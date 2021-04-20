@@ -79,12 +79,16 @@ const CardComponent = ({item}) => {
                     {item?.description?.substring(0, 300)}
                 </Typography>
                 {item?.link && 
+                <div>
+                    Link: &nbsp;
                     <Link href={item?.link}>
                         <a target="_blank" rel="noreferrer">
-                            {item?.link}
+                        {item?.link}
                         </a>
                     </Link>
+                </div>
                 }
+                    
                 <Typography variant='body2' component='h2' style={{ margin: '10px auto', fontWeight: 500, }}>
                     {item?.location && <div> Location: {item?.location}</div>}
                     
