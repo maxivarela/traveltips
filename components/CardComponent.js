@@ -40,7 +40,7 @@ const CardComponent = ({item}) => {
                         }
 
                     </Avatar>}
-                title={<Typography color='primary' style={{ fontWeight: 'bold' }}>{item.username}</Typography>}
+                title={<Typography color='primary' style={{ fontWeight: 500 }}>{item.username}</Typography>}
                 subheader={today.toLocaleDateString()}
             >
             </CardHeader>
@@ -77,22 +77,26 @@ const CardComponent = ({item}) => {
                 <Typography >
                     {item?.description?.substring(0, 300)}
                 </Typography>
-                {item?.tags?.map(tag => {
-                    return (
-                        <div style={{
-                            display: 'inline-block',
-                            marginTop: 10,
-                            textAlign: 'left',
-                            fontSize: '14px',
-                            fontWeight: 400,
-                            marginRight: 5,
-                            color: '#26978A',
-                            textTransform: 'capitalize',
-                        }} key={tag}>
-                            {(tag != "") && tag + ','}
-                        </div>
-                    )
-                })}
+                <Typography variant='body2' component='h2' style={{ margin: '10px auto', fontWeight: 500, }}>
+                    {item?.location && <div> Location: {item?.location}</div>}
+                    
+                    <div>
+                        Tags: {item?.tags?.map(tag => {
+                        return (
+                            <div className='tags' key={tag}>
+                                {(tag != "") && tag + ','}
+                            </div>
+                        )
+                    })}
+                    </div>
+                    <div>
+                        Last Updated: {today.toLocaleDateString()}
+                    </div>
+                    
+                </Typography>
+                
+                
+                
             </CardContent>
 
             <CardActions style={{ marginBottom: 20 }}>

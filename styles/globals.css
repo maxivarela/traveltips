@@ -149,3 +149,9 @@ footer {
     flex-direction: column;
   }
 }
+
+.tags {
+  display: inline-block;
+  text-align: left;
+  color: #26978a;
+}

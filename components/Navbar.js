@@ -4,16 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
     AppBar,
     Button,
+    IconButton,
     TextField,
     Toolbar,
     Typography,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
-
-const useStyles = makeStyles((theme) => ({
-
-}));
 
 export default function Navbar() {
     const classes = useStyles();
@@ -27,34 +24,21 @@ export default function Navbar() {
                         <Link href='/'>
                             <Button color="inherit" >
                                 <Typography variant="h5" component="h1" >
-                                    Travel Tips
+                                    <span style={{ color: '#009688' }}>Trip</span>Tips
                                 </Typography>
                             </Button>
                         </Link>
                     </div>
-                    <TextField 
-                        id="outlined-basic" 
-                        label="search" 
-                        // color='primary'
-                        placeholder="search for a tip"
-                        variant="outlined" 
-                        size="small" 
-                        autoComplete='true'
-                        InputProps={{
-                            shrink: 'true',
-                            endAdornment: <SearchIcon style={{fontSize: 16}}/>
-                        }}
-                        />
-                    <Button>
-                        <MenuIcon style={{ fontSize: 16 }}/>
-                    </Button>
-                        
                     
-                    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
-                    </IconButton> */}
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </>
     );
 }
+
+const useStyles = makeStyles((theme) => ({
+
+}));
