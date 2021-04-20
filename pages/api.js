@@ -6,9 +6,9 @@ export async function addTip(data, addComplete) {
             .firestore()
             .collection('tips')
             .add({
-                title: data?.title,
-                userImage: data?.userImage,
                 username: data?.username,
+                userImage: data?.userImage,
+                title: data?.title,
                 description: data?.description,
                 image: data?.image,
                 audio: data?.audio,

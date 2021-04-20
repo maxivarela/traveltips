@@ -38,6 +38,7 @@ const AddTip = () => {
     }, [setData, data, addComplete])
 
     const onSubmit = (data) => {
+        console.log('lisa', data)
         setData(data)
     }
 
