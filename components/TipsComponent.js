@@ -20,11 +20,11 @@ const TipsComponent = ({ tips}) => {
                 >
                 {tips?.map(item => (
                     <div key={item.id} >
+                        <CardComponent item={item} />
                         <Link href={`./tips/${item.id}`}>
                             <a>
-                                <CardComponent item={item} />
+                                more
                             </a>
-                            
                         </Link>
                     </div>
                 ))}
