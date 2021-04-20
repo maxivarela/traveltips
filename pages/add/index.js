@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback} from 'react'
 import { useForm } from 'react-hook-form';
 // import * as yup from 'yup'
 // import { yupResolver } from "@hookform/resolvers/yup"
-import GooglePlaces from '../../components/GooglePlaces'
+// import GooglePlaces from '../../components/GooglePlaces'
 import {useRouter} from 'next/router'
 import { addTip } from '../api'
 
