@@ -107,7 +107,7 @@ const CardComponent = ({item}) => {
                 
             </CardContent>
 
-            <CardActions style={{ marginBottom: 20 }}>
+            {/* <CardActions style={{ marginBottom: 20 }}>
                 <Link href={``}>
                     <Button>
                         <Typography variant='h5' color='primary'>
@@ -115,7 +115,7 @@ const CardComponent = ({item}) => {
                         </Typography>
                     </Button>
                 </Link>
-            </CardActions>
+            </CardActions> */}
         </Card>
     );
 }
