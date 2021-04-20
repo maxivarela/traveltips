@@ -18,16 +18,19 @@ const TipsComponent = ({ tips}) => {
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column"
                 >
-                {tips?.map(item => (
-                    <div key={item.id} >
-                        <CardComponent item={item} maxCharLength={240} />
-                        <Link href={`./tips/${item.id}`}>
-                            <a>
-                                more
+                {tips?.map(item => {
+                    console.log('jenni', item)
+                    return (
+                        <div key={item.id} >
+                            <CardComponent item={item} maxCharLength={240} />
+                            <Link href={`./tips/${item.id}`}>
+                                <a>
+                                    more
                             </a>
-                        </Link>
-                    </div>
-                ))}
+                            </Link>
+                        </div>
+                    )
+                })}
             </Masonry>
         </>
     );

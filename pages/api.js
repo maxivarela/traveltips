@@ -14,7 +14,7 @@ export async function addTip(data, addComplete) {
                 audio: data?.audio ? data?.audio : '',
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
-                tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : '',
+                tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
             })
         addComplete()
 
