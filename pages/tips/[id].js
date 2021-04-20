@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     }
 }
 
@@ -42,6 +42,9 @@ export const getStaticProps = async (context) => {
 
 const Details = ({data}) => {
     const router = useRouter()
+
+    if (!data) return <div>Loading...</div>
+    
     return ( 
         <Container maxWidth='sm'>
             <Button 
