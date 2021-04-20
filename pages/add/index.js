@@ -55,7 +55,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="username"
-                        autoFocus
                         {...register("username")}
                     />
                 </div>
@@ -65,7 +64,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="userImage"
-                        autoFocus
                         {...register("userImage")}
                     />
                 </div>
@@ -89,7 +87,6 @@ const AddTip = () => {
                         multiline
                         rows={10}
                         label="description"
-                        autoFocus
                         {...register("description", { required: true })}
                     />
                 </div>
@@ -99,7 +96,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="image"
-                        autoFocus
                         {...register("image")}
                     />
                 </div>
@@ -109,7 +105,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="audio"
-                        autoFocus
                         {...register("audio")}
                     />
                 </div>
@@ -119,7 +114,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="link"
-                        autoFocus
                         {...register("link")}
                     />
                 </div>
@@ -129,7 +123,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="location"
-                        autoFocus
                         {...register("location")}
                     />
                 </div>
@@ -139,7 +132,6 @@ const AddTip = () => {
                         margin="normal"
                         fullWidth
                         label="tags"
-                        autoFocus
                         {...register("tags")}
                     />
                 </div>

@@ -34,28 +34,7 @@ const TipsComponent = ({ tips}) => {
 }
 
 const useStyles = makeStyles((theme) => ({
-    tagsContainer: {
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginTop: 30,
-        marginBottom: 20,
-    },
-    tag: {
 
-        textAlign: 'left',
-        fontSize: '14px',
-        fontWeight: 400,
-        marginRight: 5,
-        color: '#26978A',
-        textTransform: 'capitalize',
-    },
-    image: {
-        width: 560, 
-        height: 'auto', 
-        objectFit: 'cover'
-    }
 }));
 
 export default TipsComponent;
