@@ -2,12 +2,12 @@ import { DiscussionEmbed } from "disqus-react"
 
 // const ident = window.location.href.split('/').pop()
 
-const DisqusComments = ({ item }) => {
+const DisqusComments = ({ item, ident }) => {
 
     const disqusShortname = "travel-tips-2"
     const disqusConfig = {
         url: "https://traveltips.vercel.app/tips",
-        identifier: item.title, // Single post id
+        identifier: ident, // Single post id
         title: item.title // Single post title
     }
     return (

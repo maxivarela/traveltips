@@ -56,6 +56,8 @@ const Details = ({data}) => {
     const editHandler = () => {
         alert('hello nono')
     }
+
+    const ident = window.location.href.split('/').pop()
             
     return ( 
         <Container maxWidth='sm'>
@@ -85,7 +87,7 @@ const Details = ({data}) => {
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
             <div>
-                <DisqusComments item={data}/>
+                <DisqusComments item={data} ident={ident}/>
             </div>
         </Container>
     );
