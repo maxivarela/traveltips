@@ -43,7 +43,7 @@ export default function Home({data}) {
         <MailMe />
       </div>
       
-      <TipsComponent tips={data} />
+      <TipsComponent tips={data}/>
     </>
   )
 }

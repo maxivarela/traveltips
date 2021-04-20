@@ -60,7 +60,7 @@ const Details = ({data}) => {
                     Back
                 </Typography>
             </Button>
-            <CardComponent item={data} />
+            <CardComponent item={data} maxCharLength={10000}/>
         </Container>
     );
 }

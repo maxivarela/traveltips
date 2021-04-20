@@ -5,7 +5,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
-    AppBar,
     Avatar,
     Button,
     Card,
@@ -14,11 +13,12 @@ import {
     CardHeader,
     Typography,
 } from '@material-ui/core';
-import ShareIcon from '@material-ui/icons/Share';
+// import ShareIcon from '@material-ui/icons/Share';
 
-const CardComponent = ({item}) => {
+const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
     const today = new Date
+
     return ( 
         <Card
             style={{
@@ -29,6 +29,7 @@ const CardComponent = ({item}) => {
             >
             
             <CardHeader
+                style={{ padding: '20px 30px', }}
                 avatar={
                     <Avatar aria-label="recipe" style={{ backgroundColor: '#222' }}>
 
@@ -72,17 +73,18 @@ const CardComponent = ({item}) => {
                 null
             }
 
-            <CardContent>
+            <CardContent style={{ padding: '20px 30px', }}>
                 <Typography variant='body1' component='h2' style={{ marginBottom: 10, fontWeight: 500, }}>
                     {item?.title}
                 </Typography>
-                <Typography >
-                    {item?.description?.substring(0, 300)}
+                <Typography style={{ whiteSpace: 'pre-wrap',}}>
+                    {item?.description?.substring(0, maxCharLength)}
                 </Typography>
+
                 {item?.link && 
-                <div>
+                <div style={{ margin: '10px auto', width: '100%',}}>
                     Link: &nbsp;
-                    <Link href={item?.link}>
+                    <Link href={item?.link} >
                         <a target="_blank" rel="noreferrer">
                         {item?.link}
                         </a>
@@ -107,9 +109,6 @@ const CardComponent = ({item}) => {
                     </div>
                     
                 </Typography>
-                
-                
-                
             </CardContent>
 
             {/* <CardActions style={{ marginBottom: 20 }}>
