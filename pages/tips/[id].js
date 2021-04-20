@@ -46,7 +46,7 @@ export const getStaticProps = async (context) => {
 const Details = ({data}) => {
     const router = useRouter()
 
-    // console.log('jisoo2', context)
+    console.log('jisoo2', data)
     if (!data) return <div>Loading...</div>
 
     const deleteHandler = () => {
@@ -56,8 +56,6 @@ const Details = ({data}) => {
     const editHandler = () => {
         alert('hello nono')
     }
-
-    const ident = window.location.href.split('/').pop()
             
     return ( 
         <Container maxWidth='sm'>
@@ -87,7 +85,7 @@ const Details = ({data}) => {
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
             <div>
-                <DisqusComments item={data} ident={ident}/>
+                <DisqusComments item={data}/>
             </div>
         </Container>
     );
