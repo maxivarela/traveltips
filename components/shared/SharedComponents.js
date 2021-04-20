@@ -6,12 +6,12 @@ import {
 
 export function AddTip() {
     return (
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', }}>
+        <>
             <Link href='./add'>
-                <Button variant='contained' margin='dense' size='small' color='primary' disableElevation style={{ marginBottom: 20 }}>
+                <Button variant='contained' margin='dense' size='small' color='primary' disableElevation style={{ marginBottom: 10 }}>
                     Add Tip
                 </Button>
             </Link>
-        </div>
+        </>
     )
 }

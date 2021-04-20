@@ -19,13 +19,30 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({data}) {
+
+  const MailMe = () => {
+
+    return (
+      <>
+        <div>
+          Can't find a tip you are looking for? &nbsp;
+          <a href="mailto:nonoumasy@gmail.com?subject=I need a travel tip" target='_blank' rel="noreferrer">Email us</a>
+        </div>
+      </>
+    )
+  }
+  
   return (
     <>
       <Head>
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
       </Head>
-      <AddTip/>
+      <div className='flexRow' style={{ marginBottom: 10 }}>
+        <AddTip /> 
+        <MailMe />
+      </div>
+      
       <TipsComponent tips={data} />
     </>
   )

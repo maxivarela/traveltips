@@ -156,6 +156,13 @@ footer {
   color: #26978a;
 }
 
+.flexRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* masonry style css */
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
