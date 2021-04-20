@@ -84,7 +84,7 @@ const CardComponent = ({ item, maxCharLength}) => {
 
                 {item?.link && 
                 <div style={{ margin: '10px auto', width: '100%',}}>
-                    Link: &nbsp;
+                    Link:&nbsp;
                     <Link href={item?.link} >
                         <a target="_blank" rel="noreferrer">
                         {item?.link}
