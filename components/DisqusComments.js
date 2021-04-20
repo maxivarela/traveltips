@@ -1,16 +1,13 @@
-// import {useState} from 'react'
 import { DiscussionEmbed } from "disqus-react"
 
+// const ident = window.location.href.split('/').pop()
+
 const DisqusComments = ({ item }) => {
-
-    // const [disqusConfig, setDisqusConfig] = useState({});
-
-    // setDisqusConfig({ url: "https://traveltips.vercel.app/tips" + window.location.href.split('/').pop(), identifier: post.id, title: post.title });
 
     const disqusShortname = "travel-tips-2"
     const disqusConfig = {
         url: "https://traveltips.vercel.app/tips",
-        identifier: window.location.href.split('/').pop(), // Single post id
+        identifier: item.title, // Single post id
         title: item.title // Single post title
     }
     return (
