@@ -33,7 +33,8 @@ export const getStaticProps = async (context) => {
         const data = doc.data()
 
         return {
-            props: { data }
+            props: { data },
+            revalidate: 10,
         }
     } catch (err) {
         console.log(err)
