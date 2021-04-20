@@ -20,7 +20,6 @@ const AddTip = () => {
     const [data, setData] = useState({})
     // const [latitude, setLatitude] = useState(null)
     // const [longitude, setLongitude] = useState(null)
-    data && console.log('jisoo',data)
 
     const handleCancel = () => {
         router.back()
@@ -39,7 +38,6 @@ const AddTip = () => {
     }, [setData, data, addComplete])
 
     const onSubmit = (data) => {
-        console.log('lisa', data)
         setData(data)
     }
 

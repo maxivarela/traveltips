@@ -19,7 +19,7 @@ const TipsComponent = ({ tips}) => {
                 columnClassName="my-masonry-grid_column"
                 >
                 {tips?.map(item => {
-                    console.log('jenni', item)
+                    console.log('jenni', item.id)
                     return (
                         <div key={item.id} >
                             <CardComponent item={item} maxCharLength={240} />
