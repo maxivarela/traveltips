@@ -1,9 +1,10 @@
-import React from 'react'
+import { useState, useEffect, useCallback} from 'react'
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup'
-import { yupResolver } from "@hookform/resolvers/yup"
+// import * as yup from 'yup'
+// import { yupResolver } from "@hookform/resolvers/yup"
 import GooglePlaces from '../../components/GooglePlaces'
 import {useRouter} from 'next/router'
+import { addTip } from '../api'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -13,170 +14,141 @@ import {
     Typography,
 } from '@material-ui/core/';
 
-const schema = yup.object().shape({
-    title: yup
-        .string()
-        .min(3)
-        .required('Title is a required field.'),
-    image: yup
-        .string()
-        .required('Cover Image is a required field.'),
-    description: yup
-        .string()
-        .min(20)
-        .required('description is a required field.'),
-    startYear: yup
-        .number()
-        .required('startYear is a required field.'),
-    endYear: yup
-        .number(),
-    audio: yup
-        .string(),
-    tags: yup
-        .string(),
-    latitude: yup
-        .number()
-        .transform(cv => isNaN(cv) ? undefined : cv).positive()
-        .lessThan(90)
-        .moreThan(-90),
-    longitude: yup
-        .number()
-        .transform(cv => isNaN(cv) ? undefined : cv).positive()
-        .lessThan(180)
-        .moreThan(-180),
-})
-
 const AddTip = () => {
     const classes = useStyles();
     const router = useRouter()
-    const [latitude, setLatitude] = React.useState(null)
-    const [longitude, setLongitude] = React.useState(null)
-
-    const { register, handleSubmit, errors, reset } = useForm({
-        resolver: yupResolver(schema)
-    })
-
-    const onSubmit = data => console.log(data);
+    const [data, setData] = useState({})
+    // const [latitude, setLatitude] = useState(null)
+    // const [longitude, setLongitude] = useState(null)
 
     const handleCancel = () => {
         router.back()
     };
 
-    // console.log(watch("example")); // watch input value by passing the name of it
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
+
+    const addComplete = useCallback(() => {
+        reset()
+        router.back()
+    }, [history, reset])
+
+    useEffect(() => {
+        data?.title &&
+            addTip(data, addComplete)
+    }, [setData, data, addComplete])
+
+    const onSubmit = (data) => {
+        setData(data)
+    }
 
     return ( 
         <Container component="main" maxWidth="xs">
-            <form onSubmit={handleSubmit(onSubmit)}>
+
+            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                 <Typography className='formTitle'>
                     Add New Tip
                 </Typography>
 
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="title"
-                    label="title"
-                    name="title"
-                    type="text"
-                    // inputRef={register}
-                    // error={!!errors.title}
-                    // helperText={errors?.title?.message}
-                />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    required
-                    multiline
-                    rows={4}
-                    id="description"
-                    label="description"
-                    name="description"
-                    type="text"
-                    // inputRef={register}
-                    // error={!!errors.description}
-                    // helperText={errors?.description?.message}
-                />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    name="image"
-                    label="image"
-                    type="text"
-                    id="image"
-                    // inputRef={register}
-                    // error={!!errors.image}
-                    // helperText={errors?.image?.message}
-                />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    name="audio"
-                    label="audio"
-                    type="text"
-                    id="audio"
-                    // inputRef={register}
-                    // error={!!errors.audio}
-                    // helperText={errors?.audio?.message}
-                />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="tags"
-                    label="tags"
-                    name="tags"
-                    type="text"
-                    // inputRef={register}
-                    // error={!!errors.tags}
-                    // helperText={errors?.tags?.message}
-                />
-                <GooglePlaces 
-                    setLatitude={setLatitude} 
-                    setLongitude={setLongitude} 
-                    // register={register} 
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="username"
+                        autoFocus
+                        {...register("username", { required: true })}
                     />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    name="latitude"
-                    label="latitude"
-                    type="number"
-                    id="latitude"
-                    value={latitude}
-                    // inputRef={register}
-                    // error={!!errors.latitude}
-                    // helperText={errors?.latitude?.message}
-                />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    name="longitude"
-                    label="longitude"
-                    type="number"
-                    id="longitude"
-                    value={longitude}
-                    // inputRef={register}
-                    // error={!!errors.longitude}
-                    // helperText={errors?.longitude?.message}
-                />
-
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        fullWidth
+                        label="userImage"
+                        autoFocus
+                        {...register("userImage")}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="title"
+                        autoFocus
+                        {...register("title", { required: true })}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        required
+                        fullWidth
+                        multiline
+                        rows={10}
+                        label="description"
+                        autoFocus
+                        {...register("description", { required: true })}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        fullWidth
+                        label="image"
+                        autoFocus
+                        {...register("image")}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        fullWidth
+                        label="audio"
+                        autoFocus
+                        {...register("audio")}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        fullWidth
+                        label="link"
+                        autoFocus
+                        {...register("link")}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        fullWidth
+                        label="location"
+                        autoFocus
+                        {...register("location")}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
+                        fullWidth
+                        label="tags"
+                        autoFocus
+                        {...register("tags")}
+                    />
+                </div>
+                
                 <Button
                     type="submit"
-                    fullWidth
                     variant="contained"
+                    fullWidth
                     disableElevation
                     color="primary"
                     className={classes.submit}

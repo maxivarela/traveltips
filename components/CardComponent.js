@@ -27,6 +27,7 @@ const CardComponent = ({item}) => {
                 boxShadow: '0 10px 10px 0 rgba(0, 0, 0, 0.1)'
             }}
             >
+                
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" style={{ backgroundColor: '#222' }}>
@@ -75,8 +76,15 @@ const CardComponent = ({item}) => {
                     {item?.title}
                 </Typography>
                 <Typography >
-                    {item?.description?.substring(0, 300)}
+                    {item?.description}
                 </Typography>
+                {item?.link && 
+                    <Link href={item?.link}>
+                        <a target="_blank" rel="noreferrer">
+                            {item?.link}
+                        </a>
+                    </Link>
+                }
                 <Typography variant='body2' component='h2' style={{ margin: '10px auto', fontWeight: 500, }}>
                     {item?.location && <div> Location: {item?.location}</div>}
                     
