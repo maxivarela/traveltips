@@ -77,8 +77,9 @@ const CardComponent = ({ item, maxCharLength}) => {
                 <Typography variant='body1' component='h2' style={{ marginBottom: 10, fontWeight: 500, }}>
                     {item?.title}
                 </Typography>
-                <Typography style={{ whiteSpace: 'pre-wrap',}}>
+                <Typography style={{ whiteSpace: 'pre-wrap', marginBottom: 20,}}>
                     {item?.description?.substring(0, maxCharLength)}
+                    {item?.description.length >= 300 && '...'}
                 </Typography>
 
                 {item?.link && 
@@ -107,7 +108,6 @@ const CardComponent = ({ item, maxCharLength}) => {
                     <div>
                         Last Updated: {today.toLocaleDateString()}
                     </div>
-                    
                 </Typography>
             </CardContent>
 
