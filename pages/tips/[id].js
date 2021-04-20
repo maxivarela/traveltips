@@ -82,11 +82,9 @@ const Details = ({data}) => {
                         </Typography>
                     </Button>
                 </div>
-
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
             <div>
-                Comment Section
                 <DisqusComments item={data}/>
             </div>
         </Container>
