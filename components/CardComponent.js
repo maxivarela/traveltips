@@ -27,21 +27,22 @@ const CardComponent = ({item}) => {
                 boxShadow: '0 10px 10px 0 rgba(0, 0, 0, 0.1)'
             }}
             >
-                
+            
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" style={{ backgroundColor: '#222' }}>
+
                         {item?.userImage
                             ?
                             <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
                             :
                             <Typography color='primary'>
-                                {item?.username.split(" ").map((n) => n[0]).join("").toUpperCase()}
+                                {item.username ? item?.username.split(" ").map((n) => n[0]).join("").toUpperCase() : 'A'}
                             </Typography>
                         }
 
                     </Avatar>}
-                title={<Typography color='primary' style={{ fontWeight: 500 }}>{item.username}</Typography>}
+                title={<Typography color='primary' style={{ fontWeight: 500 }}>{item.username ? item.username : 'Anonymous'}</Typography>}
                 subheader={today.toLocaleDateString()}
             >
             </CardHeader>

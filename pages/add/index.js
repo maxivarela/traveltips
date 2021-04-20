@@ -53,11 +53,10 @@ const AddTip = () => {
                     <TextField
                         variant='outlined'
                         margin="normal"
-                        required
                         fullWidth
                         label="username"
                         autoFocus
-                        {...register("username", { required: true })}
+                        {...register("username")}
                     />
                 </div>
                 <div>
