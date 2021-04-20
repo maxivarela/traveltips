@@ -30,7 +30,7 @@ const AddTip = () => {
     const addComplete = useCallback(() => {
         reset()
         router.back()
-    }, [history, reset])
+    }, [reset])
 
     useEffect(() => {
         data?.title &&
