@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
 import firebase from '../../components/firebase'
 import {useRouter} from 'next/router'
@@ -47,6 +48,10 @@ const Details = ({data}) => {
     
     return ( 
         <Container maxWidth='sm'>
+            <Head>
+                <title>{data.title}</title>
+                <meta name={data.title} content='travel tips' />
+            </Head>
             <Button 
                 onClick={() => router.back()}
                 style={{marginBottom: 20,}}
