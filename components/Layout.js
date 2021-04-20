@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
+    CssBaseline,
     Container,
 } from '@material-ui/core';
 
@@ -10,9 +11,11 @@ const Layout = ({children}) => {
     return ( 
         <>
             <Navbar />
-                <Container maxWidth={'lg'} style={{margin: '40px auto', backgroundColor: "efefef"}}>
-                    {children}
-                </Container>
+                <CssBaseline>
+                    <Container maxWidth={'lg'} style={{ margin: '40px auto', backgroundColor: "efefef" }}>
+                        {children}
+                    </Container>
+                </CssBaseline>
             <Footer />
         </>
     );
