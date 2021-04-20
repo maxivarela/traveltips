@@ -2,7 +2,6 @@ import CardComponent from '../../components/CardComponent';
 import firebase from '../../components/firebase'
 import {useRouter} from 'next/router'
 
-import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Container,
