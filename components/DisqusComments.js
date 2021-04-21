@@ -6,10 +6,12 @@ const DisqusComments = ({ item, id }) => {
 
     const disqusShortname = "travel-tips-2"
     const disqusConfig = {
-        url: "https://traveltips.vercel.app/tips/",
+        url: `https://traveltips.vercel.app/tips/${id}`,
         identifier: id, // Single post id
         title: item.title // Single post title
     }
+
+    console.log('cart', disqusConfig)
     return (
         <div>
             <DiscussionEmbed
