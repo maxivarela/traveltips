@@ -2,6 +2,8 @@ import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
 import firebase from '../../components/firebase'
 import {useRouter} from 'next/router'
+import {deleteTip} from '../api'
+import Link from 'next/link'
 
 import DisqusComments from '../../components/DisqusComments';
 
@@ -47,12 +49,10 @@ const Details = ({id, data}) => {
     const router = useRouter()
     if (!data) return <div>Loading...</div>
 
-    const deleteHandler = () => {
-        alert('hello nono')
-    }
-
-    const editHandler = () => {
-        alert('hello nono')
+    const deleteHandler = async () => {
+        window.confirm("Are you sure you wish to delete this tip?") &&
+            await deleteTip(id)
+            router.back()
     }
             
     return ( 
@@ -69,12 +69,18 @@ const Details = ({id, data}) => {
                 </Button>
 
                 <div>
-                    <Button onClick={editHandler}>
-                        <Typography color='primary' style={{ fontSize: 12, }}>
-                            Edit
+                    <Button>
+                        <Link
+                            href={{ pathname: '../edit', query: { id } }}
+                        
+                            >
+                            <Typography color='primary' style={{ fontSize: 12, }}>
+                                Edit
                         </Typography>
+                        </Link>
                     </Button>
-                    <Button onClick={deleteHandler}>
+                    
+                    <Button onClick={(id) => deleteHandler(id)}>
                         <Typography color='primary' style={{ fontSize: 12, }}>
                             Delete
                         </Typography>
