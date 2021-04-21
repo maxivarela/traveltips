@@ -12,7 +12,7 @@ const DisqusComments = ({ item, id }) => {
     }
 
     return (
-        <div>
+        <div style={{margin: '40px auto'}}>
             <DiscussionEmbed
                 shortname={disqusShortname}
                 config={disqusConfig}
