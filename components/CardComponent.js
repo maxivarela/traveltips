@@ -98,15 +98,18 @@ const CardComponent = ({ item, maxCharLength}) => {
                 <Typography variant='body2' component='h2' style={{ margin: '10px auto', fontWeight: 500, }}>
                     {item?.location && <div> Location: {item?.location}</div>}
                     
-                    <div>
-                        Tags: {item?.tags?.map(tag => {
-                        return (
-                            <div className='tags' key={tag}>
-                                {(tag != "") && tag + ','}
-                            </div>
-                        )
-                    })}
-                    </div>
+                    {item?.tags?.length > 1 && 
+                        <div>
+                            Tags: {item?.tags?.map(tag => {
+                            return (
+                                <div className='tags' key={tag}>
+                                    {(tag != "") && tag + ','}
+                                </div>
+                            )
+                        })}
+                        </div>
+                    }
+                    
                     <div>
                         Last Updated: { new Date(Date.parse(item?.createdAt)).toLocaleDateString()}
                     </div>
