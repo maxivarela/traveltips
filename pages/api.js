@@ -15,7 +15,7 @@ export async function addTip(data, addComplete) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                createdAt: new Date(Date.now())
+                createdAt: (new Date(Date.now())).toString()
             })
         addComplete()
 
@@ -40,7 +40,7 @@ export async function editTip(data, id) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                updatedAt: new Date(Date.now())
+                updatedAt: (new Date(Date.now())).toString()
             })
 
     } catch (error) {

@@ -105,7 +105,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                     })}
                     </div>
                     <div>
-                        Last Updated: {today.toLocaleDateString()}
+                        Last Updated: { new Date(Date.parse(item?.createdAt)).toLocaleDateString()}
                     </div>
                 </Typography>
             </CardContent>
