@@ -1,3 +1,5 @@
+import {useEffect, useCallback} from 'react'
+import {useRouter} from 'next/router'
 import Link from 'next/link'
 
 import {
@@ -14,4 +16,21 @@ export function AddTip() {
             </Link>
         </>
     )
+}
+
+// go back when 'esc' key is pressed
+export const EscFunctionToCancel = () => {
+    const router = useRouter()
+    const escFunction = useCallback((event) => {
+        if (event.keyCode === 27) {
+            router.back()
+        }
+    }, [router]);
+
+    useEffect(() => {
+        document.addEventListener("keydown", escFunction, false);
+        return () => {
+            document.removeEventListener("keydown", escFunction, false);
+        };
+    }, [escFunction]);
 }

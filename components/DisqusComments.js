@@ -11,7 +11,6 @@ const DisqusComments = ({ item, id }) => {
         title: item.title // Single post title
     }
 
-    console.log('cart', disqusConfig)
     return (
         <div>
             <DiscussionEmbed

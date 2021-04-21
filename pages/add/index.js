@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 // import GooglePlaces from '../../components/GooglePlaces'
 import {useRouter} from 'next/router'
 import { addTip } from '../api'
+import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -40,6 +41,8 @@ const AddTip = () => {
     const onSubmit = (data) => {
         setData(data)
     }
+
+    EscFunctionToCancel()
 
     return ( 
         <Container component="main" maxWidth="xs">
