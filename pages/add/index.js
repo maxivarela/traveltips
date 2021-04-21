@@ -107,6 +107,8 @@ const AddTip = () => {
                         variant='outlined'
                         margin="normal"
                         fullWidth
+                        multiline
+                        rows={10}
                         label="image"
                         {...register("image")}
                     />

@@ -7,13 +7,6 @@ import {
 const ImageComponent = ({ image }) => {
     const classes = useStyles()
 
-    // fallback if image link is broken
-    const clueCharacters = [
-        'https://i.imgur.com/EigNj6l.png',
-    ]
-    const character = clueCharacters[Math.floor(Math.random() * clueCharacters.length)]
-    const addDefaultSrc = (e) => e.target.src = character
-
     return (
         <div className={classes.imageContainer} >
             {image
@@ -37,7 +30,7 @@ const ImageComponent = ({ image }) => {
                     :
                     image &&
                     <>
-                        <div onError={addDefaultSrc}>
+                        <div onError={(e) => e.target.src = 'https://i.imgur.com/EigNj6l.png'}>
                             <img src={image} alt='' className={classes.media}/>
                         </div>
                     </>
