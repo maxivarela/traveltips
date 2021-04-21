@@ -50,13 +50,16 @@ const CardComponent = ({ item, maxCharLength}) => {
 
             {item?.image?.length > 0
                 ?
-                Array.isArray(item?.image)
-                    ?
-                    <Carousel showThumbs={false} dynamicHeight>
-                        {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
-                    </Carousel>
-                    :
-                    <ImageComponent key={item.id} image={item?.image} />
+                (
+                    item?.image?.length > 1
+                        ?
+                        <Carousel showThumbs={false} dynamicHeight>
+                            {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
+                        </Carousel>
+                        :
+                        // <ImageComponent key={item.id} image={item?.image} />
+                        item?.image?.map(image => <ImageComponent key={item.id} image={image} />)
+                )
                 :
                 null
             }
