@@ -1,5 +1,8 @@
-import { useState, useEffect, useCallback} from 'react'
+import { useState, useEffect, useCallback, } from 'react'
 import { useForm } from 'react-hook-form';
+// import MUIRichTextEditor from 'mui-rte'
+// import { convertToRaw } from "draft-js";
+
 // import * as yup from 'yup'
 // import { yupResolver } from "@hookform/resolvers/yup"
 // import GooglePlaces from '../../components/GooglePlaces'
@@ -7,18 +10,25 @@ import {useRouter} from 'next/router'
 import { addTip } from '../api'
 import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
 
+
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Container,
+    InputAdornment,
     TextField,
     Typography,
 } from '@material-ui/core/';
+
+const defaultValues = {
+    RTE1: ""
+};
 
 const AddTip = () => {
     const classes = useStyles();
     const router = useRouter()
     const [data, setData] = useState({})
+    const [count, setCount] = useState(0)
     // const [latitude, setLatitude] = useState(null)
     // const [longitude, setLongitude] = useState(null)
 
@@ -26,7 +36,9 @@ const AddTip = () => {
         router.back()
     };
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset, } = useForm({
+        defaultValues
+    })
 
     const addComplete = useCallback(() => {
         reset()
@@ -87,10 +99,16 @@ const AddTip = () => {
                         fullWidth
                         label="title"
                         autoFocus
+                        InputProps={{endAdornment: 
+                            <InputAdornment position="end">
+                                {count}/80
+                            </InputAdornment>,
+                            }}
+                        onChange={e => setCount(e.target.value.length)}
                         {...register("title", { required: true })}
-                    />
+                        />
                 </div>
-                <div>
+                <div>    
                     <TextField
                         variant='outlined'
                         margin="normal"
@@ -102,6 +120,7 @@ const AddTip = () => {
                         {...register("description", { required: true })}
                     />
                 </div>
+
                 <div>
                     <TextField
                         variant='outlined'
@@ -149,7 +168,6 @@ const AddTip = () => {
                         {...register("tags")}
                     />
                 </div>
-                
                 <Button
                     type="submit"
                     variant="contained"
@@ -159,7 +177,7 @@ const AddTip = () => {
                     className={classes.submit}
                     >
                     Submit
-                    </Button>
+                </Button>
 
                 <Button
                     fullWidth
