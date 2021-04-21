@@ -72,7 +72,6 @@ const Details = ({id, data}) => {
                     <Button>
                         <Link
                             href={{ pathname: '../edit', query: { id } }}
-                        
                             >
                             <Typography color='primary' style={{ fontSize: 12, }}>
                                 Edit
