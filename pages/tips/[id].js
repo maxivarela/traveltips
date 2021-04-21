@@ -35,7 +35,7 @@ export const getStaticProps = async (context) => {
         const data = doc.data()
 
         return {
-            props: { data },
+            props: { id, data },
             revalidate: 10,
         }
     } catch (err) {
@@ -43,10 +43,8 @@ export const getStaticProps = async (context) => {
     }
 }
 
-const Details = ({data}) => {
+const Details = ({id, data}) => {
     const router = useRouter()
-
-    console.log('jisoo2', data)
     if (!data) return <div>Loading...</div>
 
     const deleteHandler = () => {
@@ -85,7 +83,7 @@ const Details = ({data}) => {
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
             <div>
-                <DisqusComments item={data}/>
+                <DisqusComments item={data} id={id}/>
             </div>
         </Container>
     );
