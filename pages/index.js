@@ -25,7 +25,7 @@ export default function Home({data}) {
     return (
       <>
         <div>
-          Can't find a tip you are looking for? &nbsp;
+          Do you have a travel question? &nbsp;
           <a href="mailto:nonoumasy@gmail.com?subject=I need a travel tip" target='_blank' rel="noreferrer">Email us</a>
         </div>
       </>

@@ -8,6 +8,7 @@ export async function addTip(data, addComplete) {
             .add({
                 username: data.username ? data?.username : '',
                 userImage: data?.userImage ? data?.userImage : '',
+                city: data?.city,   
                 title: data?.title,
                 description: data?.description,
                 image: data?.image ? data?.image : '',
@@ -33,6 +34,7 @@ export async function editTip(data, id) {
             .update({
                 username: data.username ? data?.username : '',
                 userImage: data?.userImage ? data?.userImage : '',
+                city: data?.city,
                 title: data?.title,
                 description: data?.description,
                 image: data?.image ? data?.image : '',

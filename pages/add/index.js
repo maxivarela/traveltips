@@ -74,6 +74,15 @@ const AddTip = () => {
                     <TextField
                         variant='outlined'
                         margin="normal"
+                        fullWidth
+                        label="city"
+                        {...register("city")}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        variant='outlined'
+                        margin="normal"
                         required
                         fullWidth
                         label="title"

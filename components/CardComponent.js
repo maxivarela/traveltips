@@ -44,7 +44,7 @@ const CardComponent = ({ item, maxCharLength}) => {
 
                     </Avatar>}
                 title={<Typography color='primary' style={{ fontWeight: 500 }}>{item.username ? item.username : 'Anonymous'}</Typography>}
-                subheader={today.toLocaleDateString()}
+                subheader={item?.city}
             >
             </CardHeader>
 
