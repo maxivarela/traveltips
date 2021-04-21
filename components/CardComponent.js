@@ -11,9 +11,13 @@ import {
     CardActions,
     CardContent,
     CardHeader,
+    IconButton,
+    Tooltip,
     Typography,
 } from '@material-ui/core';
-// import ShareIcon from '@material-ui/icons/Share';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import ShareIcon from '@material-ui/icons/Share';
 
 const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
@@ -95,7 +99,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                 </div>
                 }
                     
-                <Typography variant='body2' component='h2' style={{ margin: '10px auto', fontWeight: 500, }}>
+                <Typography variant='body2' component='h2' style={{ marginTop: 10, fontWeight: 500, }}>
                     {item?.location && <div> Location: {item?.location}</div>}
                     
                     {item?.tags?.length > 1 && 
@@ -116,15 +120,33 @@ const CardComponent = ({ item, maxCharLength}) => {
                 </Typography>
             </CardContent>
 
-            {/* <CardActions style={{ marginBottom: 20 }}>
-                <Link href={``}>
-                    <Button>
+            <CardActions className='flexRow' style={{marginBottom: 20 , padding: '0px 20px'}}>
+                <div>
+                    <Tooltip title='Like' placement='top'>
+                        <IconButton onClick={() => alert('todo')}>
+                            <Typography variant='h5' color='primary'>
+                                <FavoriteBorderIcon />
+                            </Typography>
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title='Bookmark' placement='top'>
+                        <IconButton onClick={() => alert('todo')}>
+                            <Typography variant='h5' color='primary'>
+                                <BookmarkBorderIcon />
+                            </Typography>
+                        </IconButton>
+                    </Tooltip>
+                    
+                </div>
+                <Tooltip title='Share' placement='top'>
+                    <IconButton onClick={() => alert('todo')}>
                         <Typography variant='h5' color='primary'>
-                            SHARE
+                            <ShareIcon />
                         </Typography>
-                    </Button>
-                </Link>
-            </CardActions> */}
+                    </IconButton>
+                </Tooltip>
+                
+            </CardActions>
         </Card>
     );
 }
