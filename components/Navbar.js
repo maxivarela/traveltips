@@ -29,6 +29,10 @@ import InfoIcon from '@material-ui/icons/Info';
 import GroupIcon from '@material-ui/icons/Group';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import HomeIcon from '@material-ui/icons/Home';
+import AccessibleIcon from '@material-ui/icons/Accessible';
+import AirlineSeatReclineExtraIcon from '@material-ui/icons/AirlineSeatReclineExtra';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
+import ListIcon from '@material-ui/icons/List';
 
 export default function Navbar() {
     const classes = useStyles();
@@ -120,15 +124,42 @@ export default function Navbar() {
                 <List>
                     <ListItem button>
                         <ListItemIcon>
+                            <AccessibleIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Disability Travel"} />
+                    </ListItem>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <GroupIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Women Travel"} />
+                    </ListItem>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AirlineSeatReclineExtraIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Solo Travel"} />
+                    </ListItem>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <DirectionsBikeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Bike Travel"} />
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    <ListItem button>
+                        <ListItemIcon>
                             <InfoIcon />
                         </ListItemIcon>
                         <ListItemText primary={"About"} />
                     </ListItem>
                     <ListItem button>
                         <ListItemIcon>
-                            <GroupIcon />
+                            <ListIcon />
                         </ListItemIcon>
-                        <ListItemText primary={"Team"} />
+                        <ListItemText primary={"Guideline"} />
                     </ListItem>
                 </List>
                 <Divider />
