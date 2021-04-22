@@ -126,30 +126,42 @@ export default function Navbar() {
                 </List>
                 <Divider />
                 <List>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <AccessibleIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Disability Travel"} />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <GroupIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Women Travel"} />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <AirlineSeatReclineExtraIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Solo Travel"} />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <DirectionsBikeIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Bike Travel"} />
-                    </ListItem>
+                    <Link href='/disability'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AccessibleIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Disability Travel"} />
+                        </ListItem>
+                    </Link>
+                    
+                    <Link href='/women'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <GroupIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Women Travel"} />
+                        </ListItem>
+                    </Link>
+                    
+                    <Link href='/solo'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AirlineSeatReclineExtraIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Solo Travel"} />
+                        </ListItem>
+                    </Link>
+                    
+                    <Link href='/bike'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DirectionsBikeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Bike Travel"} />
+                        </ListItem>
+                    </Link>
+
                 </List>
                 <Divider />
                 <List>
