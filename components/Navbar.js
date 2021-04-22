@@ -48,7 +48,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className={classes.root}>
+        <>
             <CssBaseline />
             <AppBar
                 position="static"
@@ -174,15 +174,13 @@ export default function Navbar() {
                 </List>
             </Drawer>
 
-        </div>
+        </>
             
     );
 }
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex"
-    },
+
     appBar: {
         transition: theme.transitions.create(["margin", "width"], {
             easing: theme.transitions.easing.sharp,
