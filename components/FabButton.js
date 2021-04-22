@@ -26,14 +26,12 @@ const FabButton = (
                             Tip
                         </Typography>
                     </Link>
-                    
                 </Action>
-            
         
                 <Action
-                    text="Add Question"
+                    text="Ask Question"
                     style={{ backgroundColor: '#666', }}
-                >
+                    >
                     <QuestionAnswerIcon />
                 </Action>
             </Fab>
