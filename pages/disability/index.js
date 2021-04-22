@@ -24,7 +24,9 @@ export default function DisabilityTravel({data}) {
                 <title>Disability Travel Tips</title>
                 <meta name='keywords' content='travel tips' />
             </Head>
-            Disability Travel Section
+            <h2>
+                Disability Travel Tips
+            </h2>
 
             <TipsComponent tips={data} />
         </div>

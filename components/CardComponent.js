@@ -84,9 +84,13 @@ const CardComponent = ({ item, maxCharLength}) => {
                 <Typography variant='h6' component='h2' style={{ marginBottom: 20, fontWeight: 700, lineHeight: 1.3,}}>
                     {item?.title}
                 </Typography>
-                <Typography style={{ whiteSpace: 'pre-wrap', marginBottom: 20,}}>
-                    {item?.description?.substring(0, maxCharLength)}
-                </Typography>
+
+                {item?.description &&
+                    <Typography style={{ whiteSpace: 'pre-wrap', marginBottom: 20, }}>
+                        {item?.description?.substring(0, maxCharLength)}
+                    </Typography>
+                }
+                
 
                 {item?.link && 
                     <div style={{ margin: '20px auto', width: '100%', fontWeight: 500,}}>

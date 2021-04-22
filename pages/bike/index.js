@@ -24,7 +24,10 @@ export default function BikeTravel({ data }) {
                 <title>Bike Travel Tips</title>
                 <meta name='keywords' content='travel tips' />
             </Head>
-            Bike Travel Section
+            <h2> 
+                Bike Travel Tips
+            </h2>
+            
 
             <TipsComponent tips={data} />
         </div>

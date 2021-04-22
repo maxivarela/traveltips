@@ -26,10 +26,8 @@ const schema = yup.object().shape({
         .min(3)
         .max(80)
         .required('Title is a required field.'),
-    description: yup
-        .string()
-        .min(10)
-        .required('Summary is a required field.'),
+    // description: yup
+    //     .string(),
     // image: yup
     //     .string(),
     // audio: yup
@@ -152,9 +150,7 @@ const AddTip = () => {
                         multiline
                         rows={10}
                         label="description"
-                        {...register("description", { required: true })}
-                        error={!!errors.description}
-                        helperText={errors?.description?.message}
+                        {...register("description")}
                     />
                 </div>
 

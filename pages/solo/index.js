@@ -24,8 +24,9 @@ export default function SoloTravel({ data }) {
                 <title>Solo Travel Tips</title>
                 <meta name='keywords' content='travel tips' />
             </Head>
-            Solo Travel Section
-
+            <h2>
+                Solo Travel Tips
+            </h2>
             <TipsComponent tips={data} />
         </div>
     )

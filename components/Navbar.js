@@ -33,6 +33,7 @@ import AccessibleIcon from '@material-ui/icons/Accessible';
 import AirlineSeatReclineExtraIcon from '@material-ui/icons/AirlineSeatReclineExtra';
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import ListIcon from '@material-ui/icons/List';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 
 export default function Navbar() {
     const classes = useStyles();
@@ -99,6 +100,7 @@ export default function Navbar() {
                         )}
                     </IconButton>
                 </div>
+
                 <Divider />
                 <List>
                     <Link href='/'>
@@ -164,28 +166,41 @@ export default function Navbar() {
                 </List>
                 <Divider />
                 <List>
+
                     <ListItem button>
                         <ListItemIcon>
                             <InfoIcon />
                         </ListItemIcon>
                         <ListItemText primary={"About"} />
                     </ListItem>
+
                     <ListItem button>
                         <ListItemIcon>
                             <ListIcon />
                         </ListItemIcon>
                         <ListItemText primary={"Guideline"} />
                     </ListItem>
+
+                    <Link href='/dev'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <SettingsApplicationsIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"TripTips API"} />
+                        </ListItem>
+                    </Link>
                 </List>
                 <Divider />
 
                 <List>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <ExitToAppIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Login"} />
-                    </ListItem>
+                    <Link href='/signin'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <ExitToAppIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Login"} />
+                        </ListItem>
+                    </Link>
                 </List>
             </Drawer>
 

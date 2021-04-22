@@ -24,8 +24,9 @@ export default function WomenTravel({ data }) {
                 <title>Women Travel Tips</title>
                 <meta name='keywords' content='travel tips' />
             </Head>
-            Women Travel Section
-
+            <h2>
+                Women Travel Tips
+            </h2>
             <TipsComponent tips={data} />
         </div>
     )
