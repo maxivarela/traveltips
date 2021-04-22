@@ -3,13 +3,12 @@ import { useForm } from 'react-hook-form';
 // import MUIRichTextEditor from 'mui-rte'
 // import { convertToRaw } from "draft-js";
 
-// import * as yup from 'yup'
-// import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from 'yup'
+import { yupResolver } from "@hookform/resolvers/yup"
 // import GooglePlaces from '../../components/GooglePlaces'
 import {useRouter} from 'next/router'
 import { addTip } from '../api'
 import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
-
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -20,9 +19,33 @@ import {
     Typography,
 } from '@material-ui/core/';
 
-const defaultValues = {
-    RTE1: ""
-};
+const schema = yup.object().shape({
+    title: yup
+        .string()
+        .min(3)
+        .max(80)
+        .required('Title is a required field.'),
+    description: yup
+        .string()
+        .min(10)
+        .required('Summary is a required field.'),
+    // image: yup
+    //     .string(),
+    // audio: yup
+    //     .string(),
+    // tags: yup
+    //     .string(),
+    // latitude: yup
+    //     .number()
+    //     .transform(cv => isNaN(cv) ? undefined : cv).positive()
+    //     .lessThan(90)
+    //     .moreThan(-90),
+    // longitude: yup
+    //     .number()
+    //     .transform(cv => isNaN(cv) ? undefined : cv).positive()
+    //     .lessThan(180)
+    //     .moreThan(-180),
+})
 
 const AddTip = () => {
     const classes = useStyles();
@@ -37,7 +60,7 @@ const AddTip = () => {
     };
 
     const { register, handleSubmit, formState: { errors }, reset, } = useForm({
-        defaultValues
+        resolver: yupResolver(schema)
     })
 
     const addComplete = useCallback(() => {
@@ -111,6 +134,8 @@ const AddTip = () => {
                         onChange={e => setCount(e.target.value.length)}
                         {...rest}
                         // {...register("title", { required: true })}
+                        error={!!errors.title}
+                        helperText={errors?.title?.message}
                         />
                 </div>
                 <div>    
@@ -123,6 +148,8 @@ const AddTip = () => {
                         rows={10}
                         label="description"
                         {...register("description", { required: true })}
+                        error={!!errors.description}
+                        helperText={errors?.description?.message}
                     />
                 </div>
 
