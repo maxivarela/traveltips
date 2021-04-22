@@ -62,7 +62,7 @@ const Details = ({id, data}) => {
                 <meta name={data.title} content='travel tips' />
             </Head>
             <div className='flexRow' style={{marginBottom: 10,}}>
-                <Button onClick={() => router.back()}>
+                <Button onClick={() => router.push('/', { shallow: true })}>
                     <Typography color='primary' style={{ fontSize: 12, }}>
                         Back
                     </Typography>
