@@ -14,7 +14,7 @@ const Layout = ({children}) => {
                 <CssBaseline>
                     <Container 
                         maxWidth={'lg'} 
-                        style={{ margin: '40px auto', padding: 0 }}
+                        style={{ padding: 0 }}
                         >
                         {children}
                     </Container>

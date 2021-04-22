@@ -39,8 +39,7 @@ export default function Home({data}) {
           <title>Travel Tips</title>
           <meta name='keywords' content='travel tips'/>
         </Head>
-        <div className='flexRow' style={{ marginBottom: 10 }}>
-          
+        <div className='flexRow' style={{ margin: '20px auto' }}>
           <AddTip /> 
           <MailMe />
         </div>
