@@ -53,6 +53,7 @@ export default function Navbar() {
             <CssBaseline />
             <AppBar
                 position="static"
+                elevation={0}
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open
                 })}
