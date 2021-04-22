@@ -103,11 +103,10 @@ export default function Navbar() {
                 <List>
                     <Link href='/'>
                         <ListItem button>
-
                             <ListItemIcon>
                                 <HomeIcon />
                             </ListItemIcon>
-                            <ListItemText primary={"Trip Tips"} />
+                            <ListItemText primary={"Tips"} />
                         </ListItem>
                     </Link>
                     

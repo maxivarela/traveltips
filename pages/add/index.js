@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState, useEffect, useCallback, } from 'react'
 import { useForm } from 'react-hook-form';
 // import MUIRichTextEditor from 'mui-rte'
@@ -83,6 +84,10 @@ const AddTip = () => {
 
     return ( 
         <Container component="main" maxWidth="xs">
+            <Head>
+                <title>Add a Travel Tip</title>
+                <meta name='keywords' content='travel tips' />
+            </Head>
 
             <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                 <Typography className='formTitle'>
