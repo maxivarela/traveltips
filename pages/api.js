@@ -12,7 +12,7 @@ export async function addTip(data, addComplete) {
                 title: data?.title,
                 description: data?.description,
                 image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
-                audio: data?.audio ? data?.audio : '',
+                // audio: data?.audio ? data?.audio : '',
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],

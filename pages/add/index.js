@@ -164,7 +164,7 @@ const AddTip = () => {
                         {...register("image")}
                     />
                 </div>
-                <div>
+                {/* <div>
                     <TextField
                         variant='outlined'
                         margin="normal"
@@ -172,7 +172,7 @@ const AddTip = () => {
                         label="audio"
                         {...register("audio")}
                     />
-                </div>
+                </div> */}
                 <div>
                     <TextField
                         variant='outlined'

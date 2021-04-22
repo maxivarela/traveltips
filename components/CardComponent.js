@@ -68,7 +68,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                 null
             }
 
-            {item?.audio
+            {/* {item?.audio
                 ?
                 <CardContent>
                     <audio controls style={{ width: '100%',}} preload="none">
@@ -78,7 +78,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                 </CardContent>
                 :
                 null
-            }
+            } */}
 
             <CardContent style={{ padding: '20px 30px', }}>
                 <Typography variant='body1' component='h2' style={{ marginBottom: 10, fontWeight: 500, }}>
