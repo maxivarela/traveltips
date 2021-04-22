@@ -81,7 +81,7 @@ const AddTip = () => {
     const { onChange, ...rest } = register("title", { required: true })
 
     return ( 
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" style={{margin: '40px auto'}}>
             <Head>
                 <title>Add a Travel Tip</title>
                 <meta name='keywords' content='travel tips' />
