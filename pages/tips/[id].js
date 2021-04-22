@@ -4,7 +4,6 @@ import firebase from '../../components/firebase'
 import {useRouter} from 'next/router'
 import {deleteTip} from '../api'
 import Link from 'next/link'
-
 import DisqusComments from '../../components/DisqusComments';
 
 import {

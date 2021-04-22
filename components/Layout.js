@@ -12,7 +12,10 @@ const Layout = ({children}) => {
         <>
             <Navbar />
                 <CssBaseline>
-                    <Container maxWidth={'lg'} style={{ margin: '40px auto', backgroundColor: "efefef" }}>
+                    <Container 
+                        maxWidth={'lg'} 
+                        style={{ margin: '40px auto', padding: 0 }}
+                        >
                         {children}
                     </Container>
                 </CssBaseline>

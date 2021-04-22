@@ -33,7 +33,7 @@ export default function Home({data}) {
   }
   
   return (
-    <>
+    <div style={{padding: '1rem',}}>
       <Head>
         <title>Travel Tips</title>
         <meta name='keywords' content='travel tips'/>
@@ -44,6 +44,6 @@ export default function Home({data}) {
       </div>
       
       <TipsComponent tips={data}/>
-    </>
+    </div>
   )
 }

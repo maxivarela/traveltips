@@ -7,6 +7,7 @@ html {
 body {
   padding: 0;
   margin: 0;
+  word-wrap: break-word;
   background-color: #efefef;
   font-family: "Roboto";
   -webkit-font-smoothing: antialiased;
@@ -144,13 +145,6 @@ footer {
   height: 1em;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
 .tags {
   display: inline-block;
   text-align: left;
@@ -180,4 +174,11 @@ footer {
 /* Style your items */
 .my-masonry-grid_column > div {
   margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
 }
