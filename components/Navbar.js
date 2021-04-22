@@ -101,12 +101,16 @@ export default function Navbar() {
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <HomeIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Trip Tips"} />
-                    </ListItem>
+                    <Link href='/'>
+                        <ListItem button>
+
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Trip Tips"} />
+                        </ListItem>
+                    </Link>
+                    
                     <ListItem button>
                         <ListItemIcon>
                             <InboxIcon />
