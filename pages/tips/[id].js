@@ -60,7 +60,7 @@ const Details = ({id, data}) => {
                 <title>{data.title}</title>
                 <meta name={data.title} content='travel tips' />
             </Head>
-            <div className='flexRow' style={{marginBottom: 10,}}>
+            <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.back()}>
                     <Typography color='primary' style={{ fontSize: 12, }}>
                         Back

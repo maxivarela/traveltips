@@ -8,9 +8,9 @@ export async function addTip(data, addComplete) {
             .add({
                 username: data.username ? data?.username : '',
                 userImage: data?.userImage ? data?.userImage : '',
-                city: data.city ? data?.city: '',
+                city: data.city ? data?.city : '',
                 title: data?.title,
-                description: data?.description,
+                description: data?.description ? data?.description : '',
                 image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
                 // audio: data?.audio ? data?.audio : '',
                 link: data?.link ? data?.link : '',
