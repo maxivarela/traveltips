@@ -28,6 +28,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import InfoIcon from '@material-ui/icons/Info';
 import GroupIcon from '@material-ui/icons/Group';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import HomeIcon from '@material-ui/icons/Home';
 
 export default function Navbar() {
     const classes = useStyles();
@@ -96,6 +97,12 @@ export default function Navbar() {
                 </div>
                 <Divider />
                 <List>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <HomeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Trip Tips"} />
+                    </ListItem>
                     <ListItem button>
                         <ListItemIcon>
                             <InboxIcon />
