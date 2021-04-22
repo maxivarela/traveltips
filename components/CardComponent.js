@@ -81,7 +81,7 @@ const CardComponent = ({ item, maxCharLength}) => {
             } */}
 
             <CardContent style={{ padding: '20px 30px', }}>
-                <Typography variant='body1' component='h2' style={{ marginBottom: 10, fontWeight: 500, }}>
+                <Typography variant='h6' component='h2' style={{ marginBottom: 20, fontWeight: 700, lineHeight: 1.3,}}>
                     {item?.title}
                 </Typography>
                 <Typography style={{ whiteSpace: 'pre-wrap', marginBottom: 20,}}>
