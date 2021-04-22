@@ -177,6 +177,10 @@ footer {
 }
 
 /* Fab Button */
+.rtf--mb {
+  z-index: 500 !important;
+}
+
 .rtf.closed {
   z-index: 500 !important;
 }
