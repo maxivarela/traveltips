@@ -16,7 +16,8 @@ export async function addTip(data, addComplete) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                createdAt: (new Date(Date.now())).toString()
+                createdAt: (new Date(Date.now())).toString(),
+                updatedAt: (new Date(Date.now())).toString()
             })
         addComplete()
 

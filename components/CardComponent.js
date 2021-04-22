@@ -89,14 +89,14 @@ const CardComponent = ({ item, maxCharLength}) => {
                 </Typography>
 
                 {item?.link && 
-                <div style={{ margin: '10px auto', width: '100%',}}>
-                    Link:&nbsp;
-                    <Link href={item?.link} >
-                        <a target="_blank" rel="noreferrer">
-                        {item?.link}
-                        </a>
-                    </Link>
-                </div>
+                    <div style={{ margin: '20px auto', width: '100%', fontWeight: 500,}}>
+                        Link:&nbsp;
+                        <Link href={item?.link} >
+                            <a target="_blank" rel="noreferrer">
+                            {item?.link}
+                            </a>
+                        </Link>
+                    </div>
                 }
                     
                 <Typography variant='body2' component='h2' style={{ marginTop: 10, fontWeight: 500, }}>
@@ -115,7 +115,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                     }
                     
                     <div>
-                        Last Updated: { new Date(Date.parse(item?.createdAt)).toLocaleDateString()}
+                        Last Updated: { new Date(Date.parse(item?.updatedAt)).toLocaleDateString()}
                     </div>
                 </Typography>
             </CardContent>

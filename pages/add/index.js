@@ -99,7 +99,9 @@ const AddTip = () => {
                         fullWidth
                         label="title"
                         autoFocus
-                        InputProps={{endAdornment: 
+                        InputProps={{
+                            maxLength: 80,
+                            endAdornment: 
                             <InputAdornment position="end">
                                 {count}/80
                             </InputAdornment>,
