@@ -176,6 +176,15 @@ footer {
   margin-bottom: 30px;
 }
 
+/* Fab Button */
+.rtf--mb {
+  z-index: 100 !important;
+}
+
+.rtf.closed {
+  z-index: 100 !important;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

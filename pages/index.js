@@ -33,17 +33,20 @@ export default function Home({data}) {
   }
   
   return (
-    <div style={{padding: '1rem',}}>
-      <Head>
-        <title>Travel Tips</title>
-        <meta name='keywords' content='travel tips'/>
-      </Head>
-      <div className='flexRow' style={{ marginBottom: 10 }}>
-        <AddTip /> 
-        <MailMe />
+    <>
+      <div style={{padding: '1rem',}}>
+        <Head>
+          <title>Travel Tips</title>
+          <meta name='keywords' content='travel tips'/>
+        </Head>
+        <div className='flexRow' style={{ marginBottom: 10 }}>
+          
+          <AddTip /> 
+          <MailMe />
+        </div>
+        
+        <TipsComponent tips={data}/>
       </div>
-      
-      <TipsComponent tips={data}/>
-    </div>
+    </>
   )
 }

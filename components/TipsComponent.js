@@ -1,6 +1,7 @@
 import CardComponent from './CardComponent';
 import Masonry from 'react-masonry-css'
 import Link from 'next/link';
+import FabButton from '../components/FabButton'
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -13,6 +14,7 @@ const TipsComponent = ({ tips}) => {
 
     return (
         <>
+            <FabButton />
             <Masonry
                 breakpointCols={breakpoints}
                 className="my-masonry-grid"

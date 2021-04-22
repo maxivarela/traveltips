@@ -89,7 +89,7 @@ export default function Navbar() {
                 anchor="right"
                 open={open}
                 classes={{
-                    paper: classes.drawerPaper
+                paper: classes.drawerPaper
                 }}
                 >
                 <div className={classes.drawerHeader}>
@@ -234,7 +234,8 @@ const useStyles = makeStyles((theme) => ({
     },
     drawer: {
         width: drawerWidth,
-        flexShrink: 0
+        flexShrink: 0,
+        zIndex: 200,
     },
     drawerPaper: {
         width: drawerWidth
