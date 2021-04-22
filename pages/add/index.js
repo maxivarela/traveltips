@@ -56,6 +56,8 @@ const AddTip = () => {
 
     EscFunctionToCancel()
 
+    const { onChange, ...rest } = register("title", { required: true })
+
     return ( 
         <Container component="main" maxWidth="xs">
 
@@ -107,7 +109,8 @@ const AddTip = () => {
                             </InputAdornment>,
                             }}
                         onChange={e => setCount(e.target.value.length)}
-                        {...register("title", { required: true })}
+                        {...rest}
+                        // {...register("title", { required: true })}
                         />
                 </div>
                 <div>    
