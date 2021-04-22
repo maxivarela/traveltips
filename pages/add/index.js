@@ -145,7 +145,6 @@ const AddTip = () => {
                     <TextField
                         variant='outlined'
                         margin="normal"
-                        required
                         fullWidth
                         multiline
                         rows={10}
