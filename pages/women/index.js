@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import TipsComponent from '../../components/TipsComponent'
-import firebase from '../../components/firebase'
+import firebase from '../../firebase'
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {

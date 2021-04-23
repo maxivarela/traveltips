@@ -1,4 +1,7 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
 
 const config = {
     apiKey: "AIzaSyD3rj3ozaBPHrh5lofJi2_YAzOMYOcc_V4",
@@ -13,5 +16,6 @@ const config = {
 if (firebase.apps.length === 0) {
     firebase.initializeApp(config);
 }
+console.log('firebase successully initialized.')
 
 export default firebase

@@ -1,4 +1,4 @@
-import firebase from '../components/firebase'
+import firebase from '../firebase'
 
 export async function addTip(data, addComplete) {
     try {
