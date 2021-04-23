@@ -17,8 +17,8 @@ export async function addTip(data, addComplete) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
-                updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
+                // createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+                // updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
             })
         addComplete()
 
@@ -53,7 +53,6 @@ export async function editTip(data, id) {
 }
 
 export async function deleteTip(id) {
-
     try {
         await firebase
             .firestore()

@@ -50,8 +50,7 @@ const Details = ({id, data}) => {
 
     const deleteHandler = async () => {
         window.confirm("Are you sure you wish to delete this tip?") &&
-            await deleteTip(id)
-            router.back()
+            await deleteTip(id).then(router.back())
     }
             
     return ( 
