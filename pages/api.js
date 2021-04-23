@@ -1,6 +1,7 @@
 import firebase from '../firebase'
 
 export async function addTip(data, addComplete) {
+    
     try {
         await firebase
             .firestore()
@@ -16,8 +17,8 @@ export async function addTip(data, addComplete) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                createdAt: (new Date(Date.now())).toString(),
-                updatedAt: (new Date(Date.now())).toString()
+                createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+                updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
             })
         addComplete()
 
@@ -43,7 +44,7 @@ export async function editTip(data, id) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                updatedAt: (new Date(Date.now())).toString()
+                updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
             })
 
     } catch (error) {

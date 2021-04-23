@@ -5,7 +5,13 @@ import firebase from '../../firebase'
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {
     try {
-        const res = await firebase.firestore().collection('tips').where('tags', 'array-contains', "solo").orderBy('createdAt', 'desc').limit(10).get()
+        const res = await firebase
+            .firestore()
+            .collection('tips')
+            .where('tags', 'array-contains', "solo")
+            // .orderBy('createdAt', 'desc')
+            .limit(10)
+            .get()
         const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         return {
             props: { data },
