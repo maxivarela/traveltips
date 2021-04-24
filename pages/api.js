@@ -27,7 +27,35 @@ export async function addTip(data, addComplete) {
     }
 }
 
-export async function editTip(data, id) {
+export async function getTips() {
+    const res = await firebase
+        .firestore()
+        .collection('tips')
+        // .orderBy('createdAt', 'desc')
+        .get()
+
+    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return {
+        props: { data },
+        revalidate: 10,
+    }
+}
+
+export async function getTip(id) {
+    const doc = await firebase
+        .firestore()
+        .collection('tips')
+        .doc(id)
+        .get()
+    const data = doc.data()
+
+    return {
+        props: { id, data },
+        revalidate: 10,
+    }
+}
+
+export async function editTip(data, id, addComplete) {
     try {
         await firebase
             .firestore()
@@ -46,6 +74,7 @@ export async function editTip(data, id) {
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
                 updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
             })
+        addComplete()
 
     } catch (error) {
         console.log(error)

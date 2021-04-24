@@ -28,7 +28,7 @@ const TipsComponent = ({ tips}) => {
                             <Link href={`./tips/${item.id}`}>
                                 <a>
                                     more
-                            </a>
+                                </a>
                             </Link>
                         </div>
                     )

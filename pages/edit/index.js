@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router'
+import firebase from '../../firebase'
 // import { editTip } from '../api'
 import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
 
@@ -12,15 +13,22 @@ import {
     Typography,
 } from '@material-ui/core/'
 
-export default function Edit ({query}) {
+export default function Edit () {
     const classes = useStyles();
     const router = useRouter()
+    const id = router.query.id
 
+    const [fetchedData, setFetchedData] = useState({})
     const [data, setData] = useState({})
-    // const [latitude, setLatitude] = useState(null)
-    // const [longitude, setLongitude] = useState(null)
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm()
+    const { register, handleSubmit, reset,  formState: { errors } } = useForm({
+        defaultValues: {
+            username: 'nonoumasy',
+            userImage: 'ADSFDS',
+            title: 'title',
+            description: 'lorem ipsum this and that',
+        }
+    })
 
     const addComplete = useCallback(() => {
         reset()
@@ -28,8 +36,21 @@ export default function Edit ({query}) {
     }, [reset])
 
     useEffect(() => {
+        const getData = async () => {
+            const doc = await firebase
+                .firestore()
+                .collection('tips')
+                .doc(id)
+                .get()
+            const data = await doc.data()
+            setFetchedData(data)
+        }
+        getData()
+    }, [])
+
+    useEffect(() => {
         data?.title &&
-            editTip(data, addComplete)
+            editTip(data, id, addComplete)
     }, [setData, data, addComplete])
 
     const onSubmit = (data) => {
@@ -43,7 +64,7 @@ export default function Edit ({query}) {
     EscFunctionToCancel()
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
 
             <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
                 <Typography className='formTitle'>
@@ -51,7 +72,7 @@ export default function Edit ({query}) {
                 </Typography>
 
                 <div>
-                    <TextField
+                    <input
                         variant='outlined'
                         margin="normal"
                         fullWidth
@@ -60,7 +81,7 @@ export default function Edit ({query}) {
                     />
                 </div>
                 <div>
-                    <TextField
+                    <input
                         variant='outlined'
                         margin="normal"
                         fullWidth
@@ -74,21 +95,22 @@ export default function Edit ({query}) {
                         margin="normal"
                         required
                         fullWidth
+                        id='title '
+                        name='title'
                         label="title"
                         autoFocus
                         {...register("title", { required: true })}
                     />
                 </div>
                 <div>
-                    <TextField
+                    <input
                         variant='outlined'
                         margin="normal"
-                        required
                         fullWidth
                         multiline
                         rows={10}
                         label="description"
-                        {...register("description", { required: true })}
+                        {...register("description")}
                     />
                 </div>
                 <div>
@@ -100,7 +122,7 @@ export default function Edit ({query}) {
                         {...register("image")}
                     />
                 </div>
-                <div>
+                {/* <div>
                     <TextField
                         variant='outlined'
                         margin="normal"
@@ -108,7 +130,7 @@ export default function Edit ({query}) {
                         label="audio"
                         {...register("audio")}
                     />
-                </div>
+                </div> */}
                 <div>
                     <TextField
                         variant='outlined'

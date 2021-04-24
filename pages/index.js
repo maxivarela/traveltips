@@ -1,21 +1,14 @@
 import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
+import {getTips} from './api'
 import {AddTip} from '../components/shared/SharedComponents'
-import firebase from '../firebase'
+import firebase from './api'
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {
   try {
-    const res = await firebase.firestore()
-      .collection('tips')
-      // .orderBy('createdAt', 'desc')
-      .get()
-      
-    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return {
-      props: { data },
-      revalidate: 10,
-    }
+    const data = await getTips()
+    return data
   } catch (error) {
     console.error(error);
     throw error;

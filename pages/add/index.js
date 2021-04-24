@@ -26,14 +26,6 @@ const schema = yup.object().shape({
         .min(3)
         .max(80)
         .required('Title is a required field.'),
-    // description: yup
-    //     .string(),
-    // image: yup
-    //     .string(),
-    // audio: yup
-    //     .string(),
-    // tags: yup
-    //     .string(),
     // latitude: yup
     //     .number()
     //     .transform(cv => isNaN(cv) ? undefined : cv).positive()

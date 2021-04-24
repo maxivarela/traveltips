@@ -15,7 +15,7 @@ import {
 //next will build a page for each of the items in this path array
 export const getStaticPaths = async () => {
     const res = await firebase.firestore().collection('tips').get()
-    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     const paths = data.map(item => {
         return {
             params: {id: item.id}
@@ -31,8 +31,11 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     try {
         const id = context.params.id
-
-        const doc = await firebase.firestore().collection('tips').doc(id).get()
+        const doc = await firebase
+            .firestore()
+            .collection('tips')
+            .doc(id)
+            .get()
         const data = doc.data()
 
         return {
@@ -69,7 +72,7 @@ const Details = ({id, data}) => {
                 <div>
                     <Button>
                         <Link
-                            href={{ pathname: '../edit', query: { id } }}
+                            href={{ pathname: `../edit`, query: { id } }}
                             >
                             <Typography color='primary' style={{ fontSize: 12, }}>
                                 Edit
