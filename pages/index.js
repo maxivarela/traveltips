@@ -35,6 +35,7 @@ export default function Home({data}) {
         <Head>
           <title>Travel Tips</title>
           <meta name='keywords' content='travel tips'/>
+          <meta name='description' content='travel tips'/>
         </Head>
         <div className='flexRow' style={{ margin: '20px auto' }}>
           <AddTip /> 
