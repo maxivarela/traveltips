@@ -99,7 +99,7 @@ const CardComponent = ({ item, maxCharLength}) => {
 
                 {item?.link && 
                     <div style={{ margin: '20px auto', width: '100%', fontWeight: 500,}}>
-                        Link:&nbsp;
+                        Travel Tip Source:&nbsp;
                         <Link href={item?.link} >
                             <a target="_blank" rel="noreferrer" alt={item?.link}>
                             {item?.link}
