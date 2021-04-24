@@ -27,7 +27,7 @@ const TipsComponent = ({ tips}) => {
                             <CardComponent item={item} maxCharLength={240} />
                             <Link href={`./tips/${item.id}`}>
                                 <a>
-                                    more
+                                    Travel Tip article
                                 </a>
                             </Link>
                         </div>
