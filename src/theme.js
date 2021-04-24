@@ -3,6 +3,7 @@ import { pink, teal } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
     palette: {
+        // type: prefersDarkMode? 'dark': 'light',
         type: 'dark',
         primary: teal,
         secondary: pink,

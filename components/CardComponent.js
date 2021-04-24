@@ -42,7 +42,12 @@ const CardComponent = ({ item, maxCharLength}) => {
                             <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
                             :
                             <Typography color='primary'>
-                                {item.username ? item?.username?.split(" ").map(n => n[0]).join("").toUpperCase() : 'A'}
+                                {item.username 
+                                    ? 
+                                    item?.username?.split(" ").map(n => n[0]).join("").toUpperCase() 
+                                    : 
+                                    'A'
+                                    }
                             </Typography>
                         }
 
@@ -96,7 +101,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                     <div style={{ margin: '20px auto', width: '100%', fontWeight: 500,}}>
                         Link:&nbsp;
                         <Link href={item?.link} >
-                            <a target="_blank" rel="noreferrer">
+                            <a target="_blank" rel="noreferrer" alt={item?.link}>
                             {item?.link}
                             </a>
                         </Link>
