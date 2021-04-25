@@ -12,7 +12,7 @@ export default function NotFound() {
 
     useEffect(() => {
         setTimeout(() => {
-            router.back()
+            router.push('/')
         }, 3000)
     }, [])
 

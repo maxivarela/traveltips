@@ -8,7 +8,10 @@ import {AddTip} from '../components/shared/SharedComponents'
 export const getStaticProps = async () => {
   try {
     const data = await getTips()
-    return data
+    return {
+      props: { data },
+      revalidate: 10,
+    }
   } catch (error) {
     console.error(error);
     throw error;

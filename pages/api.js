@@ -33,12 +33,7 @@ export async function getTips() {
         .collection('tips')
         // .orderBy('createdAt', 'desc')
         .get()
-
-    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return {
-        props: { data },
-        revalidate: 10,
-    }
+    return res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
 export async function getTipsByCategory(category) {
