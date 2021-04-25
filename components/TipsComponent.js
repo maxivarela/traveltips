@@ -3,8 +3,6 @@ import Masonry from 'react-masonry-css'
 import Link from 'next/link';
 import FabButton from '../components/FabButton'
 
-import { makeStyles } from '@material-ui/core/styles';
-
 const TipsComponent = ({ tips}) => {
     const breakpoints = {
         default: 3,
@@ -37,9 +35,5 @@ const TipsComponent = ({ tips}) => {
         </>
     );
 }
-
-const useStyles = makeStyles((theme) => ({
-
-}));
 
 export default TipsComponent;

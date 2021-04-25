@@ -2,7 +2,7 @@ import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
 import {getTips} from './api'
 import {AddTip} from '../components/shared/SharedComponents'
-import firebase from './api'
+// import firebase from './api'
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {

@@ -39,7 +39,11 @@ const CardComponent = ({ item, maxCharLength}) => {
 
                         {item?.userImage
                             ?
-                            <img src={item?.userImage} alt="" style={{ width: '100%', height: 40, borderRadius: 50, objectFit: 'cover' }} />
+                            <img 
+                                src={item?.userImage} 
+                                alt="" 
+                                style={{ borderRadius: 50, objectFit: 'cover' }} 
+                                />
                             :
                             <Typography color='primary'>
                                 {item.username 
