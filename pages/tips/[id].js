@@ -13,22 +13,22 @@ import {
 } from '@material-ui/core';
 
 //next will build a page for each of the items in this path array
-export const getStaticPaths = async () => {
-    const res = await firebase.firestore().collection('tips').get()
-    const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    const paths = data.map(item => {
-        return {
-            params: {id: item.id}
-        }
-    })
+// export const getStaticPaths = async () => {
+//     const res = await firebase.firestore().collection('tips').get()
+//     const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+//     const paths = data.map(item => {
+//         return {
+//             params: {id: item.id}
+//         }
+//     })
 
-    return {
-        paths,
-        fallback: true,
-    }
-}
+//     return {
+//         paths,
+//         fallback: true,
+//     }
+// }
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
     try {
         const id = context.params.id
         const doc = await firebase
@@ -40,12 +40,31 @@ export const getStaticProps = async (context) => {
 
         return {
             props: { id, data },
-            revalidate: 10,
+            // revalidate: 10,
         }
     } catch (err) {
         console.log(err)
     }
 }
+
+// export const getStaticProps = async (context) => {
+//     try {
+//         const id = context.params.id
+//         const doc = await firebase
+//             .firestore()
+//             .collection('tips')
+//             .doc(id)
+//             .get()
+//         const data = doc.data()
+
+//         return {
+//             props: { id, data },
+//             revalidate: 10,
+//         }
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
 
 const Details = ({id, data}) => {
     const router = useRouter()

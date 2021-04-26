@@ -5,18 +5,29 @@ import {AddTip} from '../components/shared/SharedComponents'
 // import firebase from './api'
 
 //this runs in build time. don't put code here that you expect to run in browser
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const data = await getTips()
     return {
       props: { data },
-      revalidate: 10,
     }
   } catch (error) {
     console.error(error);
     throw error;
   }
 }
+// export const getStaticProps = async () => {
+//   try {
+//     const data = await getTips()
+//     return {
+//       props: { data },
+//       revalidate: 10,
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// }
 
 export default function Home({data}) {
 
