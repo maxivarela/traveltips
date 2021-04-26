@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Link from 'next/link';
 import clsx from "clsx";
+import SearchBar from "material-ui-search-bar";
 
 const drawerWidth = 300;
 
@@ -38,6 +39,7 @@ import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 export default function Navbar() {
     const classes = useStyles();
     const theme = useTheme();
+    const [searchTerm, setSearchTerm] = useState('')
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => {
@@ -69,6 +71,13 @@ export default function Navbar() {
                             </Button>
                         </Link>
                     </div>
+
+                    <SearchBar
+                        value={searchTerm}
+                        onChange={(item) => setSearchTerm(item)}
+                        onRequestSearch={() => alert(searchTerm)}
+                        style={{height: 36,}}
+                    />
                     
                     <IconButton
                         color="inherit"
