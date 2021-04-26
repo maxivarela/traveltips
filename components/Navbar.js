@@ -2,6 +2,7 @@ import {useState} from "react";
 import Link from 'next/link';
 import clsx from "clsx";
 import SearchBar from "material-ui-search-bar";
+import { useRouter } from 'next/router'
 
 const drawerWidth = 300;
 
@@ -39,6 +40,7 @@ import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 export default function Navbar() {
     const classes = useStyles();
     const theme = useTheme();
+    const router = useRouter()
     const [searchTerm, setSearchTerm] = useState('')
     const [open, setOpen] = useState(false);
 
@@ -49,6 +51,13 @@ export default function Navbar() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const handleSearch = () => {
+        router.push({
+            pathname: '/search',
+            query: { search: searchTerm }
+        })
+    }
 
     return (
         <>
@@ -75,7 +84,7 @@ export default function Navbar() {
                     <SearchBar
                         value={searchTerm}
                         onChange={(item) => setSearchTerm(item)}
-                        onRequestSearch={() => alert(searchTerm)}
+                        onRequestSearch={handleSearch}
                         style={{height: 36,}}
                     />
                     
