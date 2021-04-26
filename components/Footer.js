@@ -13,38 +13,28 @@ export default function Footer() {
 
     return (
         <>
-            <footer style={{ backgroundColor: '#111', padding: 10, textAlign: 'center'}}>
-                <div style={{ color: '#fff', display: 'inline', }}>
-                    <Typography style={{ fontSize: 12, display: 'inline' }}>
-                        ©{new Date().getFullYear()}
-                    </Typography>
+            <footer style={{ display:'flex', justifyContent: 'center', backgroundColor: '#111', padding: 10, textAlign: 'center', color: '#fff', fontSize: 14,}}>
+                    ©{new Date().getFullYear()}
                     <Link 
                         target='_blank' 
                         rel="noreferrer" 
                         href="https://www.linkedin.com/in/nonoumasy/" 
-                        style={{ display: 'inline' }}
                         >
-                        <Typography 
-                            variant='h5' 
-                            style={{ fontSize: 12, display: 'inline'  }}
-                            color='primary'
-                            > 
-                            &nbsp; Nonoumasy.  
-                        </Typography>
+                        <a>
+                        &nbsp; Nonoumasy.&nbsp;
+                        </a>
                     </Link>
                     {windowSize.width >= 600 &&
-                        <>
-                            <Link href='/terms'>
-                            <Typography variant='h5' style={{ fontSize: 12, display: 'inline'}} color='primary'> Terms </Typography>
-                            </Link>
-                            {'&'}
-                            <Link href='/privacy'>
-                            <Typography variant='h5' style={{ fontSize: 12, display: 'inline' }} color='primary'> Privacy Policy. </Typography>
-                            </Link>
-                        </>
-                            
+                    <>
+                    <Link href='/terms' target='_blank' rel="noreferrer" >
+                        <a>Terms </a> 
+                    </Link>
+                    {'&'}
+                    <Link href='/privacy' target='_blank' rel="noreferrer">
+                        <a> Privacy Policy. </a>
+                    </Link>
+                    </>
                     }
-                </div>
             </footer>
         </>
     );

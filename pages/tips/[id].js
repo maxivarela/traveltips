@@ -107,7 +107,7 @@ const Details = ({id, data}) => {
                 </div>
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
-            <DisqusComments item={data} id={id}/>
+            {/* <DisqusComments item={data} id={id}/> */}
         </Container>
     );
 }

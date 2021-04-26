@@ -26,7 +26,7 @@ const CardComponent = ({ item, maxCharLength}) => {
     return ( 
         <Card
             style={{
-                marginBottom: 20,
+                marginBottom: 40,
                 borderRadius: 5,
                 boxShadow: '0 10px 10px 0 rgba(0, 0, 0, 0.1)'
             }}
