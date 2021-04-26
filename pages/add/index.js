@@ -54,7 +54,7 @@ const AddTip = () => {
 
             <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData(data))}>
                 <Typography className='formTitle'>
-                    Edit Tip
+                    Add Tip
                 </Typography>
 
                 <TextField
