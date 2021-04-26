@@ -1,5 +1,5 @@
-import firebase from 'firebase'
-import firebaseui from 'firebaseui'
+// import firebase from 'firebase'
+// import firebaseui from 'firebaseui'
 
 export default function Signin() {
     // const ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -49,8 +49,8 @@ export default function Signin() {
 
     return (
         <>
-        <h1>Welcome to My Awesome App</h1>
-        {/* {ui.start('#firebaseui-auth-container', uiConfig)} */}
+            <h1>Welcome to My Awesome App</h1>
+            {/* {ui.start('#firebaseui-auth-container', uiConfig)} */}
         </>
     )
 }
