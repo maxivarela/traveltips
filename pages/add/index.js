@@ -1,11 +1,6 @@
 import Head from 'next/head'
 import { useState, useEffect, useCallback, } from 'react'
 import { useForm } from 'react-hook-form';
-// import MUIRichTextEditor from 'mui-rte'
-// import { convertToRaw } from "draft-js";
-
-import * as yup from 'yup'
-import { yupResolver } from "@hookform/resolvers/yup"
 // import GooglePlaces from '../../components/GooglePlaces'
 import {useRouter} from 'next/router'
 import { addTip } from '../api'
@@ -20,23 +15,6 @@ import {
     Typography,
 } from '@material-ui/core/';
 
-const schema = yup.object().shape({
-    title: yup
-        .string()
-        .min(3)
-        .max(80)
-        .required('Title is a required field.'),
-    // latitude: yup
-    //     .number()
-    //     .transform(cv => isNaN(cv) ? undefined : cv).positive()
-    //     .lessThan(90)
-    //     .moreThan(-90),
-    // longitude: yup
-    //     .number()
-    //     .transform(cv => isNaN(cv) ? undefined : cv).positive()
-    //     .lessThan(180)
-    //     .moreThan(-180),
-})
 
 const AddTip = () => {
     const classes = useStyles();
@@ -46,12 +24,7 @@ const AddTip = () => {
     // const [latitude, setLatitude] = useState(null)
     // const [longitude, setLongitude] = useState(null)
 
-    const handleCancel = () => {
-        router.back()
-    };
-
     const { register, handleSubmit, formState: { errors }, reset, } = useForm({
-        resolver: yupResolver(schema)
     })
 
     const addComplete = useCallback(() => {
@@ -64,13 +37,13 @@ const AddTip = () => {
             addTip(data, addComplete)
     }, [setData, data, addComplete])
 
-    const onSubmit = (data) => {
-        setData(data)
-    }
+
+    const handleCancel = () => {
+        router.back()
+    };
 
     EscFunctionToCancel()
 
-    const { onChange, ...rest } = register("title", { required: true })
 
     return ( 
         <Container component="main" maxWidth="xs" style={{margin: '40px auto'}}>
@@ -79,127 +52,136 @@ const AddTip = () => {
                 <meta name='keywords' content='travel tips' />
             </Head>
 
-            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+            <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData(data))}>
                 <Typography className='formTitle'>
-                    Add New Tip
+                    Edit Tip
                 </Typography>
 
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="username"
-                        {...register("username")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="userImage"
-                        {...register("userImage")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="city"
-                        {...register("city")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        required
-                        fullWidth
-                        label="title"
-                        autoFocus
-                        InputProps={{
-                            maxLength: 80,
-                            endAdornment: 
-                            <InputAdornment position="end">
-                                {count}/80
-                            </InputAdornment>,
-                            }}
-                        onChange={e => setCount(e.target.value.length)}
-                        {...rest}
-                        // {...register("title", { required: true })}
-                        error={!!errors.title}
-                        helperText={errors?.title?.message}
-                        />
-                </div>
-                <div>    
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        multiline
-                        rows={10}
-                        label="description"
-                        {...register("description")}
-                    />
-                </div>
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="username"
+                    label="username"
+                    name="username"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.username}
+                    helperText={errors?.username?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="userImage"
+                    label="userImage"
+                    name="userImage"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.userImage}
+                    helperText={errors?.userImage?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="city"
+                    label="city"
+                    name="city"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.city}
+                    helperText={errors?.city?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    required
+                    id="title"
+                    label="title"
+                    name="title"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.title}
+                    helperText={errors?.title?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    multiline
+                    rows={10}
+                    id="description"
+                    label="description"
+                    name="description"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.description}
+                    helperText={errors?.description?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    multiline
+                    rows={10}
+                    id="image"
+                    label="image"
+                    name="image"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.image}
+                    helperText={errors?.image?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
 
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        multiline
-                        rows={10}
-                        label="image"
-                        {...register("image")}
-                    />
-                </div>
-                {/* <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="audio"
-                        {...register("audio")}
-                    />
-                </div> */}
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="link"
-                        {...register("link")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="location"
-                        {...register("location")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="tags"
-                        {...register("tags")}
-                    />
-                </div>
+                    fullWidth
+                    id="link"
+                    label="link"
+                    name="link"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.link}
+                    helperText={errors?.link?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+
+                    fullWidth
+                    id="location"
+                    label="location"
+                    name="location"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.location}
+                    helperText={errors?.location?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+
+                    fullWidth
+                    id="tags"
+                    label="tags"
+                    name="tags"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.tags}
+                    helperText={errors?.tags?.message}
+                />
+
                 <Button
                     type="submit"
-                    variant="contained"
                     fullWidth
+                    variant="contained"
                     disableElevation
                     color="primary"
                     className={classes.submit}
-                    >
+                >
                     Submit
                 </Button>
 
@@ -207,9 +189,9 @@ const AddTip = () => {
                     fullWidth
                     onClick={handleCancel}
                     className={classes.submit}
-                    >
+                >
                     Cancel
-                </Button>
+            </Button>
             </form>
         </Container>
     );

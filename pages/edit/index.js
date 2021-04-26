@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router'
 import firebase from '../../firebase'
-// import { editTip } from '../api'
+import { editTip } from '../api'
 import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,6 +13,7 @@ import {
     Typography,
 } from '@material-ui/core/'
 
+
 export default function Edit () {
     const classes = useStyles();
     const router = useRouter()
@@ -21,20 +22,7 @@ export default function Edit () {
     const [fetchedData, setFetchedData] = useState({})
     const [data, setData] = useState({})
 
-    const { register, handleSubmit, reset,  formState: { errors } } = useForm({
-        defaultValues: {
-            username: 'nonoumasy',
-            userImage: 'ADSFDS',
-            title: 'title',
-            description: 'lorem ipsum this and that',
-        }
-    })
-
-    const addComplete = useCallback(() => {
-        reset()
-        router.back()
-    }, [reset])
-
+    // get the data to prefill the form.
     useEffect(() => {
         const getData = async () => {
             const doc = await firebase
@@ -48,139 +36,177 @@ export default function Edit () {
         getData()
     }, [])
 
-    useEffect(() => {
-        data?.title &&
-            editTip(data, id, addComplete)
-    }, [setData, data, addComplete])
+    function Form(props) {
+        const { register, handleSubmit, errors, reset, control } = useForm({
+            defaultValues: { ...fetchedData }
+        })
 
-    const onSubmit = (data) => {
-        setData(data)
-    }
+        const addComplete = useCallback(() => {
+            reset()
+            router.back()
+        }, [reset])
 
-    const handleCancel = () => {
-        router.back()
-    };
+        useEffect(() => {
+            data?.title &&
+                editTip(data, id, addComplete)
+        }, [setData, data, addComplete])
 
-    EscFunctionToCancel()
+        const handleCancel = () => {
+            router.back()
+        };
 
-    return (
-        <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
+        EscFunctionToCancel()
 
-            <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+        return (
+
+            <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData(data))}>
                 <Typography className='formTitle'>
                     Edit Tip
                 </Typography>
 
-                <div>
-                    <input
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="username"
-                        {...register("username")}
-                    />
-                </div>
-                <div>
-                    <input
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="userImage"
-                        {...register("userImage")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        required
-                        fullWidth
-                        id='title '
-                        name='title'
-                        label="title"
-                        autoFocus
-                        {...register("title", { required: true })}
-                    />
-                </div>
-                <div>
-                    <input
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        multiline
-                        rows={10}
-                        label="description"
-                        {...register("description")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="image"
-                        {...register("image")}
-                    />
-                </div>
-                {/* <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="audio"
-                        {...register("audio")}
-                    />
-                </div> */}
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="link"
-                        {...register("link")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="location"
-                        {...register("location")}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        variant='outlined'
-                        margin="normal"
-                        fullWidth
-                        label="tags"
-                        {...register("tags")}
-                    />
-                </div>
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="username"
+                    label="username"
+                    name="username"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.username}
+                    helperText={errors?.username?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="userImage"
+                    label="userImage"
+                    name="userImage"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.userImage}
+                    helperText={errors?.userImage?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="city"
+                    label="city"
+                    name="city"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.city}
+                    helperText={errors?.city?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    required
+                    id="title"
+                    label="title"
+                    name="title"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.title}
+                    helperText={errors?.title?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    multiline
+                    rows={10}
+                    id="description"
+                    label="description"
+                    name="description"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.description}
+                    helperText={errors?.description?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    multiline
+                    rows={10}
+                    id="image"
+                    label="image"
+                    name="image"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.image}
+                    helperText={errors?.image?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="link"
+                    label="link"
+                    name="link"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.link}
+                    helperText={errors?.link?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="location"
+                    label="location"
+                    name="location"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.location}
+                    helperText={errors?.location?.message}
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    id="tags"
+                    label="tags"
+                    name="tags"
+                    type="text"
+                    inputRef={register}
+                    error={!!errors.tags}
+                    helperText={errors?.tags?.message}
+                />
 
                 <Button
                     type="submit"
-                    variant="contained"
                     fullWidth
+                    variant="contained"
                     disableElevation
                     color="primary"
                     className={classes.submit}
-                >
+                    >
                     Submit
-                    </Button>
+                </Button>
 
                 <Button
                     fullWidth
                     onClick={handleCancel}
                     className={classes.submit}
-                >
+                    >
                     Cancel
-                </Button>
+            </Button>
             </form>
+        )
+    }
+
+    return (
+        <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
+            <Form />
         </Container>
     );
 }
+
 
 const useStyles = makeStyles((theme) => ({
     submit: {

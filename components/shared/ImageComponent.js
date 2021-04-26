@@ -30,7 +30,7 @@ const ImageComponent = ({ image }) => {
                     :
                     image &&
                     <>
-                        <div onError={(e) => e.target.src = 'https://i.imgur.com/EigNj6l.png'}>
+                        <div onError={(e) => e.target.src = 'https://i.imgur.com/Gz9TnHe.png'}>
                             <img src={image} alt='' className={classes.media}/>
                         </div>
                     </>

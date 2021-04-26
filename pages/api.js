@@ -18,7 +18,7 @@ export async function addTip(data, addComplete) {
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
                 // createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
-                // updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
+                createdAt: new Date(Date.now()).toString(),
             })
         addComplete()
 
@@ -66,6 +66,8 @@ export async function getTip(id) {
 }
 
 export async function editTip(data, id, addComplete) {
+
+    console.log('lisa', id, data)
     try {
         await firebase
             .firestore()
@@ -77,12 +79,13 @@ export async function editTip(data, id, addComplete) {
                 city: data?.city,
                 title: data?.title,
                 description: data?.description,
-                image: data?.image ? data?.image : '',
+                image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
                 audio: data?.audio ? data?.audio : '',
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
+                // updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+                updatedAt: (new Date(Date.now())).toString(),
             })
         addComplete()
 
