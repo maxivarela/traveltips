@@ -12,22 +12,6 @@ import {
     Typography,
 } from '@material-ui/core';
 
-//next will build a page for each of the items in this path array
-// export const getStaticPaths = async () => {
-//     const res = await firebase.firestore().collection('tips').get()
-//     const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-//     const paths = data.map(item => {
-//         return {
-//             params: {id: item.id}
-//         }
-//     })
-
-//     return {
-//         paths,
-//         fallback: true,
-//     }
-// }
-
 export const getServerSideProps = async (context) => {
     try {
         const id = context.params.id
@@ -46,6 +30,22 @@ export const getServerSideProps = async (context) => {
         console.log(err)
     }
 }
+
+//next will build a page for each of the items in this path array
+// export const getStaticPaths = async () => {
+//     const res = await firebase.firestore().collection('tips').get()
+//     const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+//     const paths = data.map(item => {
+//         return {
+//             params: {id: item.id.toString}
+//         }
+//     })
+
+//     return {
+//         paths,
+//         fallback: true,
+//     }
+// }
 
 // export const getStaticProps = async (context) => {
 //     try {
