@@ -108,7 +108,7 @@ const Details = ({id, data}) => {
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
             {/* <DisqusComments item={data} id={id}/> */}
-            <div style={{marginBottom: 60,}}> </div>
+            <div style={{marginBottom: 80,}}> </div>
         </Container>
     );
 }

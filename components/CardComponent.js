@@ -18,6 +18,7 @@ import {
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import ShareIcon from '@material-ui/icons/Share';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
@@ -31,18 +32,16 @@ const CardComponent = ({ item, maxCharLength}) => {
                 boxShadow: '0 10px 10px 0 rgba(0, 0, 0, 0.1)'
             }}
             >
-            
             <CardHeader
                 style={{ padding: '20px 30px', }}
                 avatar={
-                    <Avatar aria-label="recipe" style={{ backgroundColor: '#222' }}>
-
+                    <Avatar aria-label="recipe" style={{ backgroundColor: '#222', width: 36, height: 36, }}>
                         {item?.userImage
                             ?
                             <img 
                                 src={item?.userImage} 
                                 alt="" 
-                                style={{ borderRadius: 50, objectFit: 'cover' }} 
+                                style={{ borderRadius: 50, objectFit: 'cover', width: 40, height: 40,  }}
                                 />
                             :
                             <Typography color='primary'>
@@ -57,8 +56,8 @@ const CardComponent = ({ item, maxCharLength}) => {
 
                     </Avatar>}
                 title={<Typography color='primary' style={{ fontWeight: 500 }}>{item.username ? item.username : 'Anonymous'}</Typography>}
-                subheader={item?.city}
-            >
+                subheader={<div style={{lineHeight: 1}}>{item?.city}</div>}
+                >
             </CardHeader>
 
             {item?.image?.length > 0
@@ -77,19 +76,17 @@ const CardComponent = ({ item, maxCharLength}) => {
                 null
             }
 
-            {/* {item?.audio
-                ?
-                <CardContent>
-                    <audio controls style={{ width: '100%',}} preload="none">
-                        <source src={item?.audio} type="audio/ogg" />
-                        <source src={item?.audio} type="audio/mpeg" />
-                    </audio>
-                </CardContent>
-                :
-                null
-            } */}
-
             <CardContent style={{ padding: '20px 30px', }}>
+                {item?.location 
+                    && 
+                    <Link href="">
+                    <a style={{ display: 'flex', alignItems: 'center',  }}>
+                        <LocationOnIcon style={{ fontSize: 12 }} />
+                        &nbsp;{item?.location}
+                        </a>
+                    </Link>}
+                
+
                 <Typography variant='h6' component='h2' style={{ marginBottom: 20, fontWeight: 700, lineHeight: 1.3,}}>
                     {item?.title}
                 </Typography>
@@ -113,8 +110,6 @@ const CardComponent = ({ item, maxCharLength}) => {
                 }
                     
                 <Typography variant='body2' component='h2' style={{ marginTop: 10, fontWeight: 500, }}>
-                    {item?.location && <div> Location: {item?.location}</div>}
-                    
                     {item?.tags?.length > 1 && 
                         <div>
                             Tags: {item?.tags?.map(tag => {
