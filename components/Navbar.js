@@ -83,7 +83,7 @@ export default function Navbar() {
 
                     <SearchBar
                         value={searchTerm}
-                        onChange={(item) => setSearchTerm(item)}
+                        onChange={(item) => setSearchTerm(item.toLowerCase())}
                         onRequestSearch={handleSearch}
                         style={{height: 36,}}
                     />
