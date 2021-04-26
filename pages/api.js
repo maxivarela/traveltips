@@ -51,6 +51,20 @@ export async function getTipsByCategory(category) {
     }
 }
 
+export async function getTipsBySearch(searchTerm) {
+    const res = await firebase
+        .firestore()
+        .collection('tips')
+        .where('tags', 'array-contains', searchTerm)
+        // .orderBy('createdAt', 'desc')
+        .limit(10)
+        .get()
+    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return {
+        props: { data },
+    }
+}
+
 export async function getTip(id) {
     const doc = await firebase
         .firestore()

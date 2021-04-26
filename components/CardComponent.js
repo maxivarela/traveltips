@@ -80,14 +80,14 @@ const CardComponent = ({ item, maxCharLength}) => {
                 {item?.location 
                     && 
                     <Link href="">
-                    <a style={{ display: 'flex', alignItems: 'center',  }}>
-                        <LocationOnIcon style={{ fontSize: 12 }} />
+                    <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5,}}>
+                        <LocationOnIcon style={{ fontSize: 12,}} />
                         &nbsp;{item?.location}
                         </a>
                     </Link>}
                 
 
-                <Typography variant='h6' component='h2' style={{ marginBottom: 20, fontWeight: 700, lineHeight: 1.3,}}>
+                <Typography variant='h6' component='h2' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1,}}>
                     {item?.title}
                 </Typography>
 
@@ -100,7 +100,7 @@ const CardComponent = ({ item, maxCharLength}) => {
 
                 {item?.link && 
                     <div style={{ margin: '20px auto', width: '100%', fontWeight: 500,}}>
-                        Travel Tip article:&nbsp;
+                        Link:&nbsp;
                         <Link href={item?.link} >
                             <a target="_blank" rel="noreferrer" alt={item?.link}>
                             {item?.link}

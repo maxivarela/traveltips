@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         width: '100% !important',
+        height: '40vh',
         objectFit: 'cover',
         transition: '0.4s',
         // border: '1px solid #999',

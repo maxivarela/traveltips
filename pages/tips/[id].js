@@ -95,7 +95,7 @@ const Details = ({id, data}) => {
                             >
                             <Typography color='primary' style={{ fontSize: 12, }}>
                                 Edit
-                        </Typography>
+                            </Typography>
                         </Link>
                     </Button>
                     
