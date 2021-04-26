@@ -13,25 +13,16 @@ export default function Footer() {
 
     return (
         <>
-            <footer style={{ display:'flex', justifyContent: 'center', backgroundColor: '#111', padding: 10, textAlign: 'center', color: '#fff', fontSize: 14,}}>
-                    ©{new Date().getFullYear()}
-                    <Link 
-                        target='_blank' 
-                        rel="noreferrer" 
-                        href="https://www.linkedin.com/in/nonoumasy/" 
-                        >
-                        <a>
-                        &nbsp; Nonoumasy.&nbsp;
-                        </a>
-                    </Link>
+            <footer style={{ display:'flex', justifyContent: 'center', backgroundColor: '#111', padding: 10, textAlign: 'center', color: '#999', fontSize: 12,}}>
+                    ©{new Date().getFullYear()}&nbsp;TripTips.&nbsp;
                     {windowSize.width >= 600 &&
                     <>
                     <Link href='/terms' target='_blank' rel="noreferrer" >
-                        <a>Terms </a> 
+                        <a>Terms</a>
                     </Link>
-                    {'&'}
+                    &nbsp;{'&'}&nbsp;
                     <Link href='/privacy' target='_blank' rel="noreferrer">
-                        <a> Privacy Policy. </a>
+                        <a> Privacy Policy.</a>
                     </Link>
                     </>
                     }
