@@ -110,7 +110,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                 }
                     
                 <Typography variant='body2' component='h2' style={{ marginTop: 10, fontWeight: 500, }}>
-                    {item?.tags?.length > 1 && 
+                    {item?.tags?.length > 0 && 
                         <div>
                             Tags: {item?.tags?.map(tag => {
                             return (
