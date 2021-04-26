@@ -20,9 +20,7 @@ export const getServerSideProps = async (context) => {
 }
 
 export default function Search({ search, data }) {
-
     const router = useRouter()
-    console.log('joi', data, search)
     return (
         <div style={{ padding: '1rem', }}>
             <Head>
@@ -37,7 +35,6 @@ export default function Search({ search, data }) {
             <h2>
                 Search Results for "{search}" : {data?.length} items
             </h2>
-
             <TipsComponent tips={data} />
         </div>
     )
