@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { useState, useEffect, useCallback, } from 'react'
 import { useForm } from 'react-hook-form';
-// import GooglePlaces from '../../components/GooglePlaces'
-import {useRouter} from 'next/router'
-import { addTip } from '../api'
-import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
+// import GooglePlaces from '../components/GooglePlaces'
+import { useRouter } from 'next/router'
+import { addTip } from './api'
+import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -45,8 +45,8 @@ const AddTip = () => {
     EscFunctionToCancel()
 
 
-    return ( 
-        <Container component="main" maxWidth="xs" style={{margin: '40px auto'}}>
+    return (
+        <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
             <Head>
                 <title>Add a Travel Tip</title>
                 <meta name='keywords' content='travel tips' />

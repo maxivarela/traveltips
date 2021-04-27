@@ -10,7 +10,7 @@ export default function Profile() {
             <h2>
                 Profile Page
             </h2>
-            
+
         </div>
     )
 }

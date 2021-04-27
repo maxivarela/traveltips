@@ -1,7 +1,7 @@
-import {useContext} from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
+import { useContext } from 'react'
+import { AuthContext } from '../contexts/AuthContext'
 import { useRouter } from 'next/router'
-import firebase from '../../firebase'
+import firebase from '../firebase'
 import {
     FacebookLoginButton,
     GoogleLoginButton,
@@ -165,7 +165,7 @@ export default function Signin() {
                 </div>
 
             </div>
-            
+
         </Container>
     )
 }

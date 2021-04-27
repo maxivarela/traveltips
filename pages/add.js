@@ -1,67 +1,60 @@
-import { useState, useEffect, useCallback } from 'react'
+import Head from 'next/head'
+import { useState, useEffect, useCallback, } from 'react'
 import { useForm } from 'react-hook-form';
+// import GooglePlaces from '../../components/GooglePlaces'
 import { useRouter } from 'next/router'
-import firebase from '../../firebase'
-import { editTip } from '../api'
-import { EscFunctionToCancel } from '../../components/shared/SharedComponents';
+import { addTip } from './api'
+import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Container,
+    InputAdornment,
     TextField,
     Typography,
-} from '@material-ui/core/'
+} from '@material-ui/core/';
 
 
-export default function Edit () {
+const AddTip = () => {
     const classes = useStyles();
     const router = useRouter()
-    const id = router.query.id
-
-    const [fetchedData, setFetchedData] = useState({})
     const [data, setData] = useState({})
+    const [count, setCount] = useState(0)
+    // const [latitude, setLatitude] = useState(null)
+    // const [longitude, setLongitude] = useState(null)
 
-    // get the data to prefill the form.
+    const { register, handleSubmit, formState: { errors }, reset, } = useForm({
+    })
+
+    const addComplete = useCallback(() => {
+        reset()
+        router.back()
+    }, [reset])
+
     useEffect(() => {
-        const getData = async () => {
-            const doc = await firebase
-                .firestore()
-                .collection('tips')
-                .doc(id)
-                .get()
-            const data = await doc.data()
-            setFetchedData(data)
-        }
-        getData()
-    }, [])
+        data?.title &&
+            addTip(data, addComplete)
+    }, [setData, data, addComplete])
 
-    function Form(props) {
-        const { register, handleSubmit, errors, reset, control } = useForm({
-            defaultValues: { ...fetchedData }
-        })
 
-        const addComplete = useCallback(() => {
-            reset()
-            router.back()
-        }, [reset])
+    const handleCancel = () => {
+        router.back()
+    };
 
-        useEffect(() => {
-            data?.title &&
-                editTip(data, id, addComplete)
-        }, [setData, data, addComplete])
+    EscFunctionToCancel()
 
-        const handleCancel = () => {
-            router.back()
-        };
 
-        EscFunctionToCancel()
-
-        return (
+    return (
+        <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
+            <Head>
+                <title>Add a Travel Tip</title>
+                <meta name='keywords' content='travel tips' />
+            </Head>
 
             <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData(data))}>
                 <Typography className='formTitle'>
-                    Edit Tip
+                    Add Tip
                 </Typography>
 
                 <TextField
@@ -144,6 +137,7 @@ export default function Edit () {
                 <TextField
                     variant="outlined"
                     margin="normal"
+
                     fullWidth
                     id="link"
                     label="link"
@@ -156,6 +150,7 @@ export default function Edit () {
                 <TextField
                     variant="outlined"
                     margin="normal"
+
                     fullWidth
                     id="location"
                     label="location"
@@ -168,6 +163,7 @@ export default function Edit () {
                 <TextField
                     variant="outlined"
                     margin="normal"
+
                     fullWidth
                     id="tags"
                     label="tags"
@@ -185,7 +181,7 @@ export default function Edit () {
                     disableElevation
                     color="primary"
                     className={classes.submit}
-                    >
+                >
                     Submit
                 </Button>
 
@@ -193,20 +189,15 @@ export default function Edit () {
                     fullWidth
                     onClick={handleCancel}
                     className={classes.submit}
-                    >
+                >
                     Cancel
             </Button>
             </form>
-        )
-    }
-
-    return (
-        <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
-            <Form />
         </Container>
     );
 }
 
+export default AddTip;
 
 const useStyles = makeStyles((theme) => ({
     submit: {

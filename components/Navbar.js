@@ -198,14 +198,14 @@ export default function Navbar() {
                 </List>
                 <Divider />
                 <List>
-
-                    <ListItem button>
-                        <ListItemIcon>
-                            <InfoIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"About"} />
-                    </ListItem>
-
+                    <Link href='/about'>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <InfoIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"About"} />
+                        </ListItem>
+                    </Link>
                     <ListItem button>
                         <ListItemIcon>
                             <ListIcon />
