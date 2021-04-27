@@ -59,10 +59,8 @@ export async function getTipsBySearch(searchTerm) {
         // .orderBy('createdAt', 'desc')
         .limit(10)
         .get()
-    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return {
-        props: { data },
-    }
+    const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return data 
 }
 
 export async function getTip(id) {

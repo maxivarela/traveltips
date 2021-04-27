@@ -65,7 +65,10 @@ const CardComponent = ({ item, maxCharLength}) => {
                 (
                     item?.image?.length > 1
                         ?
-                        <Carousel showThumbs={false} dynamicHeight>
+                        <Carousel 
+                            showThumbs={false} 
+                            // dynamicHeight
+                            >
                             {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
                         </Carousel>
                         :
