@@ -13,7 +13,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer style={{ display:'flex', justifyContent: 'center', backgroundColor: '#111', padding: 10, textAlign: 'center', color: '#999', fontSize: 12,}}>
+            <footer style={{ display:'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#111', textAlign: 'center', color: '#999', fontSize: 12, height: '4rem'}}>
                     ©{new Date().getFullYear()}&nbsp;TripTips.&nbsp;
                     {windowSize.width >= 600 &&
                     <>

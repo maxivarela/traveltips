@@ -158,6 +158,14 @@ footer {
   align-items: center;
 }
 
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* masonry style css */
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */

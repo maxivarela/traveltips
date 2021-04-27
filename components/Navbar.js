@@ -1,14 +1,16 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import Link from 'next/link';
 import clsx from "clsx";
 import SearchBar from "material-ui-search-bar";
 import { useRouter } from 'next/router'
+import { AuthContext } from '../contexts/AuthContext'
 
 const drawerWidth = 300;
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
     AppBar,
+    Avatar,
     Button,
     CssBaseline,
     Divider,
@@ -43,6 +45,7 @@ export default function Navbar() {
     const router = useRouter()
     const [searchTerm, setSearchTerm] = useState('')
     const [open, setOpen] = useState(false);
+    const { currentUser } = useContext(AuthContext)
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -215,9 +218,15 @@ export default function Navbar() {
                     <Link href='/signin'>
                         <ListItem button>
                             <ListItemIcon>
-                                <ExitToAppIcon />
+                                <Avatar
+                                alt=''
+                                src={currentUser ? currentUser?.providerData[0].photoURL : null}
+                                style={{width: 24, height: 24}}
+                                />
                             </ListItemIcon>
-                            <ListItemText primary={"Login"} />
+                            <ListItemText>
+                                {currentUser ? "Logout" : "Login"}
+                            </ListItemText> 
                         </ListItem>
                     </Link>
                 </List>
