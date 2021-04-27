@@ -3,6 +3,7 @@ import Link from 'next/link';
 import clsx from "clsx";
 import SearchBar from "material-ui-search-bar";
 import { useRouter } from 'next/router'
+import firebase from '../firebase'
 import { AuthContext } from '../contexts/AuthContext'
 
 const drawerWidth = 300;
@@ -60,6 +61,15 @@ export default function Navbar() {
             pathname: '/search',
             query: { search: searchTerm }
         })
+    }
+
+    const signoutHandler = async () => {
+        try {
+            await firebase.auth().signOut()
+            await setCurrentUser('')
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     return (
@@ -215,20 +225,39 @@ export default function Navbar() {
                 <Divider />
 
                 <List>
-                    <Link href='/signin'>
-                        <ListItem button>
+                    {currentUser ?
+                        <ListItem 
+                            button
+                            onClick={signoutHandler}
+                            >
                             <ListItemIcon>
                                 <Avatar
-                                alt=''
-                                src={currentUser ? currentUser?.providerData[0].photoURL : null}
-                                style={{width: 24, height: 24}}
+                                    alt=''
+                                    src={currentUser ? currentUser?.providerData[0].photoURL : null}
+                                    style={{ width: 24, height: 24 }}
                                 />
                             </ListItemIcon>
                             <ListItemText>
-                                {currentUser ? "Logout" : "Login"}
-                            </ListItemText> 
+                                Sign Out
+                            </ListItemText>
                         </ListItem>
-                    </Link>
+                    :
+                        <Link href='/signin'>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <Avatar
+                                        alt=''
+                                        src={null}
+                                        style={{ width: 24, height: 24 }}
+                                    />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    Sign in
+                                </ListItemText>
+                            </ListItem>
+                        </Link>
+                    }
+                    
                 </List>
             </Drawer>
 
