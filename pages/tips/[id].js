@@ -120,7 +120,6 @@ const Details = ({id, data}) => {
                         Back
                     </Typography>
                 </Button>
-
                 <div>
                     <Button>
                         <Link
