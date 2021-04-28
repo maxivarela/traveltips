@@ -8,6 +8,7 @@ import DisqusComments from '../../components/DisqusComments';
 import {
     EmailShareButton,
     FacebookShareButton,
+    FacebookMessengerShareButton,
     LineShareButton,
     LinkedinShareButton,
     PinterestShareButton,
@@ -21,6 +22,7 @@ import {
 import {
     EmailIcon,
     FacebookIcon,
+    FacebookMessengerIcon,
     LineIcon,
     LinkedinIcon,
     PinterestIcon,
@@ -106,6 +108,7 @@ const Details = ({id, data}) => {
     const articleTitle = data?.title
     const articleImage = data?.image[0]
     const articleDescription = data?.description
+    const articleSource = 'https://traveltips.vercel.app/'
     const iconSize = 30
             
     return ( 
@@ -156,6 +159,14 @@ const Details = ({id, data}) => {
                     >
                     <FacebookIcon size={iconSize} round={true} />
                 </FacebookShareButton>
+                <FacebookMessengerShareButton
+                    url={shareUrl} 
+                    appId={'296712571894670'}
+                    redirectUri={shareUrl}
+                    style={{ marginRight: 10, }}
+                    >
+                    <FacebookMessengerIcon size={iconSize} round={true} />
+                </FacebookMessengerShareButton>
                 <TwitterShareButton 
                     url={shareUrl} 
                     title={articleTitle}
@@ -182,7 +193,7 @@ const Details = ({id, data}) => {
                     url={shareUrl}
                     title={articleTitle}
                     summary={articleDescription}
-                    source={'https://traveltips.vercel.app/'}
+                    source={articleSource}
                     style={{ marginRight: 10, }}
                     >
                     <LinkedinIcon size={iconSize} round={true} />
