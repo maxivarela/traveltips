@@ -7,7 +7,6 @@ import {
     GoogleLoginButton,
     TwitterLoginButton,
     GithubLoginButton,
-    MicrosoftLoginButton,
 } from "react-social-login-buttons";
 
 
@@ -118,30 +117,6 @@ export default function Signin() {
             });
     }
 
-    const microsoftSigninHandler = () => {
-        const provider = new firebase.auth.OAuthProvider('microsoft.com')
-
-        firebase
-            .auth()
-            .signInWithPopup(provider)
-            .then((result) => {
-                /** @type {firebase.auth.OAuthCredential} */
-                var credential = result.credential;
-
-                // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-                // You can use these server side with your app's credentials to access the Twitter API.
-                var token = credential.accessToken;
-                var secret = credential.secret;
-
-                // The signed-in user info.
-                var user = result.user;
-                // ..
-
-            }).catch((error) => {
-                console.log(error)
-            });
-    }
-
     if (currentUser) {
         router.push('/')
     }
@@ -155,17 +130,13 @@ export default function Signin() {
                     <span style={{ color: '#26978A', }}>Trip</span>Tips
                 </Typography>
                 Pick your poison:
-
                 <div style={{ width: '300px', marginTop: 40, }}>
                     <GoogleLoginButton onClick={googleSigninHandler} />
                     <FacebookLoginButton onClick={facebookSigninHandler} />
                     <TwitterLoginButton onClick={twitterSigninHandler} />
                     <GithubLoginButton onClick={githubSigninHandler} />
-                    <MicrosoftLoginButton onClick={microsoftSigninHandler} />
                 </div>
-
             </div>
-
         </Container>
     )
 }

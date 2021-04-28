@@ -55,7 +55,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                         }
 
                     </Avatar>}
-                title={<Typography color='primary' style={{ fontWeight: 500 }}>{item.username ? item.username : 'Anonymous'}</Typography>}
+                title={<Typography color='primary'>{item.username ? item.username : 'Anonymous'}</Typography>}
                 subheader={<div style={{lineHeight: 1}}>{item?.city}</div>}
                 >
             </CardHeader>
