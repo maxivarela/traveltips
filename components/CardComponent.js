@@ -149,13 +149,13 @@ const CardComponent = ({ item, maxCharLength}) => {
                     </Tooltip>
                     
                 </div>
-                <Tooltip title='Share' placement='top'>
+                {/* <Tooltip title='Share' placement='top'>
                     <IconButton onClick={() => alert('todo')}>
                         <Typography variant='h5' color='primary'>
                             <ShareIcon />
                         </Typography>
                     </IconButton>
-                </Tooltip>
+                </Tooltip> */}
                 
             </CardActions>
         </Card>
