@@ -1,31 +1,27 @@
 import Head from 'next/head'
-import { useState, useEffect, useCallback, } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
 // import GooglePlaces from '../../components/GooglePlaces'
 import { useRouter } from 'next/router'
 import { addTip } from './api'
+import {AuthContext} from '../contexts/AuthContext'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Container,
-    InputAdornment,
     TextField,
     Typography,
 } from '@material-ui/core/';
-
 
 const AddTip = () => {
     const classes = useStyles();
     const router = useRouter()
     const [data, setData] = useState({})
-    const [count, setCount] = useState(0)
-    // const [latitude, setLatitude] = useState(null)
-    // const [longitude, setLongitude] = useState(null)
+    const {currentUser} = useContext(AuthContext)
 
-    const { register, handleSubmit, formState: { errors }, reset, } = useForm({
-    })
+    const { register, handleSubmit, formState: { errors }, reset, } = useForm()
 
     const addComplete = useCallback(() => {
         reset()
@@ -34,7 +30,7 @@ const AddTip = () => {
 
     useEffect(() => {
         data?.title &&
-            addTip(data, addComplete)
+            addTip(data, currentUser, addComplete)
     }, [setData, data, addComplete])
 
 
@@ -43,7 +39,6 @@ const AddTip = () => {
     };
 
     EscFunctionToCancel()
-
 
     return (
         <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
@@ -57,42 +52,6 @@ const AddTip = () => {
                     Add Tip
                 </Typography>
 
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="username"
-                    label="username"
-                    name="username"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.username}
-                    helperText={errors?.username?.message}
-                />
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="userImage"
-                    label="userImage"
-                    name="userImage"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.userImage}
-                    helperText={errors?.userImage?.message}
-                />
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="city"
-                    label="city"
-                    name="city"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.city}
-                    helperText={errors?.city?.message}
-                />
                 <TextField
                     variant="outlined"
                     margin="normal"

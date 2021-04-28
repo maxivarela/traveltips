@@ -1,15 +1,16 @@
 import firebase from '../firebase'
 
-export async function addTip(data, addComplete) {
+export async function addTip(data, currentUser, addComplete) {
     
     try {
         await firebase
             .firestore()
             .collection('tips')
             .add({
-                username: data.username ? data?.username : '',
-                userImage: data?.userImage ? data?.userImage : '',
-                city: data.city ? data?.city : '',
+                user: currentUser.uid,
+                username: currentUser.displayName,
+                userImage: currentUser?.providerData[0].photoURL ? currentUser?.providerData[0].photoURL : null,
+                // city: data.city ? data?.city : '',
                 title: data?.title,
                 description: data?.description ? data?.description : '',
                 image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
@@ -69,12 +70,7 @@ export async function getTip(id) {
         .collection('tips')
         .doc(id)
         .get()
-    const data = doc.data()
-
-    return {
-        props: { id, data },
-        revalidate: 10,
-    }
+    return doc.data()  
 }
 
 export async function editTip(data, id, addComplete) {
@@ -86,9 +82,7 @@ export async function editTip(data, id, addComplete) {
             .collection('tips')
             .doc(id)
             .update({
-                username: data.username ? data?.username : '',
-                userImage: data?.userImage ? data?.userImage : '',
-                city: data?.city,
+                // city: data?.city,
                 title: data?.title,
                 description: data?.description,
                 image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
