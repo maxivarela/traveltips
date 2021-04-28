@@ -9,9 +9,9 @@ import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { AuthProvider } from '../contexts/AuthContext'
 
-export function reportWebVitals(metric) {
-  console.log(metric)
-}
+// export function reportWebVitals(metric) {
+//   console.log(metric)
+// }
 export default function MyApp(props) {
   const { Component, pageProps } = props;
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
