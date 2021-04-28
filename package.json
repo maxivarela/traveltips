@@ -30,6 +30,7 @@
 		"react-share": "^4.4.0",
 		"react-social-login-buttons": "^3.4.0",
 		"react-tiny-fab": "^4.0.2",
+		"superjson": "^1.7.4",
 		"use-places-autocomplete": "^1.9.1",
 		"yup": "^0.29.3"
 	}
