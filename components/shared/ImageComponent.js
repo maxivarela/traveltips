@@ -13,20 +13,22 @@ const ImageComponent = ({ image }) => {
             ?
                 image && image.includes('youtube.com')
                     ?
-                    <>
+                    <div className={classes.thumbnailContainer}>
                         <iframe
                             className={classes.video}
                             src={image}
                             allowFullScreen
+                            frameborder="0"
                             mozallowfullscreen="mozallowfullscreen"
                             msallowfullscreen="msallowfullscreen"
                             oallowfullscreen="oallowfullscreen"
                             webkitallowfullscreen="webkitallowfullscreen"
                             allow="accelerometer"
                             title={image}
+                            name="iframe_video1"
                             type="*"
                         ></iframe>
-                    </>
+                    </div>
                     :
                     image &&
                     <>
@@ -50,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
         '@media print': {
             height: '400px !important',
         }
+    },
+    thumbnailContainer: {
+        url: {image},
     },
     media: {
         width: '100% !important',
