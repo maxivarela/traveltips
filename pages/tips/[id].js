@@ -104,7 +104,7 @@ const Details = ({id, data}) => {
             await deleteTip(id).then(router.back())
     }
 
-    const youtubeId = data?.image[0].split('/').pop()
+    const youtubeId = data?.image[0]?.split('/').pop()
     const shareUrl = `https://traveltips.vercel.app/tips/${id}`
     const appId = '296712571894670'
     const articleTitle = data?.title
