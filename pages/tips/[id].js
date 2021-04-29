@@ -122,7 +122,6 @@ const Details = ({id, data}) => {
                 <meta name="pinterest-rich-pin" content="true" />
                 <meta itemprop='url' content={shareUrl} />
                 <meta itemprop='name' content={articleTitle} />
-                <meta itemprop='description' content={articleDescription.substring(0, 140)} />
                 <meta name={data.title} content='travel tips' />
                 <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
                 <meta property='og:type' content={'article'} />
