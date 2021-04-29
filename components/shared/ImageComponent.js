@@ -13,10 +13,10 @@ const ImageComponent = ({ image }) => {
             ?
                 image && image.includes('youtube.com')
                     ?
-                    <div style={{url:{image}}}>
+                    <>
                         <iframe
                             className={classes.video}
-                            src={image}
+                            src={image + '?controls=4&showinfo=0&autoplay=1'}
                             allowFullScreen
                             frameborder="0"
                             mozallowfullscreen="mozallowfullscreen"
@@ -25,10 +25,9 @@ const ImageComponent = ({ image }) => {
                             webkitallowfullscreen="webkitallowfullscreen"
                             allow="accelerometer"
                             title={image}
-                            name="iframe_video1"
                             type="*"
                         ></iframe>
-                    </div>
+                    </>
                     :
                     image &&
                     <>
