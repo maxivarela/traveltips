@@ -116,6 +116,7 @@ const Details = ({id, data}) => {
             <Head>
                 <title>{data.title}</title>
                 <meta name={data.title} content='travel tips' />
+                <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:image' content={articleImage} key='ogimage'/>
