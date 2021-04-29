@@ -104,6 +104,7 @@ const Details = ({id, data}) => {
             await deleteTip(id).then(router.back())
     }
 
+    const youtubeId = data?.image[0].split('/').pop()
     const shareUrl = `https://traveltips.vercel.app/tips/${id}`
     const appId = '296712571894670'
     const articleTitle = data?.title
@@ -123,7 +124,7 @@ const Details = ({id, data}) => {
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:url' content={shareUrl} key='ogurl' />
-                <meta property='og:image' content={articleImage?.includes('youtube') ? `http://img.youtube.com/vi/${id}/0.jpg` : articleImage} key='ogimage'/>
+                <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/0.jpg` : articleImage} key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
