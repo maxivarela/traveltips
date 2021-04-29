@@ -124,12 +124,12 @@ const Details = ({id, data}) => {
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:url' content={shareUrl} key='ogurl' />
-                <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/0.jpg` : articleImage} key='ogimage'/>
+                <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage} key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
                 <meta name="twitter:card" content="summary_large_image"></meta>
                 <meta name="twitter:title" content={articleTitle}></meta>
                 <meta name="twitter:description" content={articleDescription}></meta>
-                <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/0.jpg` : articleImage}></meta>
+                <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.push('/')}>
