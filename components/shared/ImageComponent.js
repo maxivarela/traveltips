@@ -13,7 +13,7 @@ const ImageComponent = ({ image }) => {
             ?
                 image && image.includes('youtube.com')
                     ?
-                    <div className={classes.thumbnailContainer}>
+                    <div style={{url:{image}}}>
                         <iframe
                             className={classes.video}
                             src={image}
@@ -52,9 +52,6 @@ const useStyles = makeStyles((theme) => ({
         '@media print': {
             height: '400px !important',
         }
-    },
-    thumbnailContainer: {
-        url: {image},
     },
     media: {
         width: '100% !important',
