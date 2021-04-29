@@ -8,20 +8,23 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    {/* Global site tag (gtag.js) - Google Analytics --> */}
-                    <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}></script>
-                    <script>
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments)}
-                        gtag('js', new Date());
-                        gtag('config', '{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
-                    </script>
-                    <meta name="theme-color" content={theme.palette.primary.main} />
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+                    {/* Global Site Tag (gtag.js) - Google Analytics */}
+                    <script
+                        async
+                        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
                     />
-                    
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                        page_path: window.location.pathname,
+                        });
+                    `,
+                        }}
+                    />
                 </Head>
                 <body>
                     <Main />
