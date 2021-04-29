@@ -130,7 +130,7 @@ const Details = ({id, data}) => {
                 <meta property='og:url' content={shareUrl} key='ogurl' />
                 <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage} key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
-                <meta name="twitter:card" content="summary_large_image"></meta>
+                <meta name="twitter:card" content="summary"></meta>
                 <meta name="twitter:title" content={articleTitle}></meta>
                 <meta name="twitter:description" content={articleDescription.substring(0,200)}></meta>
                 <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
