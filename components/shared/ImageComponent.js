@@ -16,9 +16,10 @@ const ImageComponent = ({ image }) => {
                     <>
                         <iframe
                             className={classes.video}
+                            href={image}
                             src={image + '?controls=4&showinfo=0&autoplay=1'}
                             allowFullScreen
-                            frameborder="0"
+                            frameBorder="0"
                             mozallowfullscreen="mozallowfullscreen"
                             msallowfullscreen="msallowfullscreen"
                             oallowfullscreen="oallowfullscreen"
