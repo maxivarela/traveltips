@@ -108,6 +108,7 @@ const Details = ({id, data}) => {
     const shareUrl = `https://traveltips.vercel.app/tips/${id}`
     const appId = '296712571894670'
     const articleTitle = data?.title
+    const articleAuthor = data?.username
     const articleImage = data?.image[0]
     const articleDescription = data?.description
     const articlePublishedDate = data?.updatedAt
@@ -118,6 +119,7 @@ const Details = ({id, data}) => {
         <Container maxWidth='sm'>
             <Head>
                 <title>{data.title}</title>
+                <meta name="pinterest-rich-pin" content="true" />
                 <meta itemprop='url' content={shareUrl} />
                 <meta itemprop='name' content={articleTitle} />
                 <meta itemprop='description' content={articleDescription.substring(0, 140)} />
@@ -125,16 +127,17 @@ const Details = ({id, data}) => {
                 <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
                 <meta property='og:type' content={'article'} />
                 <meta property='fb:app_id' content={appId} />
-                <meta property='og:title' content={articleTitle} key='ogtitle'/>
+                <meta property='og:title' content={articleTitle.substring(0,50)} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription.substring(0, 140)} key='desc'/>
                 <meta property='og:url' content={shareUrl} key='ogurl' />
                 <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage} key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
                 <meta name="twitter:card" content="summary_large_image"></meta>
-                <meta name="twitter:title" content={articleTitle}></meta>
+                <meta name="twitter:title" content={articleTitle.substring(0,50)}></meta>
                 <meta name="twitter:description" content={articleDescription.substring(0,140)}></meta>
                 <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
                 <meta property="article:published_time" content={articlePublishedDate || new Date(Date.now())} />
+                <meta property="article:author" content={articleAuthor} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.push('/')}>
