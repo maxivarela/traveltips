@@ -135,7 +135,7 @@ const Details = ({id, data}) => {
                 <meta name="twitter:title" content={articleTitle.substring(0,50)}></meta>
                 <meta name="twitter:description" content={articleDescription.substring(0,140)}></meta>
                 <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
-                <meta property="article:published_time" content={articlePublishedDate || new Date(Date.now())} />
+                <meta property="article:published_time" content={new Date(Date.now())} />
                 <meta property="article:author" content={articleAuthor} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
