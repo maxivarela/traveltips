@@ -120,6 +120,7 @@ const Details = ({id, data}) => {
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:image' content={articleImage} key='ogimage'/>
                 <meta property='og:url' content={shareUrl} key='ogurl'/>
+                <meta property='og:video:url' content={articleImage} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.back()}>
