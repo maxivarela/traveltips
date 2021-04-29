@@ -105,6 +105,7 @@ const Details = ({id, data}) => {
     }
 
     const shareUrl = `https://traveltips.vercel.app/tips/${id}`
+    const appId = '296712571894670'
     const articleTitle = data?.title
     const articleImage = data?.image[0]
     const articleDescription = data?.description
@@ -117,6 +118,8 @@ const Details = ({id, data}) => {
                 <title>{data.title}</title>
                 <meta name={data.title} content='travel tips' />
                 <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
+                <meta property='og:type' content={'website'} />
+                <meta property='fb:app_id' content={appId} />
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:image' content={articleImage} key='ogimage'/>
@@ -170,7 +173,7 @@ const Details = ({id, data}) => {
                 </FacebookShareButton>
                 <FacebookMessengerShareButton
                     url={shareUrl} 
-                    appId={'296712571894670'}
+                    appId={appId}
                     redirectUri={shareUrl}
                     style={{ marginRight: 10, }}
                     >
