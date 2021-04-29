@@ -1,4 +1,4 @@
-import firebase from '../firebase'
+import firebase from '../lib/firebase'
 
 export async function addTip(data, currentUser, addComplete) {
     

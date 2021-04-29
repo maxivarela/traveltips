@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import firebase from '../firebase'
+import firebase from '../lib/firebase'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {

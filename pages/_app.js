@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import theme from '../src/theme';
+import {useRouter} from 'next/router'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { AuthProvider } from '../contexts/AuthContext'
@@ -15,6 +16,7 @@ import * as gtag from '../lib/gtag'
 // }
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const router = useRouter()
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   useEffect(() => {

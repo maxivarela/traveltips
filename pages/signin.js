@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
 import { useRouter } from 'next/router'
-import firebase from '../firebase'
+import firebase from '../lib/firebase'
 import {
     FacebookLoginButton,
     GoogleLoginButton,

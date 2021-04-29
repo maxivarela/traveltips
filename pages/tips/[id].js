@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
-import firebase from '../../firebase'
+import firebase from '../../lib/firebase'
 import {useRouter} from 'next/router'
 import {deleteTip} from '../api'
 import Link from 'next/link'
