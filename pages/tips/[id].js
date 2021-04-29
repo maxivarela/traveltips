@@ -116,6 +116,10 @@ const Details = ({id, data}) => {
             <Head>
                 <title>{data.title}</title>
                 <meta name={data.title} content='travel tips' />
+                <meta property='og:title' content={data?.title} />
+                <meta property='og:description' content={data?.description} />
+                <meta property='og:image' content={data?.image} />
+                <meta property='og:url' content={shareUrl} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.back()}>

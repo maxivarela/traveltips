@@ -83,12 +83,19 @@ export default function Navbar() {
                 })}
             >
 
-                <Toolbar style={{ backgroundColor: '#111', }}>
+                <Toolbar 
+                    style={{ backgroundColor: '#111', }}
+                    >
                     <div style={{ flexGrow: 1, }}>
                         <Link href='/'>
                             <Button color="inherit" >
                                 <Typography variant="h5" component="h1">
-                                    <span style={{ color: '#009688' }}>Trip</span>Tips
+                                    <span 
+                                        style={{ color: '#009688' }}
+                                        >
+                                        Trip
+                                        </span>
+                                        Tips
                             </Typography>
                             </Button>
                         </Link>
