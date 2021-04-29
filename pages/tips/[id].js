@@ -123,7 +123,7 @@ const Details = ({id, data}) => {
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:url' content={shareUrl} key='ogurl' />
-                <meta property='og:image' content={articleImage.endsWith(['jpg', 'png', 'webp']) ? articleImage : articleImage + '/0.jpg' } key='ogimage'/>
+                <meta property='og:image' content={articleImage.endsWith(['jpg', 'png', 'webp'], 3) ? articleImage : articleImage + '/0.jpg' } key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
