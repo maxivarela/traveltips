@@ -124,7 +124,7 @@ const Details = ({id, data}) => {
                 <meta itemprop='name' content={articleTitle} />
                 <meta name={data.title} content='travel tips' />
                 <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
-                <meta property='og:type' content={'website'} />
+                <meta property='og:type' content={'article'} />
                 <meta property='fb:app_id' content={appId} />
                 <meta property='og:title' content={articleTitle.substring(0,50)} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription.substring(0, 140)} key='desc'/>
