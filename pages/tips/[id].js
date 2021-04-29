@@ -117,22 +117,22 @@ const Details = ({id, data}) => {
         <Container maxWidth='sm'>
             <Head>
                 <title>{data.title}</title>
+                <meta name="pinterest-rich-pin" content="true" />
                 <meta itemprop='url' content={shareUrl} />
                 <meta itemprop='name' content={articleTitle} />
-                <meta itemprop='description' content={articleDescription} />
+                <meta itemprop='description' content={articleDescription.substring(0, 200)} />
                 <meta name={data.title} content='travel tips' />
                 <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
                 <meta property='og:type' content={'article'} />
                 <meta property='fb:app_id' content={appId} />
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
-                <meta property='og:description' content={articleDescription} key='desc'/>
+                <meta property='og:description' content={articleDescription.substring(0, 200)} key='desc'/>
                 <meta property='og:url' content={shareUrl} key='ogurl' />
                 <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage} key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
                 <meta name="twitter:card" content="summary_large_image"></meta>
                 <meta name="twitter:title" content={articleTitle}></meta>
-                <meta name="twitter:description" content={articleDescription
-                }></meta>
+                <meta name="twitter:description" content={articleDescription.substring(0,200)}></meta>
                 <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
