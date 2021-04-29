@@ -19,7 +19,6 @@ const ImageComponent = ({ image }) => {
                             href={image}
                             src={image + '?controls=4&showinfo=0&autoplay=1'}
                             allowFullScreen
-                            frameBorder="0"
                             mozallowfullscreen="mozallowfullscreen"
                             msallowfullscreen="msallowfullscreen"
                             oallowfullscreen="oallowfullscreen"
