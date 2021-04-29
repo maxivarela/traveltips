@@ -128,7 +128,7 @@ const Details = ({id, data}) => {
                 <meta property='og:video' content={articleImage} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
-                <Button onClick={() => router.back()}>
+                <Button onClick={() => router.push('/')}>
                     <Typography color='primary' style={{ fontSize: 12, }}>
                         Back
                     </Typography>
