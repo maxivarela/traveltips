@@ -119,6 +119,7 @@ const Details = ({id, data}) => {
                 <meta property='og:title' content={articleTitle} key='ogtitle'/>
                 <meta property='og:description' content={articleDescription} key='desc'/>
                 <meta property='og:image' content={articleImage} key='ogimage'/>
+                <meta property='og:image:url' content={articleImage} key='ogimage'/>
                 <meta property='og:url' content={shareUrl} key='ogurl'/>
                 <meta property='og:video' content={articleImage} />
                 <meta property='og:video:url' content={articleImage} />
