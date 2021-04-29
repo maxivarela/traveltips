@@ -1,4 +1,4 @@
-import React from 'react';
+import {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -8,6 +8,7 @@ import theme from '../src/theme';
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { AuthProvider } from '../contexts/AuthContext'
+import * as gtag from '../lib/gtag'
 
 // export function reportWebVitals(metric) {
 //   console.log(metric)
@@ -16,7 +17,17 @@ export default function MyApp(props) {
   const { Component, pageProps } = props;
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-  React.useEffect(() => {
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
+  useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
