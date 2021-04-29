@@ -126,7 +126,8 @@ const Details = ({id, data}) => {
                 <meta property='og:url' content={shareUrl} key='ogurl' />
                 <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/0.jpg` : articleImage} key='ogimage'/>
                 <meta property='og:video' content={articleImage} />
-                <meta name="twitter:card" content="summary"></meta>
+                <meta name="twitter:card" content="summary_large_image"></meta>
+                <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/0.jpg` : articleImage}></meta>
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.push('/')}>
