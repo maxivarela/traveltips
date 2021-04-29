@@ -110,6 +110,7 @@ const Details = ({id, data}) => {
     const articleTitle = data?.title
     const articleImage = data?.image[0]
     const articleDescription = data?.description
+    const articlePublishedDate = data?.updatedAt
     const articleSource = 'https://traveltips.vercel.app/'
     const iconSize = 30
             
@@ -117,7 +118,6 @@ const Details = ({id, data}) => {
         <Container maxWidth='sm'>
             <Head>
                 <title>{data.title}</title>
-                <meta name="pinterest-rich-pin" content="true" />
                 <meta itemprop='url' content={shareUrl} />
                 <meta itemprop='name' content={articleTitle} />
                 <meta itemprop='description' content={articleDescription.substring(0, 140)} />
@@ -134,6 +134,7 @@ const Details = ({id, data}) => {
                 <meta name="twitter:title" content={articleTitle}></meta>
                 <meta name="twitter:description" content={articleDescription.substring(0,140)}></meta>
                 <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
+                <meta property="article:published_time" content={articlePublishedDate || new Date(Date.now())} />
             </Head>
             <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
                 <Button onClick={() => router.push('/')}>
