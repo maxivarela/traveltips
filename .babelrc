@@ -3,6 +3,6 @@
         "next/babel"
     ],
     "plugins": [
-        "superjson-next" // 👈
+        "babel-plugin-superjson-next"
     ]
 }

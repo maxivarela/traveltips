@@ -23,6 +23,8 @@ const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
     const today = new Date
 
+    console.log('jisoo', item?.updatedAt)
+
     return ( 
         <Card
             style={{
@@ -125,7 +127,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                     }
                     
                     <div>
-                        Last Updated: {new Date(Date.parse(item?.createdAt)).toLocaleDateString()}
+                        Last Updated: {new Date(item?.updatedAt?.seconds * 1000 + item?.updatedAt?.nanoseconds /1000).toLocaleDateString()}
                     </div>
                 </Typography>
             </CardContent>

@@ -10,16 +10,15 @@ export async function addTip(data, currentUser, addComplete) {
                 user: currentUser.uid,
                 username: currentUser.displayName,
                 userImage: currentUser?.providerData[0].photoURL ? currentUser?.providerData[0].photoURL : null,
-                // city: data.city ? data?.city : '',
                 title: data?.title,
                 description: data?.description ? data?.description : '',
                 image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
-                // audio: data?.audio ? data?.audio : '',
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                // createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
-                createdAt: new Date(Date.now()).toString(),
+                createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+                updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+                
             })
         addComplete()
 
@@ -32,9 +31,14 @@ export async function getTips() {
     const res = await firebase
         .firestore()
         .collection('tips')
-        // .orderBy('createdAt', 'desc')
+        .orderBy('createdAt', 'desc')
         .get()
-    return res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return res.docs.map(doc => 
+        ({
+            id: doc.id,
+            ...doc.data()
+        })
+    );
 }
 
 export async function getTipsByCategory(category) {
@@ -42,7 +46,7 @@ export async function getTipsByCategory(category) {
         .firestore()
         .collection('tips')
         .where('tags', 'array-contains', category)
-        // .orderBy('createdAt', 'desc')
+        .orderBy('createdAt', 'desc')
         .limit(10)
         .get()
     const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -57,7 +61,7 @@ export async function getTipsBySearch(searchTerm) {
         .firestore()
         .collection('tips')
         .where('tags', 'array-contains', searchTerm)
-        // .orderBy('createdAt', 'desc')
+        .orderBy('createdAt', 'desc')
         .limit(10)
         .get()
     const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -82,7 +86,6 @@ export async function editTip(data, id, addComplete) {
             .collection('tips')
             .doc(id)
             .update({
-                // city: data?.city,
                 title: data?.title,
                 description: data?.description,
                 image: data.image ? data?.image?.split(',').map((item) => item.trim()) : [],
@@ -90,8 +93,8 @@ export async function editTip(data, id, addComplete) {
                 link: data?.link ? data?.link : '',
                 location: data?.location ? data?.location : '',
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
-                // updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
-                updatedAt: (new Date(Date.now())).toString(),
+                updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+                
             })
         addComplete()
 
