@@ -18,7 +18,6 @@ export async function addTip(data, currentUser, addComplete) {
                 tags: data.tags ? data?.tags?.split(',').map((item) => item.trim().toLowerCase()) : [],
                 createdAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
                 updatedAt: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
-                
             })
         addComplete()
 

@@ -4,7 +4,9 @@ import firebase from '../../lib/firebase'
 import {useRouter} from 'next/router'
 import {deleteTip} from '../api'
 import Link from 'next/link'
+import superjson from 'superjson';
 import DisqusComments from '../../components/DisqusComments';
+
 import {
     EmailShareButton,
     FacebookShareButton,
@@ -84,7 +86,10 @@ export const getStaticProps = async (context) => {
             .collection('tips')
             .doc(id)
             .get()
-        const data = doc.data()
+        const res = doc.data()
+        // this fixes serializaing Firestore timestamp object
+        const result = await superjson.stringify(res)
+        const data = superjson.parse(result)
 
         return {
             props: { id, data },
@@ -101,7 +106,7 @@ const Details = ({id, data}) => {
 
     const deleteHandler = async () => {
         window.confirm("Are you sure you wish to delete this tip?") &&
-            await deleteTip(id).then(router.back())
+            await deleteTip(id).then(router.push('/'))
     }
 
     const youtubeId = data?.image[0]?.split('/').pop()

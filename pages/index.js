@@ -8,6 +8,7 @@ import superjson from 'superjson';
 export const getServerSideProps = async () => {
   try {
     const res = await getTips()
+    // this fixes serializaing Firestore timestamp object
     const result = await superjson.stringify(res)
     const data = superjson.parse(result)
 
