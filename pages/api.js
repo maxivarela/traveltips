@@ -73,7 +73,6 @@ export async function getTip(id) {
 
 export async function editTip(data, id, addComplete) {
 
-    console.log('lisa', id, data)
     try {
         await firebase
             .firestore()

@@ -18,8 +18,6 @@ export const getServerSideProps = async () => {
 
 export default function Home({data}) {
 
-  console.log('lisa', data)
-
   const MailMe = () => {
     return (
       <>
