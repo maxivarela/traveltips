@@ -86,7 +86,7 @@ const AddTip = () => {
                     multiline
                     rows={10}
                     id="image"
-                    label="image"
+                    label="image/video"
                     name="image"
                     type="text"
                     inputRef={register}

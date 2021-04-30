@@ -23,8 +23,6 @@ const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
     const today = new Date
 
-    console.log('jisoo', item?.updatedAt)
-
     return ( 
         <Card
             style={{
