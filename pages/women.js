@@ -6,7 +6,7 @@ import superjson from 'superjson';
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {
     try {
-        const data = await getTipsByCategory('women')
+        const res = await getTipsByCategory('women')
         // this fixes serializaing Firestore timestamp object
         const result = await superjson.stringify(res)
         const data = superjson.parse(result)
