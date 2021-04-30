@@ -21,7 +21,6 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
-    const today = new Date
 
     return ( 
         <Card
@@ -125,7 +124,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                     }
                     
                     <div>
-                        Last Updated: {new Date(item?.updatedAt?.seconds * 1000 + item?.updatedAt?.nanoseconds /1000).toLocaleDateString()}
+                        Last Updated: {new Date(item?.updatedAt).toLocaleDateString()}
                     </div>
                 </Typography>
             </CardContent>

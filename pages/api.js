@@ -1,4 +1,4 @@
-import firebase from '../lib/firebase'
+import firebase, { postToJSON} from '../lib/firebase'
 
 export async function addTip(data, currentUser, addComplete) {
     
@@ -32,12 +32,7 @@ export async function getTips() {
         .collection('tips')
         .orderBy('createdAt', 'desc')
         .get()
-    return res.docs.map(doc => 
-        ({
-            id: doc.id,
-            ...doc.data()
-        })
-    );
+    return res.docs.map(doc => (postToJSON(doc)))
 }
 
 export async function getTipsByCategory(category) {
@@ -48,7 +43,7 @@ export async function getTipsByCategory(category) {
         .orderBy('createdAt', 'desc')
         .limit(10)
         .get()
-    const data = await res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const data = await res.docs.map(doc => (postToJSON(doc)));
     return {
         props: { data },
         revalidate: 10,
@@ -63,10 +58,10 @@ export async function getTipsBySearch(searchTerm) {
         .orderBy('createdAt', 'desc')
         .limit(10)
         .get()
-    const data = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return data 
+    return res.docs.map(doc => (postToJSON(doc)))
 }
 
+//used for editing the tip
 export async function getTip(id) {
     const doc = await firebase
         .firestore()

@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
-import firebase from '../../lib/firebase'
+import firebase, {postToJSON} from '../../lib/firebase'
 import {useRouter} from 'next/router'
 import {deleteTip} from '../api'
 import Link from 'next/link'
-import superjson from 'superjson';
 import DisqusComments from '../../components/DisqusComments';
 
 import {
@@ -86,10 +85,7 @@ export const getStaticProps = async (context) => {
             .collection('tips')
             .doc(id)
             .get()
-        const res = doc.data()
-        // this fixes serializaing Firestore timestamp object
-        const result = await superjson.stringify(res)
-        const data = superjson.parse(result)
+        const data = postToJSON(doc)
 
         return {
             props: { id, data },
