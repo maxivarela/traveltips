@@ -13,20 +13,19 @@ const ImageComponent = ({ image }) => {
             ?
                 image && image.includes('youtube.com')
                     ?
-                    <>
-                        <iframe
-                            className={classes.video}
-                            src={image}
-                            allowFullScreen
-                            mozallowfullscreen="mozallowfullscreen"
-                            msallowfullscreen="msallowfullscreen"
-                            oallowfullscreen="oallowfullscreen"
-                            webkitallowfullscreen="webkitallowfullscreen"
-                            allow="accelerometer"
-                            title={image}
-                            type="*"
-                        ></iframe>
-                    </>
+                    // <iframe
+                    //     className={classes.video}
+                    //     src={image}
+                    //     allowFullScreen
+                    //     mozallowfullscreen="mozallowfullscreen"
+                    //     msallowfullscreen="msallowfullscreen"
+                    //     oallowfullscreen="oallowfullscreen"
+                    //     webkitallowfullscreen="webkitallowfullscreen"
+                    //     allow="accelerometer"
+                    //     title={image}
+                    //     type="*"
+                    // ></iframe>
+                    <video src={require(image)} />
                     :
                     image &&
                     <>
