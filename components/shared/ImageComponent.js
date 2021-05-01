@@ -23,7 +23,6 @@ const ImageComponent = ({ image }) => {
                         title={image}
                         type="*"
                     ></iframe>
-                    // <video src={require(image)} />
                     :
                     image &&
                     <>

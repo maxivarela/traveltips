@@ -4,7 +4,7 @@ import clsx from "clsx";
 import SearchBar from "material-ui-search-bar";
 import { useRouter } from 'next/router'
 
-import { AuthContext } from '../contexts/AuthContext'
+import { AuthContext } from '../lib/AuthContext'
 import Drawer from '../components/Drawer'
 import MenuList from '../components/MenuList'
 

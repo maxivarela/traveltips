@@ -8,7 +8,7 @@ import theme from '../src/theme';
 import {useRouter} from 'next/router'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
-import { AuthProvider } from '../contexts/AuthContext'
+import { AuthProvider } from '../lib/AuthContext'
 import * as gtag from '../lib/gtag'
 
 // export function reportWebVitals(metric) {

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { AuthContext } from '../contexts/AuthContext'
+import { AuthContext } from '../lib/AuthContext'
 import { useRouter } from 'next/router'
 import firebase from '../lib/firebase'
 import {

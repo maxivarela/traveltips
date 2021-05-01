@@ -1,3 +1,5 @@
+import {useContext} from 'react'
+import {AuthContext} from '../../lib/AuthContext'
 import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
@@ -98,6 +100,8 @@ export const getStaticProps = async (context) => {
 
 const Details = ({id, data}) => {
     const router = useRouter()
+    const {currentUser} = useContext(AuthContext)
+
     if (!data) return <div>Loading...</div>
 
     const deleteHandler = async () => {
@@ -145,23 +149,26 @@ const Details = ({id, data}) => {
                         Back
                     </Typography>
                 </Button>
-                <div>
-                    <Button>
-                        <Link
-                            href={{ pathname: `../edit`, query: { id } }}
+                {currentUser &&
+                    <div>
+                        <Button>
+                            <Link
+                                href={{ pathname: `../edit`, query: { id } }}
                             >
-                            <Typography color='primary' style={{ fontSize: 12, }}>
-                                Edit
+                                <Typography color='primary' style={{ fontSize: 12, }}>
+                                    Edit
                             </Typography>
-                        </Link>
-                    </Button>
-                    
-                    <Button onClick={(id) => deleteHandler(id)}>
-                        <Typography color='primary' style={{ fontSize: 12, }}>
-                            Delete
+                            </Link>
+                        </Button>
+
+                        <Button onClick={(id) => deleteHandler(id)}>
+                            <Typography color='primary' style={{ fontSize: 12, }}>
+                                Delete
                         </Typography>
-                    </Button>
-                </div>
+                        </Button>
+                    </div>
+                }
+                
             </div>
             <CardComponent item={data} maxCharLength={10000}/>
             <div>
