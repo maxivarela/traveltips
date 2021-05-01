@@ -46,7 +46,7 @@ export async function getTipsByCategory(category) {
     const data = await res.docs.map(doc => (postToJSON(doc)));
     return {
         props: { data },
-        revalidate: 10,
+        revalidate: 5000,
     }
 }
 
