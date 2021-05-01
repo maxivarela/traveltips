@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { makeStyles } from '@material-ui/core/styles';
 import {
 } from '@material-ui/core'
@@ -25,6 +23,7 @@ const ImageComponent = ({ image }) => {
                         title={image}
                         type="*"
                     ></iframe>
+                    // <video src={require(image)} />
                     :
                     image &&
                     <>
