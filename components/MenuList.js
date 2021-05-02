@@ -90,7 +90,7 @@ export default function MenuList({ currentUser, state, toggleDrawer}) {
                         <ListItemIcon>
                             <GroupIcon />
                         </ListItemIcon>
-                        <ListItemText primary={"Women Travel"} />
+                        <ListItemText primary={"Female Travel"} />
                     </ListItem>
                 </Link>
 
