@@ -1,8 +1,10 @@
+import { useContext } from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {MoreDetails} from '../components/MoreDetails'
+import {AuthContext} from '../lib/AuthContext'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -20,8 +22,9 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-const CardComponent = ({ currentUser, id, item, maxCharLength}) => {
+const CardComponent = ({ item, maxCharLength}) => {
     const classes = useStyles()
+    const { currentUser } = useContext(AuthContext)
 
     return ( 
         <Card
@@ -148,7 +151,9 @@ const CardComponent = ({ currentUser, id, item, maxCharLength}) => {
                     </Tooltip>
                     
                 </div>
-                <MoreDetails id={id} currentUser={currentUser} data={item} />
+                {item?.user === currentUser?.uid && 
+                    <MoreDetails id={item?.id} />
+                }
                 
             </CardActions>
         </Card>

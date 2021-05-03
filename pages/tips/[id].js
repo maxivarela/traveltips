@@ -12,8 +12,6 @@ import {
     Typography,
 } from '@material-ui/core';
 
-
-
 //SSR
 // export const getServerSideProps = async (context) => {
 //     try {
@@ -113,7 +111,7 @@ const Details = ({id, data}) => {
                 </Button>
             </div>
 
-            <CardComponent id={id} item={data} maxCharLength={10000} currentUser={currentUser}/>
+            <CardComponent item={data} maxCharLength={10000} currentUser={currentUser}/>
             <SocialShare id={id} data={data} />
             <div style={{marginBottom: 80,}}> </div>
         </Container>
