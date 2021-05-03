@@ -4,44 +4,15 @@ import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
 import {useRouter} from 'next/router'
-import {deleteTip} from '../api'
-import Link from 'next/link'
-import DisqusComments from '../../components/DisqusComments';
-
-import {
-    EmailShareButton,
-    FacebookShareButton,
-    FacebookMessengerShareButton,
-    LineShareButton,
-    LinkedinShareButton,
-    PinterestShareButton,
-    RedditShareButton,
-    TwitterShareButton,
-    ViberShareButton,
-    WeiboShareButton,
-    WhatsappShareButton,
-} from "react-share";
-
-import {
-    EmailIcon,
-    FacebookIcon,
-    FacebookMessengerIcon,
-    LineIcon,
-    LinkedinIcon,
-    PinterestIcon,
-    RedditIcon,
-    TwitterIcon,
-    ViberIcon,
-    WeiboIcon,
-    WhatsappIcon,
-} from "react-share";
+import SocialShare from '../../components/SocialShare';
 
 import {
     Button,
     Container,
-    Tooltip,
     Typography,
 } from '@material-ui/core';
+
+
 
 //SSR
 // export const getServerSideProps = async (context) => {
@@ -104,11 +75,6 @@ const Details = ({id, data}) => {
 
     if (!data) return <div>Loading...</div>
 
-    const deleteHandler = async () => {
-        window.confirm("Are you sure you wish to delete this tip?") &&
-            await deleteTip(id).then(router.push('/'))
-    }
-
     const youtubeId = data?.image[0]?.split('/').pop()
     const shareUrl = `https://traveltips.vercel.app/tips/${id}`
     const appId = '296712571894670'
@@ -116,9 +82,6 @@ const Details = ({id, data}) => {
     const articleAuthor = data?.username
     const articleImage = data?.image[0]
     const articleDescription = data?.description
-    const articlePublishedDate = data?.updatedAt
-    const articleSource = 'https://traveltips.vercel.app/'
-    const iconSize = 30
             
     return ( 
         <Container maxWidth='sm'>
@@ -143,121 +106,15 @@ const Details = ({id, data}) => {
                 <meta property="article:published_time" content={new Date(Date.now())} />
                 <meta property="article:author" content={articleAuthor} />
             </Head>
-            <div className='flexRow' style={{marginBottom: 10, marginTop: 40}}>
-                <Button onClick={() => router.push('/')}>
-                    <Typography color='primary' style={{ fontSize: 12, }}>
-                        Back
-                    </Typography>
-                </Button>
-                {currentUser &&
-                    <div>
-                        <Button>
-                            <Link
-                                href={{ pathname: `../edit`, query: { id } }}
-                            >
-                                <Typography color='primary' style={{ fontSize: 12, }}>
-                                    Edit
-                            </Typography>
-                            </Link>
-                        </Button>
 
-                        <Button onClick={(id) => deleteHandler(id)}>
-                            <Typography color='primary' style={{ fontSize: 12, }}>
-                                Delete
-                        </Typography>
-                        </Button>
-                    </div>
-                }
-                
+            <div className='flexRow' style={{marginBottom: 20, marginTop: 40}}>
+                <Button onClick={() => router.push('/')} variant='outlined' color='primary'>
+                    Back
+                </Button>
             </div>
-            <CardComponent item={data} maxCharLength={10000}/>
-            <div>
-                <EmailShareButton 
-                    url={shareUrl}
-                    subject={articleTitle}
-                    body={'Check this out:'}
-                    style={{ marginRight: 10, }}
-                    >
-                    <EmailIcon size={iconSize} round={true} />
-                </EmailShareButton>
-                <FacebookShareButton 
-                    url={shareUrl} 
-                    quote={articleTitle}
-                    hashtag={'traveltips'}
-                    style={{ marginRight: 10, }}
-                    >
-                    <FacebookIcon size={iconSize} round={true} />
-                </FacebookShareButton>
-                <FacebookMessengerShareButton
-                    url={shareUrl} 
-                    appId={appId}
-                    redirectUri={shareUrl}
-                    style={{ marginRight: 10, }}
-                    >
-                    <FacebookMessengerIcon size={iconSize} round={true} />
-                </FacebookMessengerShareButton>
-                <TwitterShareButton 
-                    url={shareUrl} 
-                    title={articleTitle}
-                    hashtags={data?.tags}
-                    style={{ marginRight: 10, }}>
-                    <TwitterIcon size={iconSize} round={true} />
-                </TwitterShareButton>
-                <PinterestShareButton 
-                    url={shareUrl}  
-                    media={articleImage} 
-                    description={articleDescription} 
-                    style={{ marginRight: 10, }}
-                    >
-                    <PinterestIcon size={iconSize} round={true} />
-                </PinterestShareButton>
-                <LineShareButton 
-                    url={shareUrl}
-                    title={articleTitle}
-                    style={{ marginRight: 10, }}
-                    >
-                    <LineIcon size={iconSize} round={true} />
-                </LineShareButton>
-                <LinkedinShareButton 
-                    url={shareUrl}
-                    title={articleTitle}
-                    summary={articleDescription}
-                    source={articleSource}
-                    style={{ marginRight: 10, }}
-                    >
-                    <LinkedinIcon size={iconSize} round={true} />
-                </LinkedinShareButton>
-                <RedditShareButton 
-                    url={shareUrl}
-                    title={articleTitle}
-                    style={{ marginRight: 10, }}
-                    >
-                    <RedditIcon size={iconSize} round={true} />
-                </RedditShareButton>
-                <ViberShareButton 
-                    url={shareUrl}
-                    title={articleTitle}
-                    style={{ marginRight: 10, }}
-                    >
-                    <ViberIcon size={iconSize} round={true} />
-                </ViberShareButton>
-                <WeiboShareButton 
-                    url={shareUrl}
-                    title={articleTitle}
-                    image={articleImage}
-                    style={{ marginRight: 10, }}
-                    >
-                    <WeiboIcon size={iconSize} round={true} />
-                </WeiboShareButton>
-                <WhatsappShareButton 
-                    url={shareUrl}
-                    title={articleTitle}
-                    style={{ marginRight: 10, }}
-                    >
-                    <WhatsappIcon size={iconSize} round={true} />
-                </WhatsappShareButton>
-            </div>
-            {/* <DisqusComments item={data} id={id}/> */}
+
+            <CardComponent id={id} item={data} maxCharLength={10000} currentUser={currentUser}/>
+            <SocialShare id={id} data={data} />
             <div style={{marginBottom: 80,}}> </div>
         </Container>
     );

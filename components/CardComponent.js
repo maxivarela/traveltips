@@ -2,6 +2,7 @@ import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import {MoreDetails} from '../components/MoreDetails'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -19,7 +20,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-const CardComponent = ({ item, maxCharLength}) => {
+const CardComponent = ({ currentUser, id, item, maxCharLength}) => {
     const classes = useStyles()
 
     return ( 
@@ -147,13 +148,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                     </Tooltip>
                     
                 </div>
-                {/* <Tooltip title='Share' placement='top'>
-                    <IconButton onClick={() => alert('todo')}>
-                        <Typography variant='h5' color='primary'>
-                            <ShareIcon />
-                        </Typography>
-                    </IconButton>
-                </Tooltip> */}
+                <MoreDetails id={id} currentUser={currentUser} data={item} />
                 
             </CardActions>
         </Card>
