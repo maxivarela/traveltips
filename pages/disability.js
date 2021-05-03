@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
-import { getTipsByCategory } from './api'
+import { getTipsByCategory } from '../lib/api'
 
 export const getStaticProps = async () => {
     try {

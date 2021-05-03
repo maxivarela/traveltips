@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router'
-import { editTip, getTip } from './api'
+import { editTip, getTip } from '../lib/api'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 
 import { makeStyles } from '@material-ui/core/styles';

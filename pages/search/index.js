@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import TipsComponent from '../../components/TipsComponent'
-import { getTipsBySearch } from '../api'
+import { getTipsBySearch } from '../../lib/api'
 import { useRouter } from 'next/router'
 
 import {

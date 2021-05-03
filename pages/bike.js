@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
-import { getTipsByCategory } from './api'
+import { getTipsByCategory } from '../lib/api'
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {

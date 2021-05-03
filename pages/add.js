@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useContext } from 'react'
 import { useForm } from 'react-hook-form';
 // import GooglePlaces from '../../components/GooglePlaces'
 import { useRouter } from 'next/router'
-import { addTip } from './api'
+import { addTip } from '../lib/api'
 import {AuthContext} from '../lib/AuthContext'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 import AuthCheck from '../components/AuthCheck'

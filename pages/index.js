@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
-import {getTips} from './api'
+import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
+
 
 export const getServerSideProps = async () => {
   try {

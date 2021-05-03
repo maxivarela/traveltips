@@ -85,7 +85,7 @@ export default function MenuList({ currentUser, state, toggleDrawer}) {
                     </ListItem>
                 </Link>
 
-                <Link href='/women'>
+                <Link href='/female'>
                     <ListItem button>
                         <ListItemIcon>
                             <GroupIcon />

@@ -1,4 +1,4 @@
-import {getTips} from '../../api'
+import {getTips} from '../../../lib/api'
 
 export default async (req, res) =>  {
 
