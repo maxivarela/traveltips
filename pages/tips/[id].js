@@ -3,13 +3,11 @@ import {AuthContext} from '../../lib/AuthContext'
 import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
-import {useRouter} from 'next/router'
 import SocialShare from '../../components/SocialShare';
+import BackButton from '../../components/shared/BackButton';
 
 import {
-    Button,
     Container,
-    Typography,
 } from '@material-ui/core';
 
 //SSR
@@ -68,7 +66,6 @@ export const getStaticProps = async (context) => {
 }
 
 const Details = ({id, data}) => {
-    const router = useRouter()
     const {currentUser} = useContext(AuthContext)
 
     if (!data) return <div>Loading...</div>
@@ -104,13 +101,7 @@ const Details = ({id, data}) => {
                 <meta property="article:published_time" content={new Date(Date.now())} />
                 <meta property="article:author" content={articleAuthor} />
             </Head>
-
-            <div className='flexRow' style={{marginBottom: 20, marginTop: 40}}>
-                <Button onClick={() => router.push('/')} variant='outlined' color='primary'>
-                    Back
-                </Button>
-            </div>
-
+            <BackButton />
             <CardComponent item={data} maxCharLength={10000} currentUser={currentUser}/>
             <SocialShare id={id} data={data} />
             <div style={{marginBottom: 80,}}> </div>
