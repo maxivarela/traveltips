@@ -2,7 +2,7 @@ import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
 import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
-
+import FabButton from '../components/FabButton'
 
 export const getServerSideProps = async () => {
   try {
@@ -18,7 +18,6 @@ export const getServerSideProps = async () => {
 }
 
 export default function Home({data}) {
-
   const MailMe = () => {
     return (
       <>
@@ -35,7 +34,6 @@ export default function Home({data}) {
       </>
     )
   }
-  
   return (
     <>
       <div style={{padding: '1rem',}}>
@@ -45,6 +43,9 @@ export default function Home({data}) {
           <meta name='description' content='travel tips'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
         </Head>
+        <div className='fab'>
+          <FabButton />
+        </div>
         <div className='flexRow' style={{ margin: '20px auto' }}>
           <AddTip /> 
           <MailMe />

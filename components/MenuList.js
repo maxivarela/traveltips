@@ -23,7 +23,7 @@ import AccessibleIcon from '@material-ui/icons/Accessible';
 import AirlineSeatReclineExtraIcon from '@material-ui/icons/AirlineSeatReclineExtra';
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import ListIcon from '@material-ui/icons/List';
-import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
+import CloudIcon from '@material-ui/icons/Cloud';
 
 export default function MenuList({ currentUser, state, toggleDrawer}) {
     const classes = useStyles()
@@ -133,7 +133,7 @@ export default function MenuList({ currentUser, state, toggleDrawer}) {
                 <Link href='/dev'>
                     <ListItem button>
                         <ListItemIcon>
-                            <SettingsApplicationsIcon />
+                            <CloudIcon />
                         </ListItemIcon>
                         <ListItemText primary={"TripTips API"} />
                     </ListItem>
