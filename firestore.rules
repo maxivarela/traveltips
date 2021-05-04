@@ -5,23 +5,32 @@ service cloud.firestore {
 
     match /tips/{id} {
           allow read: if true;
-          allow create: if canCreate()
-          allow update, delete: if isLoggedIn() && belongsTo();
+          allow create: if canCreate();
+          allow update: if isLoggedIn() && belongsTo();
+          allow delete: if isLoggedIn() && belongsTo();
         }
 
     function isLoggedIn() { 
       return request.auth.uid != null;
     }
 
-    function belongsTo(userId) {
-      return request.auth.uid == userId || request.auth.uid == resource.data.uid;
+    function belongsTo() {    
+      return request.auth.uid == resource.auth.uid;
     }
 
     function canCreate() {
-      let uid = request.auth.uid; 
       let hasValidTimestamp = request.time == request.resource.data.createdAt;
-      return belongsTo(uid) && hasValidTimestamp;
+      return belongsTo() && hasValidTimestamp;
     }
+
+    function isValidUpdatedPost() {
+      let post = request.resource.data;
+      let hasRequiredFields = post.keys().hasAny(['title', 'image', 'link', 'location', 'tags', 'description', 'updatedAt', 'published']);
+      let isValidContent = post.description is string && post.description.size() < 5000;
+
+      return hasRequiredFields && isValidContent;
+    }
+
   }
 }
 
