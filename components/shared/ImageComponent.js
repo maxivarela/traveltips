@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
 } from '@material-ui/core'
 
-const ImageComponent = ({ image }) => {
+const ImageComponent = ({ image, title }) => {
     const classes = useStyles()
 
     return (
@@ -27,7 +27,7 @@ const ImageComponent = ({ image }) => {
                     image &&
                     <>
                         <div onError={(e) => e.target.src = 'https://i.imgur.com/Gz9TnHe.png'}>
-                            <img src={image} alt='' className={classes.media}/>
+                            <img src={image} alt={title} className={classes.media}/>
                         </div>
                     </>
                 

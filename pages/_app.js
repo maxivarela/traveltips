@@ -1,6 +1,5 @@
 import {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -10,6 +9,9 @@ import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { AuthProvider } from '../lib/AuthContext'
 import * as gtag from '../lib/gtag'
+import {DefaultSeo} from 'next-seo'
+
+import SEO from '../next-seo.config'
 
 // export function reportWebVitals(metric) {
 //   console.log(metric)
@@ -39,10 +41,7 @@ export default function MyApp(props) {
 
   return (
     <>
-      <Head>
-        <title>My page</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      </Head>
+      <DefaultSeo {...SEO} />
       <ThemeProvider theme={Object.assign(prefersDarkMode, theme)}>
         <CssBaseline />
         <AuthProvider>

@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
 import { getTipsByCategory } from '../lib/api'
+import { NextSeo } from 'next-seo'
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getStaticProps = async () => {
@@ -13,16 +13,16 @@ export const getStaticProps = async () => {
 }
 
 export default function BikeTravel({ data }) {
+    const SEO = {
+        title: 'Bike Travel Tips',
+        description: 'Travel tips, hacks for bike travel.'
+    }
     return (
         <div style={{ padding: '1rem', }}>
-            <Head>
-                <title>Bike Travel Tips</title>
-                <meta name='keywords' content='travel tips' />
-            </Head>
+            <NextSeo {...SEO} />
             <h2>
                 Bike Travel Tips
             </h2>
-
 
             <TipsComponent tips={data} />
         </div>

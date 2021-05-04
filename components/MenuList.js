@@ -123,13 +123,14 @@ export default function MenuList({ currentUser, state, toggleDrawer}) {
                         <ListItemText primary={"About"} />
                     </ListItem>
                 </Link>
-                <ListItem button>
-                    <ListItemIcon>
-                        <ListIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={"Guideline"} />
-                </ListItem>
-
+                <Link href='/guidelines'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <ListIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Guideline"} />
+                    </ListItem>
+                </Link>
                 <Link href='/dev'>
                     <ListItem button>
                         <ListItemIcon>

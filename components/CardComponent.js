@@ -75,7 +75,7 @@ const CardComponent = ({ item, maxCharLength}) => {
                         </Carousel>
                         :
                         // <ImageComponent key={item.id} image={item?.image} />
-                        item?.image?.map(image => <ImageComponent key={item.id} image={image} />)
+                        item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title}/>)
                 )
                 :
                 null

@@ -5,6 +5,7 @@ import CardComponent from '../../components/CardComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
 import SocialShare from '../../components/SocialShare';
 import BackButton from '../../components/shared/BackButton';
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 
 import {
     Container,
@@ -77,30 +78,56 @@ const Details = ({id, data}) => {
     const articleAuthor = data?.username
     const articleImage = data?.image[0]
     const articleDescription = data?.description
+
+    const SEO = {
+        title: data?.title,
+        description: articleDescription.substring(0, 140),
+        canonical: shareUrl,
+        openGraph: {
+            title: articleTitle.substring(0, 50), 
+            description: articleDescription.substring(0, 140),
+            url: shareUrl,
+            image: articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage,
+            video: articleImage,
+            type: 'article',
+            locale: 'en_US',
+            site_name: 'TripTips',
+            article: {
+                publishedTime: new Date(data?.createdAt).toLocaleDateString(),
+                modifiedTime: new Date(data?.updatedAt).toLocaleDateString(),
+                authors: [data?.username]
+            },
+        },
+        facebook :{
+            appId: appId
+        },
+        twitter: {
+            title: articleTitle.substring(0, 50),
+            description: articleDescription.substring(0, 140),
+            image: articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage,
+            handle: '@nonoumasy',
+            site: '@TripTips7',
+            cardType: 'summary_large_image',
+        },
+    }
+
+    const JSONLD = {
+        url: shareUrl,
+        title: articleTitle.substring(0, 50),
+        images: [articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage],
+        datePublished: (new Date(data?.createdAt).toLocaleDateString()),
+        dateModified: (new Date(data?.updatedAt).toLocaleDateString()),
+        authorName: [data?.username],
+        publisherName: "TripTips",
+        publisherLogo: "https://firebasestorage.googleapis.com/v0/b/travel-tips-29526.appspot.com/o/Frame%20435.png?alt=media&token=ac6a2ddf-894c-4806-bb25-8e92ea3a4614",
+        description: articleDescription.substring(0, 140),
+
+    }
             
     return ( 
         <Container maxWidth='sm'>
-            <Head>
-                <title>{data.title}</title>
-                <meta name="pinterest-rich-pin" content="true" />
-                <meta itemprop='url' content={shareUrl} />
-                <meta itemprop='name' content={articleTitle} />
-                <meta name={data.title} content='travel tips' />
-                <meta property="og:site_name" content={'TripTips'} key="ogsitename" />
-                <meta property='og:type' content={'article'} />
-                <meta property='fb:app_id' content={appId} />
-                <meta property='og:title' content={articleTitle.substring(0,50)} key='ogtitle'/>
-                <meta property='og:description' content={articleDescription.substring(0, 140)} key='desc'/>
-                <meta property='og:url' content={shareUrl} key='ogurl' />
-                <meta property='og:image' content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage} key='ogimage'/>
-                <meta property='og:video' content={articleImage} />
-                <meta name="twitter:card" content="summary_large_image"></meta>
-                <meta name="twitter:title" content={articleTitle.substring(0,50)}></meta>
-                <meta name="twitter:description" content={articleDescription.substring(0,140)}></meta>
-                <meta name="twitter:image" content={articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage}></meta>
-                <meta property="article:published_time" content={new Date(Date.now())} />
-                <meta property="article:author" content={articleAuthor} />
-            </Head>
+            <NextSeo {...SEO} />
+            <ArticleJsonLd {...JSONLD}/>
             <BackButton />
             <CardComponent item={data} maxCharLength={10000} currentUser={currentUser}/>
             <SocialShare id={id} data={data} />
