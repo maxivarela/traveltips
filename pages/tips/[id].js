@@ -84,12 +84,14 @@ const Details = ({id, data}) => {
         description: articleDescription.substring(0, 140),
         canonical: shareUrl,
         openGraph: {
+            type: 'article',
+            url: shareUrl,
             title: articleTitle.substring(0, 50), 
             description: articleDescription.substring(0, 140),
-            url: shareUrl,
-            image: articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage,
-            video: articleImage,
-            type: 'article',
+            images: [{
+                url: articleImage?.includes('youtube') ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg` : articleImage,
+                alt: articleTitle.substring(0, 50),
+            }],
             locale: 'en_US',
             site_name: 'TripTips',
             article: {

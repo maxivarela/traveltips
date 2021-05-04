@@ -27,7 +27,7 @@ const ImageComponent = ({ image, title }) => {
                     image &&
                     <>
                         <div onError={(e) => e.target.src = 'https://i.imgur.com/Gz9TnHe.png'}>
-                            <img src={image} alt={title} className={classes.media}/>
+                            <img src={image} alt={title?.substring(0,50)} className={classes.media}/>
                         </div>
                     </>
                 
