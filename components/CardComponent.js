@@ -92,12 +92,12 @@ const CardComponent = ({ item, maxCharLength}) => {
                     </Link>}
                 
 
-                <Typography variant='h6' component='h2' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1,}}>
+                <Typography variant='h6' component='h1' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1,}}>
                     {item?.title}
                 </Typography>
 
                 {item?.description &&
-                    <Typography style={{ whiteSpace: 'pre-wrap', marginBottom: 20, }}>
+                    <Typography variant='body1' component='h3' style={{ whiteSpace: 'pre-wrap', marginBottom: 20, }}>
                         {item?.description?.substring(0, maxCharLength)}
                     </Typography>
                 }
