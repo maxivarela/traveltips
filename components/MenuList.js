@@ -25,9 +25,11 @@ import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import ListIcon from '@material-ui/icons/List';
 import CloudIcon from '@material-ui/icons/Cloud';
 
-export default function MenuList({ currentUser, state, toggleDrawer}) {
+export default function MenuList({ currentUser, setCurrentUser, state, toggleDrawer}) {
     const classes = useStyles()
     const theme = useTheme();
+    
+
 
     const signoutHandler = async () => {
         try {

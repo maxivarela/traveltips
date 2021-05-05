@@ -28,7 +28,7 @@ export default function Navbar() {
     const router = useRouter()
     const [searchTerm, setSearchTerm] = useState('')
     const [open, setOpen] = useState(false);
-    const { currentUser } = useContext(AuthContext)
+    const { currentUser, setCurrentUser} = useContext(AuthContext)
 
     const handleSearch = () => {
         router.push({
@@ -102,7 +102,7 @@ export default function Navbar() {
                 </Toolbar>
             </AppBar>
             <Drawer toggleDrawer={toggleDrawer} state={state}>
-                <MenuList toggleDrawer={toggleDrawer} state={state} currentUser={currentUser}/>
+                <MenuList toggleDrawer={toggleDrawer} state={state} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </Drawer>
         </>
             

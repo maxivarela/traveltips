@@ -84,10 +84,10 @@ const CardComponent = ({ item, maxCharLength}) => {
             <CardContent style={{ padding: '20px 30px', }}>
                 {item?.location 
                     && 
-                    <Link href="">
-                    <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5,}}>
-                        <LocationOnIcon style={{ fontSize: 12,}} />
-                        &nbsp;{item?.location}
+                    <Link href="/">
+                        <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5,}}>
+                            <LocationOnIcon style={{ fontSize: 12,}} />
+                            &nbsp;{item?.location}
                         </a>
                     </Link>}
                 
