@@ -1,6 +1,6 @@
 export default {
-    title: 'Travel Tips',
-    description: 'TripTips is a social platform to create, explore, and share travel tips.',
+    title: 'Travel tips and tricks.',
+    description: 'TripTips is a social platform to create, explore, and share travel tips.Unique travel trips. Travel tips and tricks. Travel tips for beginners. Travel tips during covid. Travel tips 2020. Fun travel tips. Travel tips packing.5 travel tips.',
     openGraph: {
         type: 'website',
         locale: 'en_US',
