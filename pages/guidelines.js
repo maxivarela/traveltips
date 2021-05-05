@@ -24,7 +24,7 @@ export default function Guidelines() {
                     <li>Keep Safe.</li>
                     <li>Solve a specific problem.</li>
                     <li>Local/Expert knowledge.</li>
-                    <li>Secret/Not well known information</li>
+                    <li>Secret/Not well known/New information</li>
                 </ul>
 
                 A tip is NOT:
