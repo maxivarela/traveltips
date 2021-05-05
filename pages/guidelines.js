@@ -24,7 +24,7 @@ export default function Guidelines() {
                     <li>Keep Safe.</li>
                     <li>Solve a specific problem.</li>
                     <li>Local/Expert knowledge.</li>
-                    <li>Secret spots.</li>
+                    <li>Secret/Not well known information</li>
                 </ul>
 
                 A tip is NOT:
@@ -41,6 +41,7 @@ export default function Guidelines() {
                     <li>Secret spots in Lisbon.</li>
                     <li>Lesson(s) learned during 2 years of solo traveling.</li>
                     <li>Local Ramen spot in Kyoto.</li>
+                    <li>Off the beaten path</li>
                 </ul>
             </Typography>
 
