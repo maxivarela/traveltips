@@ -17,29 +17,30 @@ export default function Guidelines() {
                 Guidelines Page
             </h2>
             <Typography variant='body1' component='h3'>
-                A tip is to:
+                A travel tip is:
                 <ul>
-                    <li>Find free (or discounted) stuff</li>
+                    <li>Find free (or discounted) stuff.</li>
                     <li>Avoid Stress - scams, hassle, frustration, hassle, trouble, worry.</li>
-                    <li>Keep Safe</li>
-                    <li>Solves a specific problem</li>
+                    <li>Keep Safe.</li>
+                    <li>Solve a specific problem.</li>
+                    <li>Local/Expert knowledge.</li>
+                    <li>Secret spots.</li>
                 </ul>
 
                 A tip is NOT:
                 <ul>
                     <li>review(s) - ‘Best bags for solo travel’ but if this was given as an advice from an experienced traveler, then it is a tip</li>
-                    <li>Guide, eg ‘Top 5 things to see in Lisbon’</li>
-                    <li>Opinions , eg a blogger who just researched a top 5 things to do.</li>
+                    <li>opinion(s) , eg. a blogger who just researched Top 5 things to do in Tokyo.</li>
                 </ul>
 
                 Examples of tips:
                 <ul>
-                    <li>Free stuff</li>
-                    <li>How to eat cheap, anything about budget travel</li>
-                    <li>Scams</li>
-                    <li>Tip on where to go</li>
-                    <li>Lesson(s) learned</li>
-                    <li>Secrets</li>
+                    <li>Free Museum entrance to the Prado.</li>
+                    <li>How to eat cheap in Istanbul ...or anything about budget travel.</li>
+                    <li>Avoid these Scams in Prague.</li>
+                    <li>Secret spots in Lisbon.</li>
+                    <li>Lesson(s) learned during 2 years of solo traveling.</li>
+                    <li>Local Ramen spot in Kyoto.</li>
                 </ul>
             </Typography>
 
