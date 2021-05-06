@@ -33,6 +33,8 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const { currentUser, setCurrentUser} = useContext(AuthContext)
 
+    const language = ['English', 'العربية', 'Deutsch', 'Español', 'Français', 'हिन्दी', '日本語', 'Português', 'Русский', '中文（简体)']
+
     const changeLanguage = (e) => {
         const locale = e.target.value;
         router.push(router.pathname, router.asPath, { locale });
@@ -93,8 +95,10 @@ export default function Navbar() {
                         defaultValue={locale}
                         className={classes.formLang}
                         >
-                        {locales.map((loc) => (
-                            <MenuItem value={loc}>{loc.toUpperCase()}</MenuItem>
+                        {locales.map((loc, index) => (
+                            <MenuItem value={loc} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: 180, wrap: 'no-wrap', }} >
+                                <div> {loc.toUpperCase()}</div><div>{language[index]}</div>
+                            </MenuItem>
                         ))}
                     </Select>
                     <IconButton
@@ -122,16 +126,12 @@ const useStyles = makeStyles((theme) => ({
         display: "none"
     },
     formLang: {
-        backgroundColor: '#111', 
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: 500,
         color: '#26978A',
-        padding: 5,
         marginLeft: 20, 
         marginRight: 0,
-        width: 70, 
+        width: 90, 
         height: 36, 
-        border: 0,
-        // borderRadius: 5,
     }
 }));
