@@ -30,6 +30,11 @@ export default function Search({search, data}) {
             <Head>
                 <title> Travel Tips for {search}</title>
                 <meta name='keywords' content='travel tips' />
+                {locales.map(loc => {
+                    return (
+                        <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`} />
+                    )
+                })}
             </Head>
             <BackButton />
             <h2>

@@ -25,7 +25,11 @@ export default function DisabilityTravel({ data }) {
     return (
         <div style={{ padding: '1rem', }}>
             <Head>
-                <meta hrefLang={locale} />
+                {locales.map(loc => {
+                    return (
+                        <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`} />
+                    )
+                })}
             </Head>
             <NextSeo {...SEO} />
             <h2>

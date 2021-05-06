@@ -70,7 +70,7 @@ export const getStaticProps = async (context) => {
 const Details = ({id, data}) => {
     const {currentUser} = useContext(AuthContext)
     const router = useRouter()
-    const { locale } = router
+    const { locale, locales } = router
 
     if (!data) return <div>Loading...</div>
 
@@ -126,13 +126,16 @@ const Details = ({id, data}) => {
         publisherName: "TripTips",
         publisherLogo: "https://firebasestorage.googleapis.com/v0/b/travel-tips-29526.appspot.com/o/Frame%20435.png?alt=media&token=ac6a2ddf-894c-4806-bb25-8e92ea3a4614",
         description: articleDescription.substring(0, 140),
-
     }
             
     return ( 
         <Container maxWidth='sm'>
             <Head>
-                <meta hrefLang={locale}/>
+                {locales.map(loc => {
+                    return (
+                        <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`} />
+                    )
+                })}
             </Head>
             <NextSeo {...SEO} />
             <ArticleJsonLd {...JSONLD}/>

@@ -36,8 +36,8 @@ export default function Navbar() {
     const language = ['English', 'العربية', 'Deutsch', 'Español', 'Français', 'हिन्दी', '日本語', 'Português', 'Русский', '中文（简体)']
 
     const changeLanguage = (e) => {
-        const locale = e.target.value;
-        router.push(router.pathname, router.asPath, { locale });
+        const locale = e.target.value
+        router.push(router.pathname, router.asPath, { locale })
     };
 
     const handleSearch = () => {
