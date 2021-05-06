@@ -97,15 +97,6 @@ export default function Navbar() {
                             <MenuItem value={loc}>{loc.toUpperCase()}</MenuItem>
                         ))}
                     </Select>
-                    {/* <select
-                        onChange={changeLanguage}
-                        defaultValue={locale}
-                        className={classes.formLang}
-                        >
-                        {locales.map((loc) => (
-                            <option value={loc}>{loc.toUpperCase()}</option>
-                        ))}
-                    </select> */}
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -136,7 +127,8 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 500,
         color: '#26978A',
         padding: 5,
-        margin: '0px 20px', 
+        marginLeft: 20, 
+        marginRight: 0,
         width: 70, 
         height: 36, 
         border: 0,
