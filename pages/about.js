@@ -11,7 +11,7 @@ export default function About() {
         description: 'Travel tips, hacks for solo travel.'
     }
     return (
-        <Container maxWidth="sm" style={{ height: 'calc(100vh - 13rem)', margin: '40px auto' }}>
+        <Container maxWidth="sm" style={{ margin: '40px auto' }}>
             <NextSeo {...SEO} />
             <h2>
                 About Page

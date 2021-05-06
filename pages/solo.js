@@ -1,6 +1,7 @@
 import TipsComponent from '../components/TipsComponent'
 import { getTipsByCategory } from '../lib/api'
 import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
 export const getStaticProps = async () => {
     try {
@@ -12,6 +13,9 @@ export const getStaticProps = async () => {
 }
 
 export default function SoloTravel({ data }) {
+    const router = useRouter()
+    const { locale, locales } = router
+
     const SEO = {
         title: 'Solo Travel Tips',
         description: 'Travel tips, hacks for solo travel.'
@@ -22,7 +26,7 @@ export default function SoloTravel({ data }) {
             <h2>
                 Solo Travel Tips
             </h2>
-            <TipsComponent tips={data} />
+            <TipsComponent tips={data} locale={locale} locales={locales}/>
         </div>
     )
 }

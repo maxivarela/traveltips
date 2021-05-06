@@ -11,7 +11,7 @@ export default function Guidelines() {
         description: 'Travel Tip guidelines'
     }
     return (
-        <Container maxWidth="sm" style={{ height: 'calc(100vh - 13rem)', margin: '40px auto'}}>
+        <Container maxWidth="sm" style={{ margin: '40px auto'}}>
             <NextSeo {...SEO} />
             <h2>
                 Guidelines Page

@@ -9,7 +9,7 @@ export default function DevelopersPage() {
         description: 'Developers page for Travel Tips'
     }
     return (
-        <Container maxWidth="sm" style={{ height: 'calc(100vh - 13rem)', margin: '40px auto' }}>
+        <Container maxWidth="sm" style={{ margin: '40px auto' }}>
             <NextSeo {...SEO} />
             <h2>
                 Developers Page
