@@ -22,7 +22,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-const CardComponent = ({ item, maxCharLength}) => {
+const CardComponent = ({ item, maxCharLength, locale}) => {
     const classes = useStyles()
     const { currentUser } = useContext(AuthContext)
 
@@ -90,15 +90,44 @@ const CardComponent = ({ item, maxCharLength}) => {
                             &nbsp;{item?.location}
                         </a>
                     </Link>}
+
+                    <Typography variant='h6' component='h1' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1, }}>
+                        {
+                            locale === 'en'
+                                ?
+                                item?.title
+                            : locale === 'ar' ? item?.translatedTitle?.ar 
+                            : locale === 'de' ? item?.translatedTitle?.de 
+                            : locale === 'en' ? item?.translatedTitle?.en 
+                            : locale === 'es' ? item?.translatedTitle?.es 
+                            : locale === 'fr' ? item?.translatedTitle?.fr 
+                            : locale === 'hi' ? item?.translatedTitle?.hi 
+                            : locale === 'ja' ? item?.translatedTitle?.ja 
+                            : locale === 'pt' ? item?.translatedTitle?.pt 
+                            : locale === 'ru' ? item?.translatedTitle?.ru 
+                            : locale === 'zh' ? item?.translatedTitle?.zh 
+                            : ''
+                        }
+                    </Typography>
                 
-
-                <Typography variant='h6' component='h1' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1,}}>
-                    {item?.title}
-                </Typography>
-
                 {item?.description &&
                     <Typography variant='body1' component='h3' style={{ whiteSpace: 'pre-wrap', marginBottom: 20, }}>
-                        {item?.description?.substring(0, maxCharLength)}
+                        {
+                            locale === 'en'
+                            ?
+                            item?.translatedDescription?.substring(0, maxCharLength)
+                            : locale === 'ar' ? item?.translatedDescription?.ar.substring(0, maxCharLength)
+                                : locale === 'de' ? item?.translatedDescription?.de.substring(0, maxCharLength)
+                                    : locale === 'en' ? item?.translatedDescription?.en.substring(0, maxCharLength)
+                                        : locale === 'es' ? item?.translatedDescription?.es.substring(0, maxCharLength)
+                                            : locale === 'fr' ? item?.translatedDescription?.fr.substring(0, maxCharLength)
+                                                : locale === 'hi' ? item?.translatedDescription?.hi.substring(0, maxCharLength)
+                                                    : locale === 'ja' ? item?.translatedDescription?.ja.substring(0, maxCharLength)
+                                                        : locale === 'pt' ? item?.translatedDescription?.pt.substring(0, maxCharLength)
+                                                            : locale === 'ru' ? item?.translatedDescription?.ru.substring(0, maxCharLength)
+                                                                : locale === 'zh' ? item?.translatedDescription?.zh.substring(0, maxCharLength)
+                                                                    : ''
+                        }
                     </Typography>
                 }
                 

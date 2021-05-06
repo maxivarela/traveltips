@@ -1,11 +1,11 @@
 import {useContext} from 'react'
 import {AuthContext} from '../../lib/AuthContext'
-import Head from 'next/head'
 import CardComponent from '../../components/CardComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
 import SocialShare from '../../components/SocialShare';
 import BackButton from '../../components/shared/BackButton';
 import { NextSeo, ArticleJsonLd } from 'next-seo'
+import { useRouter } from 'next/router'
 
 import {
     Container,
@@ -68,6 +68,8 @@ export const getStaticProps = async (context) => {
 
 const Details = ({id, data}) => {
     const {currentUser} = useContext(AuthContext)
+    const router = useRouter()
+    const { locale } = router
 
     if (!data) return <div>Loading...</div>
 
@@ -131,7 +133,7 @@ const Details = ({id, data}) => {
             <NextSeo {...SEO} />
             <ArticleJsonLd {...JSONLD}/>
             <BackButton />
-            <CardComponent item={data} maxCharLength={10000} currentUser={currentUser}/>
+            <CardComponent item={data} maxCharLength={10000} currentUser={currentUser} locale={locale}/>
             <SocialShare id={id} data={data} />
             <div style={{marginBottom: 80,}}> </div>
         </Container>
