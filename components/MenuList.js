@@ -24,6 +24,9 @@ import AirlineSeatReclineExtraIcon from '@material-ui/icons/AirlineSeatReclineEx
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import ListIcon from '@material-ui/icons/List';
 import CloudIcon from '@material-ui/icons/Cloud';
+import FeedbackIcon from '@material-ui/icons/Feedback';
+import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
+import AndroidIcon from '@material-ui/icons/Android';
 
 export default function MenuList({ currentUser, setCurrentUser, state, toggleDrawer}) {
     const classes = useStyles()
@@ -139,6 +142,35 @@ export default function MenuList({ currentUser, setCurrentUser, state, toggleDra
                             <CloudIcon />
                         </ListItemIcon>
                         <ListItemText primary={"TripTips API"} />
+                    </ListItem>
+                </Link>
+                <Divider />
+                <Link href='/'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AndroidIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Get Android App"} />
+                    </ListItem>
+                </Link>
+                <Link href='/'
+                    >
+                    <ListItem button>
+                        <ListItemIcon>
+                            <PhoneIphoneIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Get iOS App"} />
+                    </ListItem>
+                </Link>
+                <Link 
+                    href="mailto:nonoumasy@gmail.com?subject=Feedback"
+                    target='_blank'
+                    rel="noreferrer">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <FeedbackIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Send Feedback"} />
                     </ListItem>
                 </Link>
             </List>
