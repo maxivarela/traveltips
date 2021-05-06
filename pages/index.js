@@ -47,7 +47,6 @@ export default function Home({data}) {
     : router.locale === "hi-IN" ? "नमस्ते दुनिया"
     : "";
 
-
   return (
     <>
       <div style={{padding: '1rem',}}>
