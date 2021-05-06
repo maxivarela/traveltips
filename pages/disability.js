@@ -24,6 +24,9 @@ export default function DisabilityTravel({ data }) {
 
     return (
         <div style={{ padding: '1rem', }}>
+            <Head>
+                <meta hrefLang={locale} />
+            </Head>
             <NextSeo {...SEO} />
             <h2>
                 Disability Travel Tips

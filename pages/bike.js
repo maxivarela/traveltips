@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import TipsComponent from '../components/TipsComponent'
 import { getTipsByCategory } from '../lib/api'
 import { NextSeo } from 'next-seo'
@@ -24,6 +25,9 @@ export default function BikeTravel({ data }) {
 
     return (
         <div style={{ padding: '1rem', }}>
+            <Head>
+                <meta hrefLang={locale} />
+            </Head>
             <NextSeo {...SEO} />
             <h2>
                 Bike Travel Tips

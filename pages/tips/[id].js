@@ -6,6 +6,7 @@ import SocialShare from '../../components/SocialShare';
 import BackButton from '../../components/shared/BackButton';
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 import {
     Container,
@@ -130,6 +131,9 @@ const Details = ({id, data}) => {
             
     return ( 
         <Container maxWidth='sm'>
+            <Head>
+                <meta hrefLang={locale}/>
+            </Head>
             <NextSeo {...SEO} />
             <ArticleJsonLd {...JSONLD}/>
             <BackButton />

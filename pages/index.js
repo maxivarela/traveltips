@@ -47,6 +47,7 @@ export default function Home({data}) {
           <meta name='keywords' content='travel tips'/>
           <meta name='description' content='travel tips'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
+          <meta hrefLang={locale} />
         </Head>
         <div className='fab'>
           <FabButton />
