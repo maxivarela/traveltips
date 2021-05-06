@@ -47,11 +47,7 @@ export default function Home({data}) {
           <meta name='keywords' content='travel tips'/>
           <meta name='description' content='travel tips'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
-          {locales.map(loc => {
-            return (
-              <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`} />
-            )
-          })}
+          {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
         </Head>
         <div className='fab'>
           <FabButton />
