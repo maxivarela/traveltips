@@ -2,12 +2,12 @@ import CardComponent from './CardComponent';
 import Masonry from 'react-masonry-css'
 import Link from 'next/link';
 
-const TipsComponent = ({ tips, locale}) => {
+const TipsComponent = ({ tips, locale, locales}) => {
     const breakpoints = {
         default: 3,
         1100: 2,
         700: 1
-    };
+    }
 
     return (
         <>
@@ -20,7 +20,7 @@ const TipsComponent = ({ tips, locale}) => {
                     
                     return (
                         <div key={item.id} >
-                            <CardComponent item={item} maxCharLength={240} locale={locale}/>
+                            <CardComponent item={item} maxCharLength={240} locale={locale} locales={locales}/>
                             <Link href={`./tips/${item.id}`}>
                                 <a>
                                     Travel Tip article

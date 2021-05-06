@@ -20,7 +20,7 @@ export const getServerSideProps = async () => {
 
 export default function Home({data}) {
   const router = useRouter()
-  const {locale} = router
+  const {locale, locales} = router
 
   const MailMe = () => {
     return (
@@ -55,7 +55,7 @@ export default function Home({data}) {
           <AddTip /> 
           <MailMe />
         </div>
-        <TipsComponent tips={data} locale={locale}/>
+        <TipsComponent tips={data} locale={locale} locales={locales}/>
       </div>
     </>
   )
