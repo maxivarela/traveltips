@@ -45,6 +45,7 @@ export default function Home({data}) {
     : router.locale === "de" ? "Hallo Welt"
     : router.locale === "es" ? "Hola Mundo"
     : router.locale === "ja" ? "こんにちは世界"
+    : router.locale === "pt" ? "Olá Mundo"
     : router.locale === "ru" ? "Привет мир"
     : router.locale === "fr" ? "Bonjour le monde"
     : router.locale === "hi-IN" ? "नमस्ते दुनिया"
