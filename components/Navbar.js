@@ -14,6 +14,8 @@ import {
     Button,
     CssBaseline,
     IconButton,
+    MenuItem,
+    Select,
     Toolbar,
     Typography,
 } from '@material-ui/core';
@@ -86,7 +88,16 @@ export default function Navbar() {
                         onRequestSearch={handleSearch}
                         style={{height: 36, width: 200}}
                     />
-                    <select
+                    <Select
+                        onChange={changeLanguage}
+                        defaultValue={locale}
+                        className={classes.formLang}
+                        >
+                        {locales.map((loc) => (
+                            <MenuItem value={loc}>{loc.toUpperCase()}</MenuItem>
+                        ))}
+                    </Select>
+                    {/* <select
                         onChange={changeLanguage}
                         defaultValue={locale}
                         className={classes.formLang}
@@ -94,7 +105,7 @@ export default function Navbar() {
                         {locales.map((loc) => (
                             <option value={loc}>{loc.toUpperCase()}</option>
                         ))}
-                    </select>
+                    </select> */}
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -123,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#111', 
         fontSize: 14,
         fontWeight: 500,
-        color: '#fff',
+        color: '#26978A',
         padding: 5,
         margin: '0px 20px', 
         width: 70, 
