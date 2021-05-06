@@ -4,7 +4,7 @@ import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
 import FabButton from '../components/FabButton'
 import {useRouter} from 'next/router'
-import useTranslation from 'next-translate/useTranslation'
+// import useTranslation from 'next-translate/useTranslation'
 
 export const getServerSideProps = async () => {
   try {
@@ -21,7 +21,6 @@ export const getServerSideProps = async () => {
 
 export default function Home({data}) {
   const router = useRouter()
-  const { t } = useTranslation('common')
 
   const MailMe = () => {
     return (
@@ -42,9 +41,14 @@ export default function Home({data}) {
 
   let greeting =
     router.locale === "en" ? "Hello World"
+    : router.locale === "ar" ? "مرحبا بالعالم"
     : router.locale === "de" ? "Hallo Welt"
+    : router.locale === "es" ? "Hola Mundo"
+    : router.locale === "ja" ? "こんにちは世界"
+    : router.locale === "ru" ? "Привет мир"
     : router.locale === "fr" ? "Bonjour le monde"
     : router.locale === "hi-IN" ? "नमस्ते दुनिया"
+    : router.locale === "zh" ? "你好，世界"
     : "";
 
   return (
@@ -63,7 +67,7 @@ export default function Home({data}) {
           <AddTip /> 
           <MailMe />
         </div>
-        <h1>{t('common:greeting')}</h1>
+        <h1>{greeting}</h1>
         <TipsComponent tips={data}/>
       </div>
     </>
