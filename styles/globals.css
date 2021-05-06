@@ -193,6 +193,15 @@ footer {
   z-index: 500 !important;
 }
 
+/* MUI stuff */
+.MuiSelect-icon {
+  color: #26978a !important;
+}
+
+.MuiInput-underline::before {
+  border-bottom: 1px solid #26978a !important;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

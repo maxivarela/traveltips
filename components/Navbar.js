@@ -26,9 +26,15 @@ export default function Navbar() {
     const [state, setState] = useState(false);
     const theme = useTheme();
     const router = useRouter()
+    const {locale, locales} = router
     const [searchTerm, setSearchTerm] = useState('')
     const [open, setOpen] = useState(false);
     const { currentUser, setCurrentUser} = useContext(AuthContext)
+
+    const changeLanguage = (e) => {
+        const locale = e.target.value;
+        router.push(router.pathname, router.asPath, { locale });
+    };
 
     const handleSearch = () => {
         router.push({
@@ -48,14 +54,6 @@ export default function Navbar() {
 
         setState(open);
     };
-
-    const list = () => {
-        return (
-            <>
-            
-            </>
-        )
-    }
 
     return (
         <>
@@ -86,9 +84,17 @@ export default function Navbar() {
                         value={searchTerm}
                         onChange={(item) => setSearchTerm(item.toLowerCase())}
                         onRequestSearch={handleSearch}
-                        style={{height: 36,}}
+                        style={{height: 36, width: 200}}
                     />
-                    
+                    <select
+                        onChange={changeLanguage}
+                        defaultValue={locale}
+                        className={classes.formLang}
+                        >
+                        {locales.map((loc) => (
+                            <option value={loc}>{loc.toUpperCase()}</option>
+                        ))}
+                    </select>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -113,4 +119,16 @@ const useStyles = makeStyles((theme) => ({
     hide: {
         display: "none"
     },
+    formLang: {
+        backgroundColor: '#111', 
+        fontSize: 14,
+        fontWeight: 500,
+        color: '#fff',
+        padding: 5,
+        margin: '0px 20px', 
+        width: 70, 
+        height: 36, 
+        border: 0,
+        // borderRadius: 5,
+    }
 }));

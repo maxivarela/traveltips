@@ -3,6 +3,8 @@ import TipsComponent from '../components/TipsComponent'
 import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
 import FabButton from '../components/FabButton'
+import {useRouter} from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 export const getServerSideProps = async () => {
   try {
@@ -14,26 +16,38 @@ export const getServerSideProps = async () => {
   } catch (error) {
     console.error(error);
     throw error;
-  }
+  } 
 }
 
 export default function Home({data}) {
+  const router = useRouter()
+  const { t } = useTranslation('common')
+
   const MailMe = () => {
     return (
       <>
         <div>
-          Do you have a travel question? &nbsp;
+          Travel question(s)? &nbsp;
           <a 
             href="mailto:nonoumasy@gmail.com?subject=I need a travel tip" 
             target='_blank' 
             rel="noreferrer"
             >
-            Email us
+            📭 &nbsp; Email us
           </a>
         </div>
       </>
     )
   }
+
+  let greeting =
+    router.locale === "en" ? "Hello World"
+    : router.locale === "de" ? "Hallo Welt"
+    : router.locale === "fr" ? "Bonjour le monde"
+    : router.locale === "hi-IN" ? "नमस्ते दुनिया"
+    : "";
+
+
   return (
     <>
       <div style={{padding: '1rem',}}>
@@ -50,6 +64,7 @@ export default function Home({data}) {
           <AddTip /> 
           <MailMe />
         </div>
+        <h1>{t('common:greeting')}</h1>
         <TipsComponent tips={data}/>
       </div>
     </>

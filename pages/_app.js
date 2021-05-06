@@ -1,21 +1,17 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import theme from '../src/theme';
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { AuthProvider } from '../lib/AuthContext'
 import * as gtag from '../lib/gtag'
-import {DefaultSeo} from 'next-seo'
-
+import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 
-// export function reportWebVitals(metric) {
-//   console.log(metric)
-// }
 export default function MyApp(props) {
   const { Component, pageProps } = props;
   const router = useRouter()
