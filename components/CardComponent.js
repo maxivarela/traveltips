@@ -101,7 +101,7 @@ const CardComponent = ({ item, maxCharLength, locale, locales}) => {
                                     : locale === 'en' ? item?.translatedTitle?.en
                                         : locale === 'es' ? item?.translatedTitle?.es
                                             : locale === 'fr' ? item?.translatedTitle?.fr
-                                                : locale === 'hi' ? item?.translatedTitle?.hi
+                                                : locale === 'hi-IN' ? item?.translatedTitle?.hi
                                                     : locale === 'ja' ? item?.translatedTitle?.ja
                                                         : locale === 'pt' ? item?.translatedTitle?.pt
                                                             : locale === 'ru' ? item?.translatedTitle?.ru
@@ -121,7 +121,7 @@ const CardComponent = ({ item, maxCharLength, locale, locales}) => {
                                     : locale === 'en' ? item?.translatedDescription?.en?.substring(0, maxCharLength)
                                         : locale === 'es' ? item?.translatedDescription?.es?.substring(0, maxCharLength)
                                             : locale === 'fr' ? item?.translatedDescription?.fr?.substring(0, maxCharLength)
-                                                : locale === 'hi' ? item?.translatedDescription?.hi?.substring(0, maxCharLength)
+                                                : locale === 'hi-IN' ? item?.translatedDescription?.hi?.substring(0, maxCharLength)
                                                     : locale === 'ja' ? item?.translatedDescription?.ja?.substring(0, maxCharLength)
                                                         : locale === 'pt' ? item?.translatedDescription?.pt?.substring(0, maxCharLength)
                                                             : locale === 'ru' ? item?.translatedDescription?.ru?.substring(0, maxCharLength)
