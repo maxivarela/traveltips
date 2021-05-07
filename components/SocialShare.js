@@ -34,7 +34,7 @@ export default function SocialShare({data, id}) {
     const articleImage = data?.image[0]
     const articleDescription = data?.description
     const articleSource = 'https://traveltips.vercel.app/'
-    const iconSize = 30
+    const iconSize = 20
 
     return (
         <>
@@ -42,7 +42,7 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 subject={articleTitle}
                 body={'Check this out:'}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <EmailIcon size={iconSize} round={true} />
             </EmailShareButton>
@@ -50,7 +50,7 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 quote={articleTitle}
                 hashtag={'traveltips'}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <FacebookIcon size={iconSize} round={true} />
             </FacebookShareButton>
@@ -58,7 +58,7 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 appId={appId}
                 redirectUri={shareUrl}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <FacebookMessengerIcon size={iconSize} round={true} />
             </FacebookMessengerShareButton>
@@ -66,21 +66,21 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 title={articleTitle}
                 hashtags={data?.tags}
-                style={{ marginRight: 10, }}>
+                style={{ marginRight: 5, }}>
                 <TwitterIcon size={iconSize} round={true} />
             </TwitterShareButton>
             <PinterestShareButton
                 url={shareUrl}
                 media={articleImage}
                 description={articleDescription}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <PinterestIcon size={iconSize} round={true} />
             </PinterestShareButton>
             <LineShareButton
                 url={shareUrl}
                 title={articleTitle}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <LineIcon size={iconSize} round={true} />
             </LineShareButton>
@@ -89,21 +89,21 @@ export default function SocialShare({data, id}) {
                 title={articleTitle}
                 summary={articleDescription}
                 source={articleSource}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <LinkedinIcon size={iconSize} round={true} />
             </LinkedinShareButton>
             <RedditShareButton
                 url={shareUrl}
                 title={articleTitle}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <RedditIcon size={iconSize} round={true} />
             </RedditShareButton>
             <ViberShareButton
                 url={shareUrl}
                 title={articleTitle}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <ViberIcon size={iconSize} round={true} />
             </ViberShareButton>
@@ -111,14 +111,14 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 title={articleTitle}
                 image={articleImage}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <WeiboIcon size={iconSize} round={true} />
             </WeiboShareButton>
             <WhatsappShareButton
                 url={shareUrl}
                 title={articleTitle}
-                style={{ marginRight: 10, }}
+                style={{ marginRight: 5, }}
             >
                 <WhatsappIcon size={iconSize} round={true} />
             </WhatsappShareButton>

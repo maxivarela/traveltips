@@ -8,10 +8,13 @@ import {
 export default function BackButton() {
     const router = useRouter()
     return (
-        <div className='flexRow' style={{ marginBottom: 20, marginTop: 40 }}>
-            <Button onClick={() => router.push('/')} variant='outlined' color='primary'>
-                Back
-                </Button>
-        </div>
+        <Button 
+            onClick={() => router.push('/')} 
+            variant='outlined' 
+            color='primary'
+            style={{marginBottom: 40, fontSize: 10,}}
+            >
+            Back
+        </Button>
     )
 }

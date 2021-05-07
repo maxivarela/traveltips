@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import TipsComponent from '../../components/TipsComponent'
+import GridComponent from '../../components/GridComponent'
 import { getTipsBySearch } from '../../lib/api'
 import BackButton from '../../components/shared/BackButton';
 import { useRouter } from 'next/router'
@@ -34,9 +34,9 @@ export default function Search({search, data}) {
             </Head>
             <BackButton />
             <h2>
-                Travel Tips for "{search}" : {data?.length} items
+                Travel Tips for {search}
             </h2>
-            <TipsComponent tips={data} locale={locale} locales={locales}/>
+            <GridComponent tips={data} locale={locale} locales={locales}/>
         </div>
     )
 }

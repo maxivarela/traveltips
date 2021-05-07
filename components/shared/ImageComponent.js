@@ -6,7 +6,7 @@ const ImageComponent = ({ image, title }) => {
     const classes = useStyles()
 
     return (
-        <div className={classes.imageContainer} >
+        <>
             {image
             ?
                 image && image.includes('youtube.com')
@@ -24,40 +24,25 @@ const ImageComponent = ({ image, title }) => {
                         type="*"
                     ></iframe>
                     :
-                    image &&
-                    <>
-                        <div onError={(e) => e.target.src = 'https://i.imgur.com/Gz9TnHe.png'}>
-                            <img src={image} alt={title?.substring(0,50)} className={classes.media}/>
-                        </div>
-                    </>
+                    image && <img src={image} alt={title?.substring(0,50)} className={classes.media}/>
                 
             :
             null
             }   
-        </div>
+        </>
     )
 }
 
 const useStyles = makeStyles((theme) => ({
-    imageContainer: {
-        width: '100%',
-        overflow: 'hidden',
-        transition: '0.4s',
-        '@media print': {
-            height: '400px !important',
-        }
-    },
     media: {
         width: '100% !important',
-        height: '40vh',
+        height: '100% !important',
         objectFit: 'cover',
         transition: '0.4s',
-        // border: '1px solid #999',
     },
     video: {
         width: '100% !important',
-        height: '40vh',
-        margin: '0 !important',
+        height: '100% !important',
         border: 'none !important',
     },
 }));

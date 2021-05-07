@@ -25,7 +25,7 @@ export const MoreDetails = ({ id, ...props }) => {
                 <Button>
                     <Link href={{ pathname: "/edit", query: { id } }}>
                         <a>
-                            <div className='flexRow'>
+                            <div className='flexRowBetween'>
                                 <EditIcon color='primary' />
                                 <Typography variant='h5' color='primary' component='h6' style={{ marginLeft: 10 }}>
                                     Edit
@@ -37,7 +37,7 @@ export const MoreDetails = ({ id, ...props }) => {
                 
             </MenuItem>
             <MenuItem onClick={props.handleClose}>
-                <Button onClick={(id) => deleteHandler(id)} className='flexRow'>
+                <Button onClick={(id) => deleteHandler(id)} className='flexRowBetween'>
                     <DeleteIcon color='primary'/><Typography variant='h5' color='primary' component='h6' style={{marginLeft: 10}}>Delete</Typography>
                 </Button>
             </MenuItem>

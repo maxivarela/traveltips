@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import {AuthContext} from '../../lib/AuthContext'
-import CardComponent from '../../components/CardComponent';
+import DetailComponent from '../../components/DetailComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
 import SocialShare from '../../components/SocialShare';
 import BackButton from '../../components/shared/BackButton';
@@ -67,7 +67,7 @@ export const getStaticProps = async (context) => {
     }
 }
 
-const Details = ({id, data}) => {
+export const Details = ({id, data}) => {
     const {currentUser} = useContext(AuthContext)
     const router = useRouter()
     const { locale, locales } = router
@@ -129,16 +129,15 @@ const Details = ({id, data}) => {
     }
             
     return ( 
-        <Container maxWidth='sm'>
+        <Container maxWidth='sm' style={{padding: 40,}}>
             <Head>
                 {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
             </Head>
             <NextSeo {...SEO} />
             <ArticleJsonLd {...JSONLD}/>
             <BackButton />
-            <CardComponent item={data} maxCharLength={10000} currentUser={currentUser} locale={locale}/>
+            <DetailComponent item={data} locale={locale}/>
             <SocialShare id={id} data={data} />
-            <div style={{marginBottom: 80,}}> </div>
         </Container>
     );
 }

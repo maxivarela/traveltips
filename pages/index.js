@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import TipsComponent from '../components/TipsComponent'
+import GridComponent from '../components/GridComponent'
 import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
 import FabButton from '../components/FabButton'
@@ -52,11 +52,11 @@ export default function Home({data}) {
         <div className='fab'>
           <FabButton />
         </div>
-        <div className='flexRow' style={{ margin: '20px auto' }}>
+        <div className='flexRowBetween' style={{ margin: '20px auto' }}>
           <AddTip /> 
           <MailMe />
         </div>
-        <TipsComponent tips={data} locale={locale} locales={locales}/>
+        <GridComponent tips={data} locale={locale} locales={locales}/>
       </div>
     </>
   )

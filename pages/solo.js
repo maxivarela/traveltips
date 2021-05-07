@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import TipsComponent from '../components/TipsComponent'
+import GridComponent from '../components/GridComponent'
 import { getTipsByCategory } from '../lib/api'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
@@ -30,7 +30,7 @@ export default function SoloTravel({ data }) {
             <h2>
                 Solo Travel Tips
             </h2>
-            <TipsComponent tips={data} locale={locale} locales={locales}/>
+            <GridComponent tips={data} locale={locale} locales={locales}/>
         </div>
     )
 }
