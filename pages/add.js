@@ -86,6 +86,7 @@ const AddTip = () => {
                             variant="outlined"
                             margin="normal"
                             fullWidth
+                            required
                             multiline
                             rows={10}
                             id="image"
