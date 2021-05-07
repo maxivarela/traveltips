@@ -96,7 +96,7 @@ export default function Navbar() {
                         className={classes.formLang}
                         >
                         {locales.map((loc, index) => (
-                            <MenuItem value={loc} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: 180, wrap: 'no-wrap', }} >
+                            <MenuItem key={index} value={loc} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: 180, wrap: 'no-wrap', }} >
                                 <div> {loc.toUpperCase()}</div><div>{language[index]}</div>
                             </MenuItem>
                         ))}

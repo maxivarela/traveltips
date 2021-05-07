@@ -1,7 +1,8 @@
-import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -10,6 +11,13 @@ import {
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 export const CardComponent = ({ item, locale}) => {
+    let settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
 
     const TitleComponent = () => {
         return (
@@ -47,11 +55,9 @@ export const CardComponent = ({ item, locale}) => {
                     (
                         item?.image?.length > 1
                             ?
-                            <Carousel
-                                showThumbs={false}
-                            >
+                            <Slider {...settings}>
                                 {item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title}/>)}
-                            </Carousel>
+                            </Slider>
                             :
                             item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)
                     )

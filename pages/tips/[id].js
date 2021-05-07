@@ -2,7 +2,6 @@ import {useContext} from 'react'
 import {AuthContext} from '../../lib/AuthContext'
 import DetailComponent from '../../components/DetailComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
-import SocialShare from '../../components/SocialShare';
 import BackButton from '../../components/shared/BackButton';
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
@@ -74,16 +73,46 @@ export const Details = ({id, data}) => {
 
     if (!data) return <div>Loading...</div>
 
+    const articleTitle = 
+        (locale === 'en'
+        ?
+        data?.title
+        : locale === 'ar' ? data?.translatedTitle?.ar
+            : locale === 'de' ? data?.translatedTitle?.de
+                : locale === 'es' ? data?.translatedTitle?.es
+                    : locale === 'fr' ? data?.translatedTitle?.fr
+                        : locale === 'hi-IN' ? data?.translatedTitle?.hi
+                            : locale === 'ja' ? data?.translatedTitle?.ja
+                                : locale === 'pt' ? data?.translatedTitle?.pt
+                                    : locale === 'ru' ? data?.translatedTitle?.ru
+                                        : locale === 'zh' ? data?.translatedTitle?.zh
+                                            : ''
+)
+    const articleDescription = 
+        (locale === 'en'
+        ?
+        data?.description
+        : locale === 'ar' ? data?.translatedDescription?.ar
+            : locale === 'de' ? data?.translatedDescription?.de
+                : locale === 'es' ? data?.translatedDescription?.es
+                    : locale === 'fr' ? data?.translatedDescription?.fr
+                        : locale === 'hi-IN' ? data?.translatedDescription?.hi
+                            : locale === 'ja' ? data?.translatedDescription?.ja
+                                : locale === 'pt' ? data?.translatedDescription?.pt
+                                    : locale === 'ru' ? data?.translatedDescription?.ru
+                                        : locale === 'zh' ? data?.translatedDescription?.zh
+                                            : '')
+
     const youtubeId = data?.image[0]?.split('/').pop()
     const shareUrl = `https://traveltips.vercel.app/tips/${id}`
     const appId = '296712571894670'
-    const articleTitle = data?.title
+    // const articleTitle = data?.translatedTitle?.locale
     const articleAuthor = data?.username
     const articleImage = data?.image[0]
-    const articleDescription = data?.description
+    // const articleDescription = data?.description
 
     const SEO = {
-        title: data?.title,
+        title: articleTitle,
         description: articleDescription.substring(0, 140),
         canonical: shareUrl,
         openGraph: {
@@ -129,15 +158,14 @@ export const Details = ({id, data}) => {
     }
             
     return ( 
-        <Container maxWidth='sm' style={{padding: 40,}}>
+        <Container maxWidth='sm' style={{padding: '2rem 1rem',}}>
             <Head>
-                {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
+                {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
             </Head>
             <NextSeo {...SEO} />
             <ArticleJsonLd {...JSONLD}/>
             <BackButton />
-            <DetailComponent item={data} locale={locale}/>
-            <SocialShare id={id} data={data} />
+            <DetailComponent id={id} item={data} locale={locale}/>
         </Container>
     );
 }

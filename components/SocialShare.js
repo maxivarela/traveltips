@@ -3,11 +3,7 @@ import {
     FacebookShareButton,
     FacebookMessengerShareButton,
     LineShareButton,
-    LinkedinShareButton,
-    PinterestShareButton,
-    RedditShareButton,
     TwitterShareButton,
-    ViberShareButton,
     WeiboShareButton,
     WhatsappShareButton,
 } from "react-share";
@@ -17,11 +13,7 @@ import {
     FacebookIcon,
     FacebookMessengerIcon,
     LineIcon,
-    LinkedinIcon,
-    PinterestIcon,
-    RedditIcon,
     TwitterIcon,
-    ViberIcon,
     WeiboIcon,
     WhatsappIcon,
 } from "react-share";
@@ -34,7 +26,8 @@ export default function SocialShare({data, id}) {
     const articleImage = data?.image[0]
     const articleDescription = data?.description
     const articleSource = 'https://traveltips.vercel.app/'
-    const iconSize = 20
+    const iconSize = 32
+    const marginRight = 10
 
     return (
         <>
@@ -42,7 +35,7 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 subject={articleTitle}
                 body={'Check this out:'}
-                style={{ marginRight: 5, }}
+                style={{ marginRight}}
             >
                 <EmailIcon size={iconSize} round={true} />
             </EmailShareButton>
@@ -50,7 +43,7 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 quote={articleTitle}
                 hashtag={'traveltips'}
-                style={{ marginRight: 5, }}
+                style={{ marginRight}}
             >
                 <FacebookIcon size={iconSize} round={true} />
             </FacebookShareButton>
@@ -58,7 +51,7 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 appId={appId}
                 redirectUri={shareUrl}
-                style={{ marginRight: 5, }}
+                style={{ marginRight}}
             >
                 <FacebookMessengerIcon size={iconSize} round={true} />
             </FacebookMessengerShareButton>
@@ -66,59 +59,28 @@ export default function SocialShare({data, id}) {
                 url={shareUrl}
                 title={articleTitle}
                 hashtags={data?.tags}
-                style={{ marginRight: 5, }}>
+                style={{ marginRight}}>
                 <TwitterIcon size={iconSize} round={true} />
             </TwitterShareButton>
-            <PinterestShareButton
-                url={shareUrl}
-                media={articleImage}
-                description={articleDescription}
-                style={{ marginRight: 5, }}
-            >
-                <PinterestIcon size={iconSize} round={true} />
-            </PinterestShareButton>
             <LineShareButton
                 url={shareUrl}
                 title={articleTitle}
-                style={{ marginRight: 5, }}
+                style={{ marginRight}}
             >
                 <LineIcon size={iconSize} round={true} />
             </LineShareButton>
-            <LinkedinShareButton
-                url={shareUrl}
-                title={articleTitle}
-                summary={articleDescription}
-                source={articleSource}
-                style={{ marginRight: 5, }}
-            >
-                <LinkedinIcon size={iconSize} round={true} />
-            </LinkedinShareButton>
-            <RedditShareButton
-                url={shareUrl}
-                title={articleTitle}
-                style={{ marginRight: 5, }}
-            >
-                <RedditIcon size={iconSize} round={true} />
-            </RedditShareButton>
-            <ViberShareButton
-                url={shareUrl}
-                title={articleTitle}
-                style={{ marginRight: 5, }}
-            >
-                <ViberIcon size={iconSize} round={true} />
-            </ViberShareButton>
             <WeiboShareButton
                 url={shareUrl}
                 title={articleTitle}
                 image={articleImage}
-                style={{ marginRight: 5, }}
+                style={{ marginRight}}
             >
                 <WeiboIcon size={iconSize} round={true} />
             </WeiboShareButton>
             <WhatsappShareButton
                 url={shareUrl}
                 title={articleTitle}
-                style={{ marginRight: 5, }}
+                style={{ marginRight}}
             >
                 <WhatsappIcon size={iconSize} round={true} />
             </WhatsappShareButton>

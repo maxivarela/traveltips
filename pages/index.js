@@ -45,13 +45,13 @@ export default function Home({data}) {
         <Head>
           <title>Travel Tips</title>
           <meta name='keywords' content='travel tips'/>
-          <meta name='description' content='travel tips'/>
+          <meta name='description' content='TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
-          {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
+          {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
         </Head>
-        <div className='fab'>
+        {/* <div className='fab'>
           <FabButton />
-        </div>
+        </div> */}
         <div className='flexRowBetween' style={{ margin: '20px auto' }}>
           <AddTip /> 
           <MailMe />

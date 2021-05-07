@@ -1,13 +1,16 @@
 import { useContext } from 'react'
-import { Carousel } from 'react-responsive-carousel';
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {MoreDetails} from './MoreDetails'
 import {AuthContext} from '../lib/AuthContext'
+import SocialShare from '../components/SocialShare';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
+    Divider,
     IconButton,
     Tooltip,
     Typography,
@@ -15,10 +18,18 @@ import {
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { NavigateBeforeSharp } from '@material-ui/icons';
 
-const DetailComponent = ({ item, locale}) => {
+const DetailComponent = ({ id, item, locale}) => {
     const classes = useStyles()
     const { currentUser } = useContext(AuthContext)
+    let settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
 
     return ( 
         <>
@@ -38,7 +49,7 @@ const DetailComponent = ({ item, locale}) => {
                         ?
                         item?.title
                         : locale === 'ar' ? item?.translatedTitle?.ar
-                            : locale === 'en' ? item?.translatedTitle?.en
+                            : locale === 'de' ? item?.translatedTitle?.de
                                 : locale === 'es' ? item?.translatedTitle?.es
                                     : locale === 'fr' ? item?.translatedTitle?.fr
                                         : locale === 'hi-IN' ? item?.translatedTitle?.hi
@@ -67,7 +78,7 @@ const DetailComponent = ({ item, locale}) => {
                         Tags: {item?.tags?.map(tag => {
                         return (
                             <div className='tags' key={tag}>
-                                {(tag != "") && tag + ','}
+                                {(tag != "") && tag + ','}&nbsp;
                             </div>
                         )
                     })}
@@ -77,16 +88,21 @@ const DetailComponent = ({ item, locale}) => {
                     Last Updated: {new Date(item?.updatedAt).toLocaleDateString()}
                 </div>
             </Typography>
-
-            <div style={{height: '40vh', margin: '40px auto'}}>
+            <div style={{ 
+                overflow: 'hidden',
+                borderRadius: 10,
+                margin: '40px auto',
+                height: 400,
+                }}
+                >
                 {item?.image
                     ?
                     (
                         item?.image?.length > 1
                             ?
-                            <Carousel showThumbs={false} style={{height: '100% !important'}}>
+                            <Slider {...settings} >
                                 {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
-                            </Carousel>
+                            </Slider>
                             :
                             item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)
                     )
@@ -116,20 +132,20 @@ const DetailComponent = ({ item, locale}) => {
             }
                 
             {item?.link && 
-                <div style={{ margin: '20px auto', width: '100%', fontWeight: 500,}}>
+                <Typography style={{ margin: '20px auto', fontWeight: 500,}}>
                     Link:&nbsp;
                     <Link href={item?.link} >
                         <a target="_blank" rel="noreferrer" alt={item?.link}>
-                        {item?.link}
+                            {item?.link}
                         </a>
                     </Link>
-                </div>
+                </Typography>
             }
+            <Divider style={{marginTop: 40}}/>
 
-            <div className='flexRowBetween' style={{ marginBottom: 20, padding: '0px 20px' }}>
-                <div>
-
-                    <Tooltip title='Bookmark' placement='top'>
+            <div className='flexRowBetween' style={{ margin: '20px auto'}}>
+                <div className='flexRow' >
+                    <Tooltip title='Like' placement='top'>
                         <IconButton onClick={() => alert('todo')} aria-label="add a like">
                             <Typography variant='h5' color='primary'>
                                 <FavoriteBorderIcon fontSize="small" />
@@ -138,14 +154,17 @@ const DetailComponent = ({ item, locale}) => {
                     </Tooltip>
 
                     <Tooltip title='Bookmark' placement='top'>
-                        <IconButton onClick={() => alert('todo')} aria-label="add a bookmark">
+                        <IconButton variant='outlined' onClick={() => alert('todo')} aria-label="add a bookmark">
                             <Typography variant='h5' color='primary'>
                                 <BookmarkBorderIcon fontSize="small" />
                             </Typography>
                         </IconButton>
                     </Tooltip>
-
                 </div>
+                <div>
+                    <SocialShare id={id} data={item} />
+                </div>
+
                 {item?.user === currentUser?.uid &&
                     <MoreDetails id={item?.id} />
                 }
