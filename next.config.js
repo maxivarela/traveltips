@@ -4,6 +4,6 @@ module.exports = {
         defaultLocale: 'en',
     },
     images: {
-        domains: ['youtube.com'],
+        domains: ['youtube.com', 'firebasestorage.googleapis.com'],
     },
 }  

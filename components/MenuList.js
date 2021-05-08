@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import firebase from '../lib/firebase'
+import {useRouter} from 'next/router'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
@@ -27,13 +28,13 @@ import CloudIcon from '@material-ui/icons/Cloud';
 import FeedbackIcon from '@material-ui/icons/Feedback';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import AndroidIcon from '@material-ui/icons/Android';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 export default function MenuList({ currentUser, setCurrentUser, state, toggleDrawer}) {
     const classes = useStyles()
     const theme = useTheme();
+    const router = useRouter()
     
-
-
     const signoutHandler = async () => {
         try {
             await firebase.auth().signOut()
@@ -65,6 +66,21 @@ export default function MenuList({ currentUser, setCurrentUser, state, toggleDra
                         <ListItemText primary={"Tips"} />
                     </ListItem>
                 </Link>
+                
+                {currentUser && 
+                    <ListItem 
+                        button 
+                        onClick={() =>
+                        router.push({
+                            pathname: '/profile',
+                            query: { user: currentUser?.uid }
+                        })}>
+                        <ListItemIcon>
+                            <AccountCircleIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Profile"} />
+                    </ListItem>
+                }
 
                 <ListItem button>
                     <ListItemIcon>

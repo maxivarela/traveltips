@@ -1,6 +1,27 @@
 import Head from 'next/head'
+import GridComponent from '../components/GridComponent'
+import { getUserTips } from '../lib/api'
+import { useRouter } from 'next/router'
 
-export default function Profile() {
+export const getServerSideProps = async (router) => {
+    const id = router?.query?.user
+    try {
+        const data = await getUserTips(id)
+        return {
+            props: { data },
+        }
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
+export default function Profile({ data }) {
+    const router = useRouter()
+    const { locale, locales } = router
+
+    console.log('jisso', data)
+    
     return (
         <div style={{ padding: '1rem', }}>
             <Head>
@@ -10,7 +31,7 @@ export default function Profile() {
             <h2>
                 Profile Page
             </h2>
-
+            <GridComponent tips={data} locale={locale} locales={locales} />
         </div>
     )
 }
