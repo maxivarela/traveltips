@@ -86,7 +86,7 @@ export default function Home({data}) {
           {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
           {/* <link rel="canonical" href="https://traveltips.vercel.app/" /> */}
         </Head>
-        {/* <NextSeo {...SEO} noindex={true} /> */}
+        <NextSeo {...SEO} noindex={true} />
         {/* <ArticleJsonLd {...JSONLD} /> */}
         {/* <div className='fab'>
           <FabButton />
