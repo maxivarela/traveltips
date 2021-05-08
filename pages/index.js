@@ -22,10 +22,30 @@ export const getServerSideProps = async () => {
 export default function Home({data}) {
   const router = useRouter()
   const {locale, locales} = router
+  const title = 'Travel Tips'
+  const description = 'TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'
+  const shareUrl = `https://traveltips.vercel.app`
 
   const SEO = {
-    title: 'Travel Tips',
-    description: 'TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'
+    openGraph: {
+      type: 'website',
+      url: shareUrl,
+      title: title,
+      description: description,
+      locale: 'en_US',
+      site_name: 'TripTips',
+    },
+    facebook: {
+      appId: '296712571894670'
+    },
+    twitter: {
+      title: title,
+      description: description,
+      image: 'https://firebasestorage.googleapis.com/v0/b/travel-tips-29526.appspot.com/o/1-slide-central-asia-horse-riders-yurt-pano.jpg?alt=media&token=f4f96887-9de9-4de3-9c48-fe5fe7331b08',
+      handle: '@nonoumasy',
+      site: '@TripTips7',
+      cardType: 'summary_large_image',
+    },
   }
 
   const MailMe = () => {
