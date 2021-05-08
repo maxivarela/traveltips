@@ -34,6 +34,8 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
         slidesToScroll: 1
     };
 
+    const youtubeId = item?.image[0]?.split('/').pop()
+
     const tagClickHandler = (tag) => (
         router.push({
             pathname: '/searchresults',
@@ -118,7 +120,7 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
                                 {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
                             </Slider>
                             :
-                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} youtubeThumbnail={youtubeThumbnail}/>)
+                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId}/>)
                     )
                     :
                     null
