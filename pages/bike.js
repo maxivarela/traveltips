@@ -28,7 +28,7 @@ export default function BikeTravel({ data }) {
             <Head>
                 {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
             </Head>
-            <NextSeo {...SEO} />
+            <NextSeo {...SEO} noindex={true} />
             <h2>
                 Bike Travel Tips
             </h2>

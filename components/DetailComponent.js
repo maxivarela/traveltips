@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
+import {useRouter} from 'next/router'
 import {MoreDetails} from './MoreDetails'
 import {AuthContext} from '../lib/AuthContext'
 import SocialShare from '../components/SocialShare';
@@ -10,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
+    Button,
     Divider,
     IconButton,
     Tooltip,
@@ -23,6 +25,7 @@ import { NavigateBeforeSharp } from '@material-ui/icons';
 const DetailComponent = ({ id, item, locale}) => {
     const classes = useStyles()
     const { currentUser } = useContext(AuthContext)
+    const router = useRouter()
     let settings = {
         dots: true,
         infinite: true,
@@ -30,6 +33,13 @@ const DetailComponent = ({ id, item, locale}) => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
+
+    const tagClickHandler = (tag) => (
+        router.push({
+            pathname: '/searchresults',
+            query: { search: tag }
+        })
+    )
 
     return ( 
         <>
@@ -77,7 +87,11 @@ const DetailComponent = ({ id, item, locale}) => {
                     <div>
                         Tags: {item?.tags?.map(tag => {
                         return (
-                            <div className='tags' key={tag}>
+                            <div 
+                                onClick={() => tagClickHandler(tag)}
+                                className='tags' 
+                                key={tag}
+                                >
                                 {(tag != "") && tag + ','}&nbsp;
                             </div>
                         )

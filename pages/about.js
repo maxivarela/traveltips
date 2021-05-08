@@ -12,7 +12,7 @@ export default function About() {
     }
     return (
         <Container maxWidth="sm" style={{ margin: '40px auto' }}>
-            <NextSeo {...SEO} />
+            <NextSeo {...SEO} noindex={true}/>
             <h2>
                 About Page
             </h2>

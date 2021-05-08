@@ -10,7 +10,7 @@ export default function DevelopersPage() {
     }
     return (
         <Container maxWidth="sm" style={{ margin: '40px auto' }}>
-            <NextSeo {...SEO} />
+            <NextSeo {...SEO} noindex={true} />
             <h2>
                 Developers Page
             </h2>

@@ -1,8 +1,12 @@
 import Head from 'next/head'
-import GridComponent from '../../components/GridComponent'
-import { getTipsBySearch } from '../../lib/api'
-import BackButton from '../../components/shared/BackButton';
+import GridComponent from '../components/GridComponent'
+import { getTipsBySearch } from '../lib/api'
+import BackButton from '../components/shared/BackButton'
 import { useRouter } from 'next/router'
+
+import {
+    Container,
+} from '@material-ui/core';
 
 //this runs in build time. don't put code here that you expect to run in browser
 export const getServerSideProps = async (context) => {
@@ -26,7 +30,7 @@ export default function Search({search, data}) {
     const { locale, locales } = router
 
     return (
-        <div style={{ padding: '1rem', }}>
+        <Container maxWidth='lg' style={{ padding: '2rem 1rem', }}>
             <Head>
                 <title> Travel Tips for {search}</title>
                 <meta name='keywords' content='travel tips' />
@@ -37,6 +41,6 @@ export default function Search({search, data}) {
                 Travel Tips for {search}
             </h2>
             <GridComponent tips={data} locale={locale} locales={locales}/>
-        </div>
+        </Container>
     )
 }

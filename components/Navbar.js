@@ -42,7 +42,7 @@ export default function Navbar() {
 
     const handleSearch = () => {
         router.push({
-            pathname: '/search',
+            pathname: '/searchresults',
             query: { search: searchTerm }
         })
     }
