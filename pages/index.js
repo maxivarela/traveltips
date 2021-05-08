@@ -87,7 +87,7 @@ export default function Home({data}) {
           {/* <link rel="canonical" href="https://traveltips.vercel.app/" /> */}
         </Head>
         <NextSeo {...SEO} noindex={true} />
-        {/* <ArticleJsonLd {...JSONLD} /> */}
+        <ArticleJsonLd {...JSONLD} />
         {/* <div className='fab'>
           <FabButton />
         </div> */}
