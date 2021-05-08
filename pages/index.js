@@ -4,7 +4,7 @@ import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
 import FabButton from '../components/FabButton'
 import {useRouter} from 'next/router'
-import { NextSeo } from 'next-seo'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 
 export const getServerSideProps = async () => {
   try {
@@ -48,6 +48,16 @@ export default function Home({data}) {
     },
   }
 
+  const JSONLD = {
+    url: shareUrl,
+    title: title,
+    images: 'https://firebasestorage.googleapis.com/v0/b/travel-tips-29526.appspot.com/o/1-slide-central-asia-horse-riders-yurt-pano.jpg?alt=media&token=f4f96887-9de9-4de3-9c48-fe5fe7331b08',
+    authorName: 'nonoumasy',
+    publisherName: "TripTips",
+    publisherLogo: "https://firebasestorage.googleapis.com/v0/b/travel-tips-29526.appspot.com/o/Frame%20435.png?alt=media&token=ac6a2ddf-894c-4806-bb25-8e92ea3a4614",
+    description: description,
+  }
+
   const MailMe = () => {
     return (
       <>
@@ -76,6 +86,7 @@ export default function Home({data}) {
           {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
         </Head>
         <NextSeo {...SEO} noindex={true} />
+        <ArticleJsonLd {...JSONLD} />
         {/* <div className='fab'>
           <FabButton />
         </div> */}
