@@ -22,7 +22,7 @@ export const getServerSideProps = async () => {
 export default function Home({data}) {
   const router = useRouter()
   const {locale, locales} = router
-  const title = 'Travel Tips'
+  const title = 'Free Travel Tips Hacks Safety Budget Guide Cheap Spots'
   const description = 'TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'
   const shareUrl = `https://traveltips.vercel.app`
 

@@ -1,5 +1,5 @@
 export default {
-    title: 'Travel tips and tricks.',
+    title: 'Free Travel Tips Hacks Safety Budget Guide Cheap Spots',
     openGraph: {
         type: 'website',
         locale: 'en_US',
