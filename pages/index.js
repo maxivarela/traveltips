@@ -69,7 +69,7 @@ export default function Home({data}) {
     <>
       <div style={{padding: '1rem',}}>
         <Head>
-          <title>Travel Tips</title>
+          <title>Free Travel Tips Hacks Safety Budget Guide Cheap Spots</title>
           <meta name='keywords' content='travel tips'/>
           <meta name='description' content='TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
