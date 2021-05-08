@@ -22,7 +22,7 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { NavigateBeforeSharp } from '@material-ui/icons';
 
-const DetailComponent = ({ id, item, locale}) => {
+const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
     const classes = useStyles()
     const { currentUser } = useContext(AuthContext)
     const router = useRouter()
@@ -118,7 +118,7 @@ const DetailComponent = ({ id, item, locale}) => {
                                 {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
                             </Slider>
                             :
-                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)
+                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} youtubeThumbnail={youtubeThumbnail}/>)
                     )
                     :
                     null

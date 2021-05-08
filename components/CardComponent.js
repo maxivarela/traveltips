@@ -19,6 +19,8 @@ export const CardComponent = ({ item, locale}) => {
         slidesToScroll: 1
     };
 
+    const youtubeId = item?.image[0]?.split('/').pop()
+
     const TitleComponent = () => {
         return (
             <Typography variant='body1' component='h1' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1, color: '#333' }}>
@@ -56,10 +58,10 @@ export const CardComponent = ({ item, locale}) => {
                         item?.image?.length > 1
                             ?
                             <Slider {...settings}>
-                                {item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title}/>)}
+                                {item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)}
                             </Slider>
                             :
-                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)
+                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId}/>)
                     )
                     :
                     null
