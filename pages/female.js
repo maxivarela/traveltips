@@ -27,7 +27,7 @@ export default function FemaleTravel({ data }) {
             <Head>
                 {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
             </Head>
-            <NextSeo {...SEO} noindex={true} />
+            <NextSeo {...SEO} nofollow={true} />
             <h2>
                 Female Travel Tips
             </h2>

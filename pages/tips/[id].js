@@ -162,7 +162,7 @@ export const Details = ({id, data}) => {
             <Head>
                 {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
             </Head>
-            <NextSeo {...SEO} noindex={true} />
+            <NextSeo {...SEO} nofollow={true} />
             <ArticleJsonLd {...JSONLD}/>
             <BackButton />
             <DetailComponent id={id} item={data} locale={locale}/>
