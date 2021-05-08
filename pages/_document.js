@@ -30,6 +30,7 @@ export default class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBul0ULimRZRBXFUdRArzxzK1EHiqHVWz4&libraries=places"></script>
                 </body>
             </Html>
         );

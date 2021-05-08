@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useState, useEffect, useCallback, useContext } from 'react'
 import { useForm } from 'react-hook-form';
-// import GooglePlaces from '../../components/GooglePlaces'
+import PlacesAutocomplete from '../components/PlacesAutocomplete'
 import { useRouter } from 'next/router'
 import { addTip } from '../lib/api'
 import {AuthContext} from '../lib/AuthContext'
@@ -110,10 +110,11 @@ const AddTip = () => {
                             error={!!errors.link}
                             helperText={errors?.link?.message}
                         />
+                        <PlacesAutocomplete />
+                        
                         <TextField
                             variant="outlined"
                             margin="normal"
-
                             fullWidth
                             id="location"
                             label="location"
