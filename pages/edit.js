@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
-import PlacesAutocomplete from '../components/PlacesAutocomplete'
+import PlacesAutocompleteEdit from '../components/PlacesAutocompleteEdit'
 import { useRouter } from 'next/router'
 import { editTip, getTip } from '../lib/api'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
@@ -29,10 +29,11 @@ export default function Edit() {
         const getData = async () => {
             const data = await getTip(id)
             setFetchedData(data)
-            fetchedData && console.log('lisa', fetchedData)
         }
         getData()
     }, [])
+
+    fetchedData && console.log('lisa', fetchedData)
 
     function Form() {
         const { register, handleSubmit, errors, reset } = useForm({
@@ -120,7 +121,7 @@ export default function Edit() {
                     error={!!errors.link}
                     helperText={errors?.link?.message}
                 />
-                <PlacesAutocomplete
+                <PlacesAutocompleteEdit
                     register={register}
                     setLatitude={setLatitude}
                     setLongitude={setLongitude}
