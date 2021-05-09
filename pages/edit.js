@@ -1,8 +1,11 @@
+import Head from 'next/head'
 import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
+import PlacesAutocomplete from '../components/PlacesAutocomplete'
 import { useRouter } from 'next/router'
 import { editTip, getTip } from '../lib/api'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
+import AuthCheck from '../components/AuthCheck'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -15,21 +18,24 @@ import {
 export default function Edit() {
     const classes = useStyles();
     const router = useRouter()
+    const [data, setData] = useState({})
     const id = router.query.id
     const [fetchedData, setFetchedData] = useState({})
-    const [data, setData] = useState({})
-
+    const [latitude, setLatitude] = useState(null)
+    const [longitude, setLongitude] = useState(null)
+    
     // get the data to prefill the form.
     useEffect(() => {
         const getData = async () => {
             const data = await getTip(id)
             setFetchedData(data)
+            fetchedData && console.log('lisa', fetchedData)
         }
         getData()
     }, [])
 
-    function Form(props) {
-        const { register, handleSubmit, errors, reset, control } = useForm({
+    function Form() {
+        const { register, handleSubmit, errors, reset } = useForm({
             defaultValues: {...fetchedData}
         })
 
@@ -47,11 +53,15 @@ export default function Edit() {
             router.back()
         };
 
+        const submitData = (data) => {
+            setData({ latitude, longitude, ...data })
+        }
+
         EscFunctionToCancel()
 
         return (
 
-            <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData(data))}>
+            <form noValidate autoComplete="off" onSubmit={handleSubmit(submitData)}>
                 <Typography className='formTitle'>
                     Edit Tip
                 </Typography>
@@ -110,18 +120,12 @@ export default function Edit() {
                     error={!!errors.link}
                     helperText={errors?.link?.message}
                 />
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="location"
-                    label="location"
-                    name="location"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.location}
-                    helperText={errors?.location?.message}
+                <PlacesAutocomplete
+                    register={register}
+                    setLatitude={setLatitude}
+                    setLongitude={setLongitude}
                 />
+
                 <TextField
                     variant="outlined"
                     margin="normal"
@@ -159,11 +163,16 @@ export default function Edit() {
 
     return (
         <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
-            <Form />
+            <AuthCheck>
+                <Head>
+                    <title>Edit a Travel Tip</title>
+                    <meta name='keywords' content='travel tips' />
+                </Head>
+                <Form />
+            </AuthCheck>
         </Container>
     );
 }
-
 
 const useStyles = makeStyles((theme) => ({
     submit: {

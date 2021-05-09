@@ -21,6 +21,8 @@ const AddTip = () => {
     const router = useRouter()
     const [data, setData] = useState({})
     const {currentUser} = useContext(AuthContext)
+    const [latitude, setLatitude ] = useState(null)
+    const [longitude, setLongitude ] = useState(null)
 
     const { register, handleSubmit, formState: { errors }, reset, } = useForm()
 
@@ -50,10 +52,10 @@ const AddTip = () => {
                         <meta name='keywords' content='travel tips' />
                     </Head>
 
-                    <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData(data))}>
+                    <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData({latitude, longitude, ...data}))}>
                         <Typography className='formTitle'>
                             Add Tip
-                    </Typography>
+                        </Typography>
 
                         <TextField
                             variant="outlined"
@@ -100,7 +102,6 @@ const AddTip = () => {
                         <TextField
                             variant="outlined"
                             margin="normal"
-
                             fullWidth
                             id="link"
                             label="link"
@@ -110,20 +111,12 @@ const AddTip = () => {
                             error={!!errors.link}
                             helperText={errors?.link?.message}
                         />
-                        <PlacesAutocomplete />
-                        
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            fullWidth
-                            id="location"
-                            label="location"
-                            name="location"
-                            type="text"
-                            inputRef={register}
-                            error={!!errors.location}
-                            helperText={errors?.location?.message}
-                        />
+                        <PlacesAutocomplete 
+                            register={register} 
+                            setLatitude={setLatitude} 
+                            setLongitude={setLongitude}
+                            />
+
                         <TextField
                             variant="outlined"
                             margin="normal"

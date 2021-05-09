@@ -1,5 +1,3 @@
-import {useState} from 'react'
-
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
@@ -10,9 +8,10 @@ import {
     TextField,
 } from '@material-ui/core/';
 
-const PlacesAutocomplete = ({ setLatitude, setLongitude, register, }) => {
+const PlacesAutocomplete = ({ setLatitude, setLongitude, register}) => {
     const {
-        // value,
+        ready,
+        value,
         suggestions: { status, data },
         setValue,
         clearSuggestions,
@@ -24,13 +23,10 @@ const PlacesAutocomplete = ({ setLatitude, setLongitude, register, }) => {
     });
     
     const ref = useOnclickOutside(() => {
-        // When user clicks outside of the component, we can dismiss
-        // the searched suggestions by calling this method
-        // clearSuggestions();
+        clearSuggestions();
     });
 
     const handleInput = (e) => {
-        // Update the keyword of the input element
         setValue(e.target.value);
     };
 
@@ -44,7 +40,7 @@ const PlacesAutocomplete = ({ setLatitude, setLongitude, register, }) => {
         getGeocode({ address: description })
             .then((results) => getLatLng(results[0]))
             .then(({ lat, lng }) => {
-                // console.log("📍 Coordinates: ", { lat, lng });
+                console.log("📍 Coordinates: ", { lat, lng });
                 setLatitude(lat)
                 setLongitude(lng)
             })
@@ -70,6 +66,9 @@ const PlacesAutocomplete = ({ setLatitude, setLongitude, register, }) => {
     return (
         <div ref={ref}>
             <TextField
+                value={value}
+                onChange={handleInput}
+                disabled={!ready}
                 variant="outlined"
                 margin="normal"
                 fullWidth
@@ -78,7 +77,6 @@ const PlacesAutocomplete = ({ setLatitude, setLongitude, register, }) => {
                 name="location"
                 type="text"
                 inputRef={register}
-                onChange={handleInput}
                 />
             {/* We can use the "status" to decide whether we should display the dropdown or not */}
             {status === "OK" && <ul>{renderSuggestions()}</ul>}

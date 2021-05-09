@@ -75,7 +75,7 @@ export const CardComponent = ({ item, locale}) => {
             &&
             <Link href="/">
                 <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5, }}>
-                    <LocationOnIcon style={{ fontSize: 12, }}/> &nbsp;{item?.location}
+                    <LocationOnIcon style={{ fontSize: 12, }}/> &nbsp;{item?.location.split(',')[0]}
                 </a>
             </Link>
             }

@@ -50,7 +50,7 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
                 <Link href="/">
                     <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5, }}>
                         <LocationOnIcon style={{ fontSize: 12, }} />
-                        &nbsp;{item?.location}
+                        &nbsp;{item?.location.split(',')[0]}
                     </a>
                 </Link>
             }
@@ -157,6 +157,18 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
                     </Link>
                 </Typography>
             }
+            { item?.location &&
+                <Typography style={{ margin: '20px auto', fontWeight: 500, }}>
+                    Address:&nbsp;
+                    <Link href='/' >
+                        <a target="_blank" rel="noreferrer" alt={item?.link}>
+                            {item?.location}
+                        </a>
+                    </Link>
+                </Typography>
+
+            }
+
             <Divider style={{marginTop: 40}}/>
 
             <div className='flexRowBetween' style={{ margin: '20px auto'}}>
