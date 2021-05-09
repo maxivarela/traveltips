@@ -15,11 +15,11 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                     <iframe
                         className={classes.video}
                         // this loads imageThumbnail instead of the Youtube embedded video which isnt optimal.
-                        srcdoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;}</style><a href=${image}><img src=${`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`} alt=${title}><span>▶</span></a>`}
+                        srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;}</style><a href=${image}><img src=${`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`} alt=${title}><span>▶</span></a>`}
                         src={image}
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
+                        allowFullScreen
                         mozallowfullscreen="mozallowfullscreen"
                         msallowfullscreen="msallowfullscreen"
                         oallowfullscreen="oallowfullscreen"
