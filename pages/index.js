@@ -83,8 +83,8 @@ export default function Home({data}) {
           <meta name='keywords' content='travel tips'/>
           <meta name='description' content='TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
-          {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
-          <link rel="canonical" href="https://traveltips.vercel.app/" />
+          {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
+          <link rel="canonical" href="https://hacktravels.com/" />
         </Head>
         <NextSeo {...SEO} nofollow={true} />
         {/* <ArticleJsonLd {...JSONLD} /> */}

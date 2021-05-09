@@ -104,7 +104,7 @@ export const Details = ({id, data}) => {
                                             : '')
 
     const youtubeId = data?.image[0]?.split('/').pop()
-    const shareUrl = `https://traveltips.vercel.app/tips/${id}`
+    const shareUrl = `https://hacktravels.com/tips/${id}`
     const appId = '296712571894670'
     // const articleTitle = data?.translatedTitle?.locale
     const articleAuthor = data?.username
@@ -160,7 +160,7 @@ export const Details = ({id, data}) => {
     return ( 
         <Container maxWidth='sm' style={{padding: '2rem 1rem',}}>
             <Head>
-                {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://traveltips.vercel.app/${loc}${router.asPath}`}/>)}
+                {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
             </Head>
             <NextSeo {...SEO} nofollow={true} />
             <ArticleJsonLd {...JSONLD}/>

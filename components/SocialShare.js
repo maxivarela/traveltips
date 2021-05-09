@@ -20,12 +20,12 @@ import {
 
 export default function SocialShare({data, id}) {
 
-    const shareUrl = `https://traveltips.vercel.app/tips/${id}`
+    const shareUrl = `https://hacktravels.com/tips/${id}`
     const appId = '296712571894670'
     const articleTitle = data?.title
     const articleImage = data?.image[0]
     const articleDescription = data?.description
-    const articleSource = 'https://traveltips.vercel.app/'
+    const articleSource = 'https://hacktravels.com/'
     const iconSize = 32
     const marginRight = 10
 

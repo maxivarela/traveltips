@@ -18,9 +18,9 @@ export default function DevelopersPage() {
                 TripTips Api endpoint available here:
             </div>
             <Link
-                href='https://traveltips.vercel.app/api/tips'>
+                href='https://hacktravels.com/api/tips'>
                 <a target="_blank" rel="noreferrer" alt=''>
-                    https://traveltips.vercel.app/api/tips
+                    https://hacktravels.com/api/tips
                 </a>
             </Link>
         </Container>

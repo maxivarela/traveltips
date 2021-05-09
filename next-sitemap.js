@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: 'https://traveltips.vercel.app/',
+    siteUrl: 'https://hacktravels.com/',
     changefreq: 'daily',
     generateRobotsTxt: true,
     // ...other options

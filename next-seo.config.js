@@ -3,7 +3,7 @@ export default {
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://traveltips.vercel.app/',
+        url: 'https://hacktravels.com/',
         site_name: 'TripTips',
         images: [
             {
