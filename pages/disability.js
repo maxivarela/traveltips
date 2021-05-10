@@ -25,7 +25,7 @@ export default function DisabilityTravel({ data }) {
     return (
         <div style={{ padding: '1rem', }}>
             <Head>
-                {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`} />)}
+                {locales.map(loc => <link rel="alternate" hrefLang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`} />)}
             </Head>
             <NextSeo {...SEO} nofollow={true} />
             <h2>

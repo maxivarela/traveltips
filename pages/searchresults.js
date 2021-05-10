@@ -34,7 +34,7 @@ export default function Search({search, data}) {
             <Head>
                 <title> Travel Tips for {search}</title>
                 <meta name='keywords' content='travel tips' />
-                {locales.map(loc => <link rel="alternate" hreflang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
+                {locales.map(loc => <link rel="alternate" hrefLang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
             </Head>
             <BackButton />
             <h2>
