@@ -1,11 +1,11 @@
-import {useContext} from 'react'
-import {AuthContext} from '../../lib/AuthContext'
 import DetailComponent from '../../components/DetailComponent';
 import firebase, {postToJSON} from '../../lib/firebase'
 import BackButton from '../../components/shared/BackButton';
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import { getTip} from '../../lib/api'
+
 
 import {
     Container,
@@ -50,11 +50,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     try {
         const id = context.params.id
-        const doc = await firebase
-            .firestore()
-            .collection('tips')
-            .doc(id)
-            .get()
+        const doc = await getTip(id)
         const data = postToJSON(doc)
 
         return {
@@ -67,7 +63,7 @@ export const getStaticProps = async (context) => {
 }
 
 export const Details = ({id, data}) => {
-    const {currentUser} = useContext(AuthContext)
+    
     const router = useRouter()
     const { locale, locales } = router
 
@@ -160,7 +156,7 @@ export const Details = ({id, data}) => {
     return ( 
         <Container maxWidth='sm' style={{padding: '2rem 1rem',}}>
             <Head>
-                {locales.map((loc, index) => <link key={index} rel="alternate" hreflang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
+                {locales.map((loc, index) => <link key={index} rel="alternate" hrefLang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
             </Head>
             <NextSeo {...SEO} nofollow={true} />
             <ArticleJsonLd {...JSONLD}/>
