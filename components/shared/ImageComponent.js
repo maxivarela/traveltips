@@ -2,6 +2,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {
 } from '@material-ui/core'
+import Image from 'next/image'
 
 const ImageComponent = ({ image, title, youtubeId }) => {
     const classes = useStyles()
@@ -30,7 +31,8 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                     ></iframe>
                     :
                     image && 
-                    <img src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
+                    <Image src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
+                    // <img src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
                 
             :
             null
