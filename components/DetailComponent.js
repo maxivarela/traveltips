@@ -105,10 +105,12 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
                 </div>
             </Typography>
             <div style={{ 
+                position: 'relative',
+                width: '100%',
+                height: '50vh',
                 overflow: 'hidden',
                 borderRadius: 10,
                 margin: '40px auto',
-                height: 400,
                 }}
                 >
                 {item?.image
@@ -117,10 +119,14 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
                         item?.image?.length > 1
                             ?
                             <Slider {...settings} >
-                                {item?.image?.map(image => <ImageComponent key={item.id} image={image} />)}
+                                {item?.image?.map(image => 
+                                <ImageComponent key={item.id} image={image} />
+                                )}
                             </Slider>
                             :
-                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId}/>)
+                            item?.image?.map(image => 
+                                <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId}/> 
+                            )
                     )
                     :
                     null

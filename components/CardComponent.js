@@ -46,12 +46,13 @@ export const CardComponent = ({ item, locale}) => {
     return ( 
         <>
             <div style={{
-                    overflow: 'hidden', 
-                    borderRadius: 10, 
-                    marginBottom: 10,
-                    height: 220,
-                    }}
-                    >
+                overflow: 'hidden', 
+                borderRadius: 10, 
+                marginBottom: 10,
+                width: '100%',
+                height: 220,
+                }}
+                >
                 {item?.image
                     ?
                     (
@@ -61,12 +62,20 @@ export const CardComponent = ({ item, locale}) => {
                                 {item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)}
                             </Slider>
                             :
-                            item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId}/>)
+                            item?.image?.map(image => 
+                                <div style={{
+                                    position: 'relative',
+                                    height: '100%', 
+                                    width: '100%', 
+                                    }}>
+                                    <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
+                                </div>
+                            
+                            )
                     )
                     :
                     null
                 }
-                
             </div>
             
             
@@ -79,6 +88,7 @@ export const CardComponent = ({ item, locale}) => {
                 </a>
             </Link>
             }
+
             <Link href={`./tips/${item.id}`} >
                 <a>
                     <TitleComponent />
