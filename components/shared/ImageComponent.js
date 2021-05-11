@@ -32,8 +32,8 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                     ></iframe>
                     :
                     image && 
-                    <Image src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
-                    // <img src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
+                    // <Image src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
+                    <img src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.media}/>
                 
             :
             null
