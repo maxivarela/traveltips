@@ -80,8 +80,7 @@ export default function Home({data}) {
           <AddTip /> 
           <MailMe />
         </div>
-        {!data && <p>Loading...</p> }
-        <GridComponent tips={data} locale={locale} locales={locales}/>
+          <GridComponent tips={data} locale={locale} locales={locales} />
       </div>
     </>
   )

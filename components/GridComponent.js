@@ -1,4 +1,5 @@
 import {CardComponent} from './CardComponent';
+import Skeleton from '@material-ui/lab/Skeleton'
 
 import {
     Grid,
@@ -11,7 +12,16 @@ export default function GridComponent ({ tips, locale, locales}) {
                 {tips?.map(item => {
                     return (
                         <Grid item key={item.id} xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <CardComponent item={item} locale={locale} />
+                            {item 
+                            ? 
+                            <CardComponent item={item} locale={locale} /> 
+                            : 
+                            <>
+                                <Skeleton height='220px'/>
+                                <Skeleton/>
+                                <Skeleton/>
+                            </>
+                            }
                         </Grid>
                     )
                 })}
