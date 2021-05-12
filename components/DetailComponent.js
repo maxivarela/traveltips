@@ -9,9 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { makeStyles } from '@material-ui/core/styles';
 import {
-    Button,
     Divider,
     IconButton,
     Tooltip,
@@ -20,10 +18,8 @@ import {
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import { NavigateBeforeSharp } from '@material-ui/icons';
 
-const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
-    const classes = useStyles()
+const DetailComponent = ({ id, item, locale, }) => {
     const { currentUser } = useContext(AuthContext)
     const router = useRouter()
     let settings = {
@@ -118,9 +114,9 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
                     (
                         item?.image?.length > 1
                             ?
-                            <Slider {...settings} >
+                            <Slider {...settings} style={{height: '100%'}}>
                                 {item?.image?.map(image => 
-                                <ImageComponent key={item.id} image={image} />
+                                    <ImageComponent key={item.id} image={image} />
                                 )}
                             </Slider>
                             :
@@ -206,9 +202,5 @@ const DetailComponent = ({ id, item, locale, youtubeThumbnail}) => {
         </>
     );
 }
-
-const useStyles = makeStyles((theme) => ({
-    
-}));
 
 export default DetailComponent;

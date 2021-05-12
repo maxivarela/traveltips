@@ -1,7 +1,6 @@
-import Head from 'next/head'
 import { useState, useEffect, useCallback } from 'react'
 import { useForm } from 'react-hook-form';
-import PlacesAutocompleteEdit from '../components/PlacesAutocompleteEdit'
+import PlacesAutocomplete from '../components/PlacesAutocomplete'
 import { useRouter } from 'next/router'
 import { editTip, getTip } from '../lib/api'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
@@ -15,6 +14,7 @@ import {
     TextField,
     Typography,
 } from '@material-ui/core/'
+import FormComponent from '../components/shared/FormComponent';
 
 export default function Edit() {
     const classes = useStyles();
@@ -46,8 +46,7 @@ export default function Edit() {
         }, [reset])
 
         useEffect(() => {
-            data?.title &&
-                editTip(data, id, addComplete)
+            data?.title && editTip(data, id, addComplete)
         }, [setData, data, addComplete])
 
         const handleCancel = () => {
@@ -66,80 +65,13 @@ export default function Edit() {
                 <Typography className='formTitle'>
                     Edit Tip
                 </Typography>
-                
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    required
-                    id="title"
-                    label="title"
-                    name="title"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.title}
-                    helperText={errors?.title?.message}
-                />
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    multiline
-                    rows={10}
-                    id="description"
-                    label="description"
-                    name="description"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.description}
-                    helperText={errors?.description?.message}
-                />
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    required
-                    multiline
-                    rows={10}
-                    id="image"
-                    label="image/video"
-                    name="image"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.image}
-                    helperText={errors?.image?.message}
-                />
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="link"
-                    label="link"
-                    name="link"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.link}
-                    helperText={errors?.link?.message}
-                />
-                <PlacesAutocompleteEdit
+                <FormComponent register={register} errors={errors}/>
+                <PlacesAutocomplete
                     register={register}
                     setLatitude={setLatitude}
                     setLongitude={setLongitude}
+                    myLocation={fetchedData?.location}
                 />
-
-                <TextField
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    id="tags"
-                    label="tags"
-                    name="tags"
-                    type="text"
-                    inputRef={register}
-                    error={!!errors.tags}
-                    helperText={errors?.tags?.message}
-                />
-
                 <Button
                     type="submit"
                     fullWidth
@@ -150,7 +82,6 @@ export default function Edit() {
                     >
                     Submit
                 </Button>
-
                 <Button
                     fullWidth
                     onClick={handleCancel}
@@ -165,10 +96,6 @@ export default function Edit() {
     return (
         <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
             <AuthCheck>
-                <Head>
-                    <title>Edit a Travel Tip</title>
-                    <meta name='keywords' content='travel tips' />
-                </Head>
                 <Form />
             </AuthCheck>
         </Container>

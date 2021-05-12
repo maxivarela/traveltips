@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
@@ -8,7 +10,11 @@ import {
     TextField,
 } from '@material-ui/core/';
 
-const PlacesAutocomplete = ({ setLatitude, setLongitude, register}) => {
+const PlacesAutocomplete = ({ setLatitude, setLongitude, register, myLocation}) => {
+    useEffect(() => {
+        myLocation && setValue(myLocation)
+    }, [])
+
     const {
         ready,
         value,
