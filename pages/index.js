@@ -4,6 +4,7 @@ import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
 import {useRouter} from 'next/router'
 import { NextSeo, } from 'next-seo'
+// import useSWR from 'swr'
 // import useTranslation from 'next-translate/useTranslation'
 
 export const getServerSideProps = async () => {

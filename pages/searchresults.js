@@ -37,10 +37,21 @@ export default function Search({search, data}) {
                 {locales.map(loc => <link rel="alternate" hrefLang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
             </Head>
             <BackButton />
-            <h2>
-                Travel Tips for {search}
-            </h2>
-            <GridComponent tips={data} locale={locale} locales={locales}/>
+            
+
+            {data.length
+            ?
+            <>
+                    {console.log(data)}
+                <h2>
+                        Travel Tips for {search}
+                </h2>
+                <GridComponent tips={data} locale={locale} locales={locales}/>
+            </>
+            :
+                <p>No tips found</p>
+            }
+            
         </Container>
     )
 }

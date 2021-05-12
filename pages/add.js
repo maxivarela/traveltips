@@ -22,7 +22,6 @@ const AddTip = () => {
     const {currentUser} = useContext(AuthContext)
     const [latitude, setLatitude ] = useState(null)
     const [longitude, setLongitude ] = useState(null)
-
     const { register, handleSubmit, errors , reset, } = useForm()
 
     const addComplete = useCallback(() => {
@@ -31,8 +30,7 @@ const AddTip = () => {
     }, [reset])
 
     useEffect(() => {
-        data?.title &&
-            addTip(data, currentUser, addComplete)
+        data?.title && addTip(data, currentUser, addComplete)
     }, [setData, data, addComplete])
 
     const handleCancel = () => {
