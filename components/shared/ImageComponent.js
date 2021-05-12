@@ -43,7 +43,6 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                             src={image}
                             alt={title?.substring(0, 50)} 
                             objectFit='cover'
-                            // className={classes.media}
                         />
                     </>
                     

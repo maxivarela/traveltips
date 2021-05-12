@@ -54,29 +54,18 @@ export const CardComponent = ({ item, locale}) => {
                 }}
                 >
                 {item?.image
-                    ?
-                    (
-                        item?.image?.length > 1
-                            ?
-                            <Slider {...settings}>
-                                {item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)}
-                            </Slider>
-                            :
-                            item?.image?.map((image, index) => 
-                                <div 
-                                    key={index}
-                                    style={{
-                                    position: 'relative',
-                                    height: '100%', 
-                                    width: '100%', 
-                                    }}>
-                                    <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
-                                </div>
-                            
-                            )
+                    &&
+                    item?.image?.map((image, index) => 
+                        <div 
+                            key={index}
+                            style={{
+                            position: 'relative',
+                            height: '100%', 
+                            width: '100%', 
+                            }}>
+                            <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
+                        </div>  
                     )
-                    :
-                    null
                 }
             </div>
             
