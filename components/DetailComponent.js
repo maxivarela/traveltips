@@ -5,9 +5,6 @@ import {useRouter} from 'next/router'
 import {MoreDetails} from './MoreDetails'
 import {AuthContext} from '../lib/AuthContext'
 import SocialShare from '../components/SocialShare';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import {
     Divider,

@@ -1,26 +1,13 @@
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-import { makeStyles } from '@material-ui/core/styles';
 import {
     Typography,
 } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 export const CardComponent = ({ item, locale}) => {
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
-
     const youtubeId = item?.image[0]?.split('/').pop()
-
     const TitleComponent = () => {
         return (
             <Typography variant='body1' component='h1' style={{ marginBottom: 20, fontWeight: 500, lineHeight: 1.1, color: '#333' }}>
