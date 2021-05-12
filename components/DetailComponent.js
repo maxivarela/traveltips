@@ -37,7 +37,7 @@ const DetailComponent = ({ id, item, locale, }) => {
     )
 
     return ( 
-        <>
+        <article>
             {item?.location
                 &&
                 <Link href="/">
@@ -192,7 +192,7 @@ const DetailComponent = ({ id, item, locale, }) => {
                     <MoreDetails id={item?.id} />
                 }
             </div>
-        </>
+        </article>
     );
 }
 
