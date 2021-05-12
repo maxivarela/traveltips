@@ -12,7 +12,6 @@
 	"dependencies": {
 		"@material-ui/core": "^4.11.3",
 		"@material-ui/icons": "^4.11.2",
-		"@material-ui/lab": "*",
 		"@material-ui/styles": "^4.11.3",
 		"clsx": "^1.1.1",
 		"firebase": "^8.3.2",
