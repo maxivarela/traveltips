@@ -8,8 +8,6 @@ module.exports.setup = async (auth, data) => {
         auth
     });
 
-    // console.log(app.auth().currentUser)
-
     const db = app.firestore();
 
     // Write mock documents before rules

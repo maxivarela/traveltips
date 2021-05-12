@@ -42,7 +42,6 @@ export default function Search({search, data}) {
             {data.length
             ?
             <>
-                    {console.log(data)}
                 <h2>
                         Travel Tips for {search}
                 </h2>

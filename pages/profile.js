@@ -19,8 +19,6 @@ export const getServerSideProps = async (router) => {
 export default function Profile({ data }) {
     const router = useRouter()
     const { locale, locales } = router
-
-    console.log('jisso', data)
     
     return (
         <div style={{ padding: '1rem', }}>
