@@ -62,8 +62,10 @@ export const CardComponent = ({ item, locale}) => {
                                 {item?.image?.map(image => <ImageComponent key={item.id} image={image} title={item.title} />)}
                             </Slider>
                             :
-                            item?.image?.map(image => 
-                                <div style={{
+                            item?.image?.map((image, index) => 
+                                <div 
+                                    key={index}
+                                    style={{
                                     position: 'relative',
                                     height: '100%', 
                                     width: '100%', 

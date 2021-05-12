@@ -4,7 +4,6 @@ import {getTips} from '../lib/api'
 import {AddTip} from '../components/shared/SharedComponents'
 import {useRouter} from 'next/router'
 import { NextSeo, } from 'next-seo'
-// import FabButton from '../components/FabButton'
 // import useTranslation from 'next-translate/useTranslation'
 
 export const getServerSideProps = async () => {
@@ -77,10 +76,6 @@ export default function Home({data}) {
           <link rel="canonical" href="https://hacktravels.com/" />
         </Head>
         <NextSeo {...SEO} nofollow={true} />
-        {/* <ArticleJsonLd {...JSONLD} /> */}
-        {/* <div className='fab'>
-          <FabButton />
-        </div> */}
         <div className='flexRowBetween' style={{ margin: '20px auto' }}>
           <AddTip /> 
           <MailMe />
