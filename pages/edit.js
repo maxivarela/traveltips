@@ -5,13 +5,11 @@ import { useRouter } from 'next/router'
 import { editTip, getTip } from '../lib/api'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 import AuthCheck from '../components/AuthCheck'
-import useSWR from "swr";
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Container,
-    TextField,
     Typography,
 } from '@material-ui/core/'
 import FormComponent from '../components/shared/FormComponent';
