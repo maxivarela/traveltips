@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import usePlacesAutocomplete, {
     getGeocode,
@@ -11,11 +11,6 @@ import {
 } from '@material-ui/core/';
 
 const PlacesAutocomplete = ({ setLatitude, setLongitude, register, myLocation}) => {
-    
-    useEffect(() => {
-        myLocation && setValue(myLocation)
-    }, [])
-
     const {
         ready,
         value,
@@ -28,6 +23,10 @@ const PlacesAutocomplete = ({ setLatitude, setLongitude, register, myLocation}) 
         },
         debounce: 300,
     });
+
+    useEffect(() => {
+        myLocation && setValue(myLocation)
+    }, [])
     
     const ref = useOnclickOutside(() => {
         clearSuggestions();

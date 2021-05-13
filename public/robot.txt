@@ -2,14 +2,4 @@
 User-agent: *
 Allow: /
 
-# User agent "Googlebot" should not crawl the `http://example.com/nogooglebot/` folder or any of its subdirectories.
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
-# Example 2: Block Googlebot and Adsbot
-User-agent: Googlebot
-User-agent: AdsBot-Google
-Disallow: /
-
-
-Sitemap: http://www.example.com/sitemap.xml
+Sitemap: https://hacktravels.com/sitemap.xml
