@@ -11,7 +11,7 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                 image && image.includes('youtube.com')
                     ?
                     <iframe
-                        style={{ position:'relative', width: "100%", height: "100%", objectFit: "cover", }}
+                        style={{ position:'absolute', width: "100%", height: "100%", objectFit: "cover", }}
                         // this loads imageThumbnail instead of the Youtube embedded video.
                         srcDoc={`
                         <style>
