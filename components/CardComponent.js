@@ -33,12 +33,12 @@ export const CardComponent = ({ item, locale}) => {
     return ( 
         <article>
             <div style={{
-                position: 'relative',
-                overflow: "hidden",
-                width: "100% !important",
+                // position: 'relative',
+                // overflow: "hidden",
+                // width: "100% !important",
                 height: 240,
-                borderRadius: 10,
-                marginBottom: 10,
+                // borderRadius: 10,
+                // marginBottom: 10,
                 }}>
                 {item?.image
                     &&
