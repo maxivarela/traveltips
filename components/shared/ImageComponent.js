@@ -10,10 +10,11 @@ const ImageComponent = ({ image, title, youtubeId }) => {
             ?
                 image && image.includes('youtube.com')
                     ?
-                    <iframe
-                        style={{ width: "100%", height: "100%", objectFit: "cover", }}
-                        // this loads imageThumbnail instead of the Youtube embedded video.
-                        srcDoc={`
+                    <div style={{width: '100%', height: '100%'}}>
+                        <iframe
+                            style={{ width: "100%", height: "100%", objectFit: "cover", }}
+                            // this loads imageThumbnail instead of the Youtube embedded video.
+                            srcDoc={`
                             <style>
                                 *{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;height:100%;top:0;bottom:0;margin:auto;object-fit:cover;}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;}
                             </style>
@@ -24,14 +25,17 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                                     </span>
                                 </a>
                                 `}
-                        src={image}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        title={image}
-                        type="*"
-                    ></iframe>
+                            src={image}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                            title={image}
+                            type="*"
+                        ></iframe>
+
+                    </div>
+                    
                     :
                     image && 
                     <Image
