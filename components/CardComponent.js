@@ -32,20 +32,13 @@ export const CardComponent = ({ item, locale}) => {
 
     return ( 
         <article>
-            <div style={{
-                    // position: 'relative',
-                    overflow: "hidden",
-                    width: "100% !important",
-                    height: 240,
-                    borderRadius: 10,
-                    marginBottom: 10,
-                }}>
+            <>
                 {item?.image
                     &&
                     item?.image?.map((image) => <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
                     )
                 }
-            </div>
+            </>
 
             {
                 item?.location
