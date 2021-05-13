@@ -5,7 +5,6 @@ import {
 import Image from 'next/image'
 
 const ImageComponent = ({ image, title, youtubeId }) => {
-    const classes = useStyles()
 
     return (
         <>
@@ -53,18 +52,5 @@ const ImageComponent = ({ image, title, youtubeId }) => {
         </>
     )
 }
-
-const useStyles = makeStyles((theme) => ({
-    image: {
-        width: '100% !important',
-        height: '100% !important',
-        objectFit: 'cover',
-    },
-    video: {
-        minWidth: '100% !important',
-        height: '100% !important',
-        objectFit: 'cover',
-    },
-}));
 
 export default ImageComponent
