@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
         objectFit: 'cover',
     },
     video: {
-        width: '100% !important',
+        minWidth: '100% !important',
         height: '100% !important',
         objectFit: 'cover',
     },

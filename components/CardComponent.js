@@ -37,7 +37,7 @@ export const CardComponent = ({ item, locale}) => {
                 style={{
                     position: 'relative',
                     overflow: "hidden",
-                    width: "100%",
+                    width: "100% !important",
                     height: 240,
                     borderRadius: 10,
                     marginBottom: 10,
