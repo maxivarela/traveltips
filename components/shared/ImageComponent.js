@@ -1,11 +1,9 @@
 
-import { makeStyles } from '@material-ui/core/styles';
 import {
 } from '@material-ui/core'
 import Image from 'next/image'
 
 const ImageComponent = ({ image, title, youtubeId }) => {
-
     return (
         <>
             {image
@@ -28,23 +26,22 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                                 `}
                         src={image}
                         frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
+                        // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        // allowFullScreen
+                        // loading="lazy"
                         title={image}
-                        type="*"
+                        // type="*"
                     ></iframe>
                     :
                     image && 
-                    <Image
-                        layout='fill'
-                        objectFit='cover'
-                        src={image}
-                        alt={title?.substring(0, 50)} 
-                        style={{ width: "100%", height: "100%" , objectFit: "cover", }}
-                    />
-                    // <img src={image} alt={title?.substring(0, 50)} style={{ width: "100%", height: "100%", objectFit: "cover", }}/>
-                
+                    // <Image
+                    //     layout='fill'
+                    //     objectFit='cover'
+                    //     src={image}
+                    //     alt={title?.substring(0, 50)} 
+                    //     style={{ width: "100%", height: "100%" , objectFit: "cover", }}
+                    // />
+                    <img src={image} alt={title?.substring(0, 50)} style={{ width: "100%", height: "100%", objectFit: "cover", }}/>
             :
             null
             }   
