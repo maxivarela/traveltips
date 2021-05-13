@@ -73,7 +73,6 @@ export default function Home({data}) {
           <meta name='keywords' content='travel tips'/>
           <meta name='description' content='TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'/>
           <meta name="google-site-verification" content="rYwHVuFCXR-fWkDTidbYR0Rogw38fzyZF-zpd1_w05g" />
-          <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0 maximum-scale=1.0" />
           {locales.map((loc, index) => <link key={index} rel="alternate" hrefLang={loc} href={`https://hacktravels.com/${loc}${router.asPath}`}/>)}
           <link rel="canonical" href="https://hacktravels.com/" />
         </Head>

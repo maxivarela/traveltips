@@ -31,7 +31,7 @@ export const CardComponent = ({ item, locale}) => {
     }
 
     return ( 
-        <article>
+        <>
             <div style={{
                 position: 'relative',
                 overflow: "hidden",
@@ -63,6 +63,6 @@ export const CardComponent = ({ item, locale}) => {
                     <TitleComponent />
                 </a>
             </Link>
-        </article>
+        </>
     );
 }
