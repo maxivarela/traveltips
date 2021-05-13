@@ -27,7 +27,7 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                                 </a>
                                 `}
                         src={image}
-                        frameBorder="0"
+                        // frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         loading="lazy"
