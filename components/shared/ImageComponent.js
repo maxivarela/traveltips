@@ -14,7 +14,7 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                 image && image.includes('youtube.com')
                     ?
                     <iframe
-                        className={classes.video}
+                        style={{ width: "100%", height: "100%", objectFit: "cover", }}
                         // this loads imageThumbnail instead of the Youtube embedded video.
                         // srcDoc={`
                         //     <style>
@@ -37,16 +37,13 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                     ></iframe>
                     :
                     image && 
-                    <>
-                        <Image
-                            layout='fill'
-                            objectFit='cover'
-                            src={image}
-                            alt={title?.substring(0, 50)} 
-                            style={{ width: "100%", height: "100%" , objectFit: "cover", }}
-                            className={classes.image}
-                        />
-                    </>
+                    <Image
+                        layout='fill'
+                        objectFit='cover'
+                        src={image}
+                        alt={title?.substring(0, 50)} 
+                        style={{ width: "100%", height: "100%" , objectFit: "cover", }}
+                    />
                     
                     // <img src={image} width={'400'} height={'300'} alt={title?.substring(0,50)} className={classes.image}/>
                 
