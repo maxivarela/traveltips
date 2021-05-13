@@ -19,13 +19,6 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 const DetailComponent = ({ id, item, locale, }) => {
     const { currentUser } = useContext(AuthContext)
     const router = useRouter()
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
 
     const youtubeId = item?.image[0]?.split('/').pop()
 
@@ -108,7 +101,7 @@ const DetailComponent = ({ id, item, locale, }) => {
                 >
                 {item?.image
                     &&
-                    item?.image?.map((image, index) =>
+                    item?.image?.map((image) =>
                         <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
                     )
                 }
