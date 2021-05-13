@@ -99,9 +99,9 @@ const DetailComponent = ({ id, item, locale, }) => {
             </Typography>
             <div style={{ 
                 position: 'relative',
+                overflow: 'hidden',
                 width: '100%',
                 height: '50vh',
-                overflow: 'hidden',
                 borderRadius: 10,
                 margin: '40px auto',
                 }}
@@ -109,15 +109,7 @@ const DetailComponent = ({ id, item, locale, }) => {
                 {item?.image
                     &&
                     item?.image?.map((image, index) =>
-                        <div
-                            key={index}
-                            style={{
-                                position: 'relative',
-                                height: '100%',
-                                width: '100%',
-                            }}>
-                            <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
-                        </div>
+                        <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
                     )
                 }
             </div>

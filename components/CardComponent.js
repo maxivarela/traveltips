@@ -32,40 +32,33 @@ export const CardComponent = ({ item, locale}) => {
 
     return ( 
         <article>
-            <div style={{
-                overflow: 'hidden', 
-                borderRadius: 10, 
-                marginBottom: 10,
-                width: '100%',
-                height: 220,
-                }}
-                >
+            <div 
+                div
+                style={{
+                    position: 'relative',
+                    overflow: "hidden",
+                    width: "100%",
+                    height: 240,
+                    borderRadius: 10,
+                    marginBottom: 10,
+                }}>
                 {item?.image
                     &&
-                    item?.image?.map((image, index) => 
-                        <div 
-                            key={index}
-                            style={{
-                            position: 'relative',
-                            height: '100%', 
-                            width: '100%', 
-                            }}>
-                            <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
-                        </div>  
+                    item?.image?.map((image) => <ImageComponent key={item.id} image={image} title={item.title} youtubeId={youtubeId} />
                     )
                 }
             </div>
-            
-            
+
             {
-            item?.location
-            &&
-            <Link href="/">
-                <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5, }}>
-                    <LocationOnIcon style={{ fontSize: 12, }}/> &nbsp;{item?.location.split(',')[0]}
-                </a>
-            </Link>
+                item?.location
+                &&
+                <Link href="/">
+                    <a style={{ display: 'flex', alignItems: 'center', marginBottom: 5, }}>
+                        <LocationOnIcon style={{ fontSize: 12, }} /> &nbsp;{item?.location.split(',')[0]}
+                    </a>
+                </Link>
             }
+            
 
             <Link href={`./tips/${item.id}`} >
                 <a>
