@@ -41,7 +41,6 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                         alt={title?.substring(0, 50)} 
                         style={{ width: "100%", height: "100%" , objectFit: "cover", }}
                     />
-                    // <img src={image} alt={title?.substring(0, 50)} style={{ width: "100%", height: "100%", objectFit: "cover", }}/>
             :
             null
             }   

@@ -1,5 +1,6 @@
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
+import Image from 'next/image';
 
 import {
     Typography,
@@ -57,7 +58,6 @@ export const CardComponent = ({ item, locale}) => {
                 </Link>
             }
             
-
             <Link href={`./tips/${item.id}`} >
                 <a>
                     <TitleComponent />
