@@ -7,6 +7,8 @@ import {AuthContext} from '../lib/AuthContext'
 import { EscFunctionToCancel } from '../components/shared/SharedComponents';
 import AuthCheck from '../components/AuthCheck'
 import FormComponent from '../components/shared/FormComponent';
+import * as yup from 'yup'
+import { yupResolver } from "@hookform/resolvers/yup"
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -15,6 +17,13 @@ import {
     Typography,
 } from '@material-ui/core/';
 
+const schema = yup.object().shape({
+    title: yup
+        .string()
+        .required('Title is a required field.')
+        .min(3),
+})
+
 const AddTip = () => {
     const classes = useStyles();
     const router = useRouter()
@@ -22,7 +31,11 @@ const AddTip = () => {
     const {currentUser} = useContext(AuthContext)
     const [latitude, setLatitude ] = useState(null)
     const [longitude, setLongitude ] = useState(null)
-    const { register, handleSubmit, errors , reset, } = useForm()
+
+    const { register, handleSubmit, errors , reset, } = useForm({
+        mode: 'onBlur',
+        resolver: yupResolver(schema),
+    })
 
     const addComplete = useCallback(() => {
         reset()
@@ -32,6 +45,13 @@ const AddTip = () => {
     useEffect(() => {
         data?.title && addTip(data, currentUser, addComplete)
     }, [setData, data, addComplete])
+
+    const onSubmit = (data) => {
+        console.log(data)
+        return (
+            setData({ latitude, longitude, ...data })
+        )
+    }
 
     const handleCancel = () => {
         router.back()
@@ -43,7 +63,7 @@ const AddTip = () => {
         <>
             <Container component="main" maxWidth="xs" style={{ margin: '40px auto' }}>
                 <AuthCheck>
-                    <form noValidate autoComplete="off" onSubmit={handleSubmit(data => setData({latitude, longitude, ...data}))}>
+                    <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                         <Typography className='formTitle'>
                             Add Tip
                         </Typography>

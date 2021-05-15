@@ -12,7 +12,7 @@ module.exports = {
         defaultLocale: 'en',
     },
     images: {
-        domains: ['img.youtube.com', 'firebasestorage.googleapis.com', 'cloudinary.com', 'res.cloudinary.com'],
+        domains: ['img.youtube.com', 'firebasestorage.googleapis.com', 'res.cloudinary.com'],
     },
 }
     

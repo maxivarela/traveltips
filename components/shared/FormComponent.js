@@ -3,7 +3,6 @@ import {
 } from '@material-ui/core/';
 
 export default function FormComponent({ register, errors,}) {
-
     return (
         <>
             <TextField
@@ -38,7 +37,6 @@ export default function FormComponent({ register, errors,}) {
                 variant="outlined"
                 margin="normal"
                 fullWidth
-                required
                 multiline
                 rows={10}
                 id="image"

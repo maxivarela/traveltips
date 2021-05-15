@@ -18,7 +18,7 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                             *{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;height:100%;top:0;bottom:0;margin:auto;object-fit:cover;}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;}
                         </style>
                             <a href=${image}>
-                                <img src=${`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`} alt=${title}>
+                                <Image src=${`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`} alt=${title} layout='fill' objectFit='cover'>
                                 <span>
                                     ▶
                                 </span>
