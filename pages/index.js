@@ -7,12 +7,17 @@ import { NextSeo, } from 'next-seo'
 // import useSWR from 'swr'
 // import useTranslation from 'next-translate/useTranslation'
 
-export const getServerSideProps = async () => {
+export async function getStaticProps() {
   try {
+    // Call an external API endpoint to get data
     const data = await getTips()
+
     return {
-      props: { data },
+      props: {
+        data,
+      },
     }
+
   } catch (error) {
     console.error(error);
     throw error;
@@ -22,6 +27,7 @@ export const getServerSideProps = async () => {
 export default function Home({data}) {
   const router = useRouter()
   const {locale, locales} = router
+  
   const title = 'Free Travel Tips Hacks Safety Budget Guide Cheap Spots'
   const description = 'TripTips is a social platform to create and explore travel tips and tricks. Travel tips during covid. Travel tips packing. Travel tips for beginners.'
   const shareUrl = `https://traveltips.vercel.app`

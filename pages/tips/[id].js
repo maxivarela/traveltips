@@ -11,26 +11,6 @@ import {
     Container,
 } from '@material-ui/core';
 
-//SSR
-// export const getServerSideProps = async (context) => {
-//     try {
-//         const id = context.params.id
-//         const doc = await firebase
-//             .firestore()
-//             .collection('tips')
-//             .doc(id)
-//             .get()
-//         const data = doc.data()
-
-//         return {
-//             props: { id, data },
-//             // revalidate: 10,
-//         }
-//     } catch (err) {
-//         console.log(err)
-//     }
-// }
-
 // SSG
 export const getStaticPaths = async () => {
     const res = await firebase.firestore().collection('tips').get()
