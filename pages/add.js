@@ -47,7 +47,8 @@ const AddTip = () => {
     }, [setData, data, addComplete])
 
     const onSubmit = (data) => {
-        console.log(data)
+        console.log('lisa3', latitude, longitude)
+        console.log('rose',data)
         return (
             setData({ latitude, longitude, ...data })
         )
