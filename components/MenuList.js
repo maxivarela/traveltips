@@ -59,12 +59,15 @@ export default function MenuList({ currentUser, setCurrentUser, state, toggleDra
             <Divider />
             <List>
                 <Link href='/'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <HomeIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Tips"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Tips"} />
+                        </ListItem>
+                    </a>
+                    
                 </Link>
                 
                 {currentUser && 
@@ -81,7 +84,6 @@ export default function MenuList({ currentUser, setCurrentUser, state, toggleDra
                         <ListItemText primary={"Profile"} />
                     </ListItem>
                 }
-
                 <ListItem button>
                     <ListItemIcon>
                         <InboxIcon />
@@ -98,96 +100,115 @@ export default function MenuList({ currentUser, setCurrentUser, state, toggleDra
             <Divider />
             <List>
                 <Link href='/disability'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <AccessibleIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Disability Travel"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AccessibleIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Disability Travel"} />
+                        </ListItem>
+                    </a>
                 </Link>
 
                 <Link href='/female'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <GroupIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Female Travel"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <GroupIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Female Travel"} />
+                        </ListItem>
+                    </a>
                 </Link>
 
                 <Link href='/solo'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <AirlineSeatReclineExtraIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Solo Travel"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AirlineSeatReclineExtraIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Solo Travel"} />
+                        </ListItem>
+                    </a>
                 </Link>
 
                 <Link href='/bike'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <DirectionsBikeIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Bike Travel"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <DirectionsBikeIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Bike Travel"} />
+                        </ListItem>
+                    </a>
                 </Link>
-
             </List>
             <Divider />
             <List>
                 <Link href='/about'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <InfoIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"About"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <InfoIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"About"} />
+                        </ListItem>
+                    </a>
                 </Link>
                 <Link href='/guidelines'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <ListIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Guideline"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <ListIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Guideline"} />
+                        </ListItem>
+                    </a>
                 </Link>
                 <Link href='/dev'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <CloudIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"TripTips API"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <CloudIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"TripTips API"} />
+                        </ListItem>
+                    </a>
                 </Link>
                 <Divider />
                 <Link href='/'>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <AndroidIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Get Android App"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AndroidIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Get Android App"} />
+                        </ListItem>
+                    </a>
                 </Link>
-                <Link href='/'
-                    >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <PhoneIphoneIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Get iOS App"} />
-                    </ListItem>
+                <Link href='/'>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <PhoneIphoneIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Get iOS App"} />
+                        </ListItem>
+                    </a>
+                    
                 </Link>
                 <Link 
                     href="mailto:nonoumasy@gmail.com?subject=Feedback"
                     target='_blank'
                     rel="noreferrer">
-                    <ListItem button>
-                        <ListItemIcon>
-                            <FeedbackIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Send Feedback"} />
-                    </ListItem>
+                    <a>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <FeedbackIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Send Feedback"} />
+                        </ListItem>
+                    </a>
                 </Link>
             </List>
             <Divider />
@@ -210,18 +231,20 @@ export default function MenuList({ currentUser, setCurrentUser, state, toggleDra
                     </ListItem>
                     :
                     <Link href='/signin'>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <Avatar
-                                    alt=''
-                                    src={null}
-                                    style={{ width: 24, height: 24 }}
-                                />
-                            </ListItemIcon>
-                            <ListItemText>
-                                Sign in
+                        <a>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    <Avatar
+                                        alt=''
+                                        src={null}
+                                        style={{ width: 24, height: 24 }}
+                                    />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    Sign in
                                 </ListItemText>
-                        </ListItem>
+                            </ListItem>
+                        </a>
                     </Link>
                 }
             </List>
