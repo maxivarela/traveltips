@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 import {
-    
     Container,
 } from '@material-ui/core';
 
