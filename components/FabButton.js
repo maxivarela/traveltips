@@ -22,9 +22,11 @@ const FabButton = (
                 >
                 <Action text="Add Tip" style={{ backgroundColor: '#666', }}>
                     <Link href='/add'>
-                        <Typography>
-                            Tip
+                        <a>
+                            <Typography>
+                                Tip
                         </Typography>
+                        </a>
                     </Link>
                 </Action>
         

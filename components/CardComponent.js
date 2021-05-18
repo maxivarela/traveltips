@@ -1,6 +1,5 @@
 import ImageComponent from './shared/ImageComponent'
 import Link from 'next/link';
-import Image from 'next/image';
 
 import {
     Typography,

@@ -10,9 +10,12 @@ export function AddTip() {
     return (
         <>
             <Link href='./add'>
-                <Button variant='contained' margin='dense' size='small' color='primary' disableElevation style={{ marginBottom: 10 }}>
-                    Add Tip
-                </Button>
+                <a>
+                    <Button variant='contained' margin='dense' size='small' color='primary' disableElevation style={{ marginBottom: 10 }}>
+                        Add Tip
+                    </Button>
+                </a>
+                
             </Link>
         </>
     )

@@ -71,16 +71,16 @@ export default function Navbar() {
                     >
                     <div style={{ flexGrow: 1, }}>
                         <Link href='/'>
-                            <Button color="inherit" >
-                                <Typography variant="h5" component="h1">
-                                    <span 
-                                        style={{ color: '#009688' }}
-                                        >
+                            <a>
+                                <Typography variant="h5" component="h1" color='primary'>
+                                    <span
+                                        style={{ color: '#fff' }}
+                                    >
                                         Trip
-                                        </span>
-                                        Tips
-                            </Typography>
-                            </Button>
+                                    </span>
+                                    Tips
+                                </Typography>
+                            </a>
                         </Link>
                     </div>
 

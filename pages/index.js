@@ -88,7 +88,7 @@ export default function Home({data}) {
           <MailMe />
         </div>
           <GridComponent tips={data} locale={locale} locales={locales} />
-      </div>
+        </div>
     </>
   )
 }
