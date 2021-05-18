@@ -12,6 +12,8 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                     ?
                     // this loads imageThumbnail instead of the Youtube embedded video.
                     <iframe
+                        src={image}
+                        loading="lazy"
                         style={{ width: "100%", height: "100%" }}
                         srcDoc={`
                         <style>
@@ -24,11 +26,9 @@ const ImageComponent = ({ image, title, youtubeId }) => {
                                 </span>
                             </a>
                             `}
-                        src={image}
                         frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
-                        loading="lazy"
                         title={image}
                         type="*"
                     />
