@@ -57,7 +57,7 @@ export const CardComponent = ({ item, locale}) => {
                 </Link>
             }
             
-            <Link href={`./tips/${item.id}`} >
+            <Link href={`/tips/${item.id}`} >
                 <a>
                     <TitleComponent />
                 </a>
