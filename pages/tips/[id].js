@@ -35,7 +35,7 @@ export const getStaticProps = async (context) => {
 
         return {
             props: { id, data },
-            revalidate: 500,
+            revalidate: 180,
         }
     } catch (err) {
         console.log(err)
